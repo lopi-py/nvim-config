@@ -52,8 +52,8 @@ return {
             i = cmp.mapping.confirm { behavior = cmp.ConfirmBehavior.Replace, select = true },
             c = cmp.mapping.confirm { behavior = cmp.ConfirmBehavior.Replace, select = false },
           },
-          ["<c-b>"] = cmp.mapping.scroll_docs(-5),
-          ["<c-f>"] = cmp.mapping.scroll_docs(5),
+          ["<c-u>"] = cmp.mapping.scroll_docs(-5),
+          ["<c-d>"] = cmp.mapping.scroll_docs(5),
           ["<c-o>"] = {
             i = cmp.mapping.complete(),
             c = cmp.mapping.complete(),
@@ -108,7 +108,7 @@ return {
 
   {
     "windwp/nvim-autopairs",
-    event = { "InsertEnter" },
+    event = { "TextChangedI" },
     opts = {},
     config = function(_, opts)
       local cmp_autopairs = require "nvim-autopairs.completion.cmp"
@@ -151,7 +151,7 @@ return {
 
   {
     "max397574/better-escape.nvim",
-    event = { "InsertEnter" },
+    event = { "TextChangedI" },
     opts = {
       mapping = { "jj", "jk" },
     },
