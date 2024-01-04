@@ -25,6 +25,12 @@ return {
       setup = {
         luau_lsp = function(opts)
           require("luau-lsp").setup {
+            sourcemap = {
+              enabled = false,
+            },
+            types = {
+              roblox = false,
+            },
             server = opts,
           }
           return true

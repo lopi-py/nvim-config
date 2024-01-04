@@ -108,7 +108,7 @@ return {
 
   {
     "windwp/nvim-autopairs",
-    event = { "TextChangedI" },
+    event = { "InsertEnter" },
     opts = {},
     config = function(_, opts)
       local cmp_autopairs = require "nvim-autopairs.completion.cmp"
@@ -151,7 +151,7 @@ return {
 
   {
     "max397574/better-escape.nvim",
-    event = { "TextChangedI" },
+    event = { "InsertEnter" },
     opts = {
       mapping = { "jj", "jk" },
     },
