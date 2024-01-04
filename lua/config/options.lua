@@ -15,8 +15,11 @@ o.fillchars = {
   eob = " ",
   fold = " ",
   foldsep = " ",
+  foldopen = "",
+  foldclose = "",
 }
 o.foldenable = false
+o.foldcolumn = "2"
 o.foldlevel = 99
 o.foldlevelstart = 99
 o.history = 50

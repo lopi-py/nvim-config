@@ -85,13 +85,13 @@ return {
             click = "v:lua.ScFa",
           },
           {
+            sign = { namespace = { "gitsign" }, auto = true },
+            click = "v:lua.ScSa",
+          },
+          {
             text = { builtin.lnumfunc, " " },
             click = "v:lua.ScLa",
             condition = { true, builtin.not_empty },
-          },
-          {
-            sign = { namespace = { "gitsign" }, auto = true },
-            click = "v:lua.ScSa",
           },
         },
       }
