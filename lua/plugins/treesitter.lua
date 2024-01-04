@@ -34,7 +34,7 @@ return {
       require("nvim-treesitter.configs").setup(opts)
     end,
     dependencies = {
-      "rrethy/nvim-treesitter-endwise",
+      "RRethy/nvim-treesitter-endwise",
       "windwp/nvim-ts-autotag",
     },
   },
