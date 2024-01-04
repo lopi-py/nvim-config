@@ -1,0 +1,14 @@
+{
+  "contributes": {
+    "snippets": [
+      {
+        "language": "lua",
+        "path": "snippets/lua.json"
+      },
+      {
+        "language": "luau",
+        "path": "snippets/luau.json"
+      }
+    ]
+  }
+}
