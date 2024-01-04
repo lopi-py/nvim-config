@@ -8,7 +8,7 @@ return {
   {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
-    event = { "BufReadPost", "BufNewFile" },
+    event = { "LazyFile" },
     opts = {
       ensure_installed = {},
       highlight = {
@@ -28,11 +28,11 @@ return {
         disable = disable,
       },
     },
-    config = vim.schedule_wrap(function(_, opts)
+    config = function(_, opts)
       require("nvim-treesitter.install").compilers = { "clang", "cc", "gcc", "cl", "zig" }
       require("nvim-treesitter.install").prefer_git = false
       require("nvim-treesitter.configs").setup(opts)
-    end),
+    end,
     dependencies = {
       "rrethy/nvim-treesitter-endwise",
       "windwp/nvim-ts-autotag",

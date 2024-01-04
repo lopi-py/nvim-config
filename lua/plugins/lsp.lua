@@ -4,7 +4,7 @@ local icons = require "config.icons"
 return {
   {
     "neovim/nvim-lspconfig",
-    event = { "BufReadPre", "BufNewFile" },
+    event = { "LazyFile" },
     opts = {
       setup = {},
       servers = {},

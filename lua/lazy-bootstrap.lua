@@ -17,6 +17,8 @@ end
 
 vim.opt.rtp:append(lazy_path)
 
+require("util.plugin").lazy_file()
+
 require("lazy").setup({
   { import = "plugins" },
   { import = "plugins.extras" },

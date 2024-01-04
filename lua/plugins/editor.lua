@@ -58,7 +58,7 @@ return {
 
   {
     "uga-rosa/ccc.nvim",
-    event = { "BufReadPost", "BufNewFile" },
+    event = { "LazyFile" },
     opts = {
       win_opts = {
         border = icons.border,
@@ -74,7 +74,7 @@ return {
 
   {
     "RRethy/vim-illuminate",
-    event = { "BufReadPost", "BufNewFile" },
+    event = { "LazyFile" },
     opts = {
       should_enable = util.is_file,
     },
@@ -114,7 +114,7 @@ return {
 
   {
     "darazaki/indent-o-matic",
-    event = { "BufReadPost", "BufNewFile" },
+    event = { "LazyFile" },
     opts = {
       max_lines = 100,
       standar_widths = { 2, 4 },
@@ -123,7 +123,7 @@ return {
 
   {
     "folke/todo-comments.nvim",
-    event = { "BufReadPost", "BufNewFile" },
+    event = { "LazyFile" },
     keys = {
       {
         "]c",

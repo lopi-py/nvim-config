@@ -4,7 +4,7 @@ local util = require "util"
 return {
   {
     "mfussenegger/nvim-lint",
-    event = { "BufRead", "BufNewFile" },
+    event = { "LazyFile" },
     opts = {
       linters_by_ft = {},
       linters = {},

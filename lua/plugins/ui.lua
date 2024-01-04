@@ -72,7 +72,7 @@ return {
 
   {
     "luukvbaal/statuscol.nvim",
-    event = { "BufRead", "BufNewFile" },
+    event = { "LazyFile" },
     branch = "0.10",
     opts = function()
       local builtin = require "statuscol.builtin"
@@ -104,7 +104,7 @@ return {
 
   {
     "kevinhwang91/nvim-ufo",
-    event = { "BufRead", "BufNewFile" },
+    event = { "LazyFile" },
     opts = {
       open_fold_hl_timeout = 0,
     },
@@ -115,7 +115,7 @@ return {
 
   {
     "Bekaboo/dropbar.nvim",
-    event = { "BufRead", "BufNewFile" },
+    event = { "LazyFile" },
     opts = {
       general = {
         enable = function(bufnr, winnr)
@@ -137,7 +137,7 @@ return {
 
   {
     "lukas-reineke/indent-blankline.nvim",
-    event = { "BufRead", "BufNewFile" },
+    event = { "LazyFile" },
     main = "ibl",
     opts = {
       indent = {
@@ -152,7 +152,7 @@ return {
 
   {
     "nvim-lualine/lualine.nvim",
-    event = { "BufRead", "BufNewFile" },
+    event = { "LazyFile" },
     opts = function()
       local Block = {
         function()

@@ -124,13 +124,13 @@ return {
 
   {
     "kylechui/nvim-surround",
-    event = { "BufReadPost", "BufNewFile" },
+    event = { "LazyFile" },
     opts = {},
   },
 
   {
     "numToStr/Comment.nvim",
-    event = { "BufReadPost", "BufNewFile" },
+    event = { "LazyFile" },
     opts = {
       ignore = "^$",
       pre_hook = function(ctx)
