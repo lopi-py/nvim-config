@@ -91,6 +91,11 @@ return {
           {
             sign = { namespace = { "gitsigns" } },
             click = "v:lua.ScSa",
+            condition = {
+              function(args)
+                return util.is_file(args.buf)
+              end,
+            },
           },
         },
       }
