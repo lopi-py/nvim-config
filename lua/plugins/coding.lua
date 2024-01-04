@@ -143,6 +143,13 @@ return {
   },
 
   {
+    "JoosepAlviste/nvim-ts-context-commentstring",
+    opts = {
+      enable_autocmd = false,
+    },
+  },
+
+  {
     "max397574/better-escape.nvim",
     event = { "InsertEnter" },
     opts = {
