@@ -25,12 +25,6 @@ return {
       setup = {
         luau_lsp = function(opts)
           require("luau-lsp").setup {
-            sourcemap = {
-              enabled = false,
-            },
-            types = {
-              roblox = false,
-            },
             server = opts,
           }
           return true
@@ -43,9 +37,6 @@ return {
           settings = {
             ["luau-lsp"] = {
               ignoreGlobs = { "**/_Index/**", "**/node_modules/**" },
-              sourcemap = {
-                enabled = false,
-              },
               completion = {
                 imports = {
                   enabled = true,
