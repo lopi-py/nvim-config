@@ -33,7 +33,6 @@ return {
 
       servers = {
         luau_lsp = {
-          trace = "messages",
           settings = {
             ["luau-lsp"] = {
               ignoreGlobs = { "**/_Index/**", "**/node_modules/**" },
