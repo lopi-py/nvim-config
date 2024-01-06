@@ -3,8 +3,13 @@ return {
     "folke/tokyonight.nvim",
     priority = 1000,
     lazy = false,
-    opts = {},
-    config = function()
+    opts = {
+      style = "night",
+      transparent = true,
+      lualine_bold = true,
+    },
+    config = function(_, opts)
+      require("tokyonight").setup(opts)
       vim.cmd.colorscheme "tokyonight"
     end,
   },
