@@ -14,7 +14,14 @@ return {
       setup = {
         lua_ls = function()
           require("neodev").setup {
-            library = { plugins = false },
+            library = {
+              plugins = false,
+            },
+            override = function(root_dir, library)
+              if root_dir:find "nvim" or root_dir:find "neovim" then
+                library.enabled = true
+              end
+            end,
           }
         end,
       },
