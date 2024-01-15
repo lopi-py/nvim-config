@@ -1,20 +1,16 @@
 local icons = require "config.icons"
+local util = require "util"
 
 return {
   {
-    "L3MON4D3/LuaSnip",
-    keys = {
-      { "<c-k>", "<plug>luasnip-prev-coice", mode = "i" },
-      { "<c-j>", "<plug>luasnip-next-coice", mode = "i" },
-    },
+    "garymjr/nvim-snippets",
+    event = { "InsertEnter" },
     opts = {
-      update_events = "InsertLeave,TextChangedI",
-      region_check_events = "CursorMoved,CursorMovedI",
+      friendly_snippets = true,
+      search_paths = {
+        util.path_join(vim.fn.stdpath "config" --[[@as string]], "/snippets"),
+      },
     },
-    config = vim.schedule_wrap(function(_, opts)
-      require("luasnip").setup(opts)
-      require("luasnip.loaders.from_vscode").lazy_load()
-    end),
     dependencies = {
       "rafamadriz/friendly-snippets",
     },
@@ -29,21 +25,19 @@ return {
       cmp.setup {
         mapping = {
           ["<tab>"] = cmp.mapping(function(fallback)
-            local luasnip = require "luasnip"
             if cmp.visible() then
               cmp.select_next_item { behavior = cmp.SelectBehavior.Select }
-            elseif luasnip.expand_or_jumpable() then
-              luasnip.expand_or_jump()
+            elseif vim.snippet.jumpable(1) then
+              vim.snippet.jump(1)
             else
               fallback()
             end
           end, { "i", "s", "c" }),
           ["<s-tab>"] = cmp.mapping(function(fallback)
-            local luasnip = require "luasnip"
             if cmp.visible() then
               cmp.select_prev_item { behavior = cmp.SelectBehavior.Select }
-            elseif luasnip.jumpable(-1) then
-              luasnip.jump(-1)
+            elseif vim.snippet.jumpable(-1) then
+              vim.snippet.jump(-1)
             else
               fallback()
             end
@@ -65,7 +59,7 @@ return {
         },
         sources = {
           { name = "nvim_lsp" },
-          { name = "luasnip" },
+          { name = "snippets" },
           { name = "buffer" },
         },
         formatting = {
@@ -78,7 +72,7 @@ return {
         },
         snippet = {
           expand = function(args)
-            require("luasnip").lsp_expand(args.body)
+            vim.snippet.expand(args.body)
           end,
         },
       }
@@ -97,8 +91,6 @@ return {
       })
     end,
     dependencies = {
-      "L3MON4D3/LuaSnip",
-      "saadparwaiz1/cmp_luasnip",
       "hrsh7th/cmp-nvim-lsp",
       "hrsh7th/cmp-buffer",
       "hrsh7th/cmp-cmdline",
@@ -107,18 +99,10 @@ return {
   },
 
   {
-    "windwp/nvim-autopairs",
-    event = { "InsertEnter" },
-    opts = {},
-    config = function(_, opts)
-      local cmp_autopairs = require "nvim-autopairs.completion.cmp"
-      local cmp = require "cmp"
-
-      cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
-      require("nvim-autopairs").setup(opts)
-    end,
-    dependencies = {
-      "hrsh7th/nvim-cmp",
+    "echasnovski/mini.pairs",
+    event = { "InsertEnter", "CmdlineEnter" },
+    opts = {
+      modes = { command = true },
     },
   },
 
