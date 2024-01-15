@@ -7,10 +7,10 @@ return {
     event = { "LazyFile" },
     opts = {
       signs = {
-        add = { text = "▎" },
-        change = { text = "▎" },
-        changedelete = { text = "▎" },
-        untracked = { text = "▎" },
+        add = { text = "▍" },
+        change = { text = "▍" },
+        changedelete = { text = "▍" },
+        untracked = { text = "▍" },
       },
       current_line_blame_opts = {
         delay = 500,
