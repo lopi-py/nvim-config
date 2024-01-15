@@ -43,7 +43,6 @@ return {
               },
               inlayHints = {
                 functionReturnTypes = true,
-                parameterNames = "all",
                 parameterTypes = true,
               },
             },
