@@ -8,7 +8,7 @@ return {
     opts = {
       friendly_snippets = true,
       search_paths = {
-        util.path_join(vim.fn.stdpath "config" --[[@as string]], "/snippets"),
+        util.path_join(vim.fn.stdpath "config" --[[@as string]], "snippets"),
       },
     },
     dependencies = {
