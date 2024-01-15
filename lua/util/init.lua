@@ -36,8 +36,11 @@ end
 ---@param bufnr number
 ---@return boolean
 function M.within_fsize(bufnr)
-  local size = vim.fn.getfsize(vim.api.nvim_buf_get_name(bufnr))
-  return size <= config.max_file_size
+  local success, stats = pcall(vim.uv.fs_stat, vim.api.nvim_buf_get_name(bufnr))
+  if success and stats and stats.size > config.max_file_size then
+    return false
+  end
+  return true
 end
 
 ---@vararg string

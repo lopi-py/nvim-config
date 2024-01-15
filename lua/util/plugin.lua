@@ -2,8 +2,7 @@ local M = {}
 
 function M.lazy_file()
   local Event = require "lazy.core.handler.event"
-  Event.mappings.LazyFile =
-    { id = "LazyFile", event = { "BufReadPost", "BufNewFile", "BufWritePre" } }
+  Event.mappings.LazyFile = { id = "LazyFile", event = "User", pattern = "LazyFile" }
 
   local events = {}
   local done = false
@@ -43,7 +42,7 @@ function M.lazy_file()
     events = {}
   end
 
-  vim.api.nvim_create_autocmd(Event.mappings.LazyFile.event, {
+  vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile", "BufWritePre" }, {
     group = vim.api.nvim_create_augroup("lazy_file", {}),
     callback = function(event)
       table.insert(events, event)

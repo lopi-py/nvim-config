@@ -72,7 +72,7 @@ return {
 
   {
     "luukvbaal/statuscol.nvim",
-    event = { "LazyFile" },
+    lazy = false,
     branch = "0.10",
     opts = function()
       local builtin = require "statuscol.builtin"
@@ -114,28 +114,6 @@ return {
   },
 
   {
-    "Bekaboo/dropbar.nvim",
-    event = { "LazyFile" },
-    opts = {
-      general = {
-        enable = function(bufnr, winnr)
-          if not util.is_file(bufnr) then
-            return false
-          end
-          if not vim.uri_from_bufnr(bufnr):find "^file" then
-            return false
-          end
-          return not vim.wo[winnr].diff
-        end,
-        attach_events = { "BufWinEnter", "BufWritePost" },
-      },
-      icons = {
-        kinds = { symbols = icons.kind },
-      },
-    },
-  },
-
-  {
     "lukas-reineke/indent-blankline.nvim",
     event = { "LazyFile" },
     main = "ibl",
@@ -152,7 +130,7 @@ return {
 
   {
     "nvim-lualine/lualine.nvim",
-    event = { "LazyFile" },
+    lazy = false,
     opts = function()
       local Block = {
         function()
