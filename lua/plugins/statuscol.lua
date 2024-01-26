@@ -10,7 +10,6 @@ return {
 
       return {
         relculright = true,
-        bt_ignore = { "nofile" },
         segments = {
           {
             text = { builtin.foldfunc, " " },
