@@ -1,3 +1,4 @@
+local config = require "config"
 local icons = require "config.icons"
 
 return {
@@ -19,6 +20,7 @@ return {
 
       require("telescope").setup {
         defaults = {
+          file_ignore_pattern = config.ignored_files,
           borderchars = {
             icons.border[2],
             icons.border[4],

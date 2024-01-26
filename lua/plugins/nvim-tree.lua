@@ -1,3 +1,4 @@
+local config = require "config"
 local icons = require "config.icons"
 
 return {
@@ -43,8 +44,11 @@ return {
     filesystem_watchers = {
       debounce_delay = 500,
     },
-  },
-  notify = {
-    threshold = vim.log.levels.WARN,
+    filters = {
+      custom = config.ignored_files,
+    },
+    notify = {
+      threshold = vim.log.levels.WARN,
+    },
   },
 }

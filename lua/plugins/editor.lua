@@ -5,6 +5,7 @@ local util = require "util"
 return {
   {
     "stevearc/oil.nvim",
+    lazy = false,
     keys = {
       { "-", ":Oil<cr>", desc = "Open parent directory" },
       {
@@ -17,18 +18,13 @@ return {
     },
     opts = {
       default_file_explorer = true,
-      is_hidden_file = function(name)
-        return vim.startswith(name, ".")
-      end,
+      view_options = {
+        show_hidden = true,
+        is_always_hidden = function(name)
+          return vim.startswith(name, "..") or vim.list_contains(config.ignored_files, name)
+        end,
+      },
     },
-    init = function()
-      if vim.fn.argc() == 1 then
-        local stat = vim.uv.fs_stat(vim.fn.argv(0) --[[@as string]])
-        if stat and stat.type == "directory" then
-          require "oil"
-        end
-      end
-    end,
   },
 
   {
