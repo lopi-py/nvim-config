@@ -27,7 +27,7 @@ return {
             vim.keymap.set(mode, lhs, rhs, map_opts)
           end
 
-          map("n", "<space>d", vim.diagnostic.open_float)
+          map("n", "E", vim.diagnostic.open_float)
           map("n", "[d", vim.diagnostic.goto_prev)
           map("n", "]d", vim.diagnostic.goto_next)
 
@@ -35,11 +35,10 @@ return {
           map("n", "gd", vim.lsp.buf.definition)
           map("n", "gi", vim.lsp.buf.implementation)
           map("n", "gr", vim.lsp.buf.references)
+          map("n", "<c-k>", vim.lsp.buf.signature_help)
           map("n", "K", vim.lsp.buf.hover)
-          map("n", "<leader>s", vim.lsp.buf.signature_help)
           map("n", "<leader>D", vim.lsp.buf.type_definition)
           map({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action)
-          map("n", "<leader>f", ":Format<cr>")
           map("n", "<leader>rn", function()
             return ":IncRename " .. vim.fn.expand "<cword>"
           end, { expr = true })

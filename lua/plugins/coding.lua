@@ -43,11 +43,12 @@ return {
             end
           end, { "i", "s", "c" }),
           ["<cr>"] = {
-            i = cmp.mapping.confirm { behavior = cmp.ConfirmBehavior.Replace, select = true },
-            c = cmp.mapping.confirm { behavior = cmp.ConfirmBehavior.Replace, select = false },
+            i = cmp.mapping.confirm { behavior = cmp.ConfirmBehavior.Insert, select = true },
+            c = cmp.mapping.confirm(),
           },
           ["<c-u>"] = cmp.mapping.scroll_docs(-5),
           ["<c-d>"] = cmp.mapping.scroll_docs(5),
+          ["<c-space>"] = cmp.mapping.complete(),
           ["<c-o>"] = {
             i = cmp.mapping.complete(),
             c = cmp.mapping.complete(),
@@ -63,9 +64,10 @@ return {
           { name = "buffer" },
         },
         formatting = {
+          fields = { "kind", "abbr", "menu" },
           format = function(_, item)
             if icons.kind[item.kind] then
-              item.kind = icons.kind[item.kind] .. item.kind
+              item.kind = icons.kind[item.kind]
             end
             return item
           end,
@@ -99,11 +101,9 @@ return {
   },
 
   {
-    "echasnovski/mini.pairs",
-    event = { "InsertEnter", "CmdlineEnter" },
-    opts = {
-      modes = { command = true },
-    },
+    "windwp/nvim-autopairs",
+    event = { "InsertEnter" },
+    opts = {},
   },
 
   {

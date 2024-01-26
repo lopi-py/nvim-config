@@ -23,6 +23,9 @@ map("n", "<c-n>", vim.cmd.enew)
 map("n", "<leader>bp", vim.cmd.bprevious)
 map("n", "<leader>bn", vim.cmd.bnext)
 map("n", "<leader>br", vim.cmd.edit)
+map("n", "<bs>", function()
+  vim.cmd.edit "#"
+end)
 
 map("n", "<a-j>", "<cmd>m .+1<cr>==")
 map("n", "<a-k>", "<cmd>m .-2<cr>==")
