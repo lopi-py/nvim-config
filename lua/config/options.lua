@@ -2,8 +2,7 @@ local o = vim.opt
 
 o.autoindent = true
 o.backspace = { "indent", "eol", "start" }
-o.clipboard = "unnamedplus"
-o.colorcolumn = "+1"
+o.colorcolumn = "+0"
 o.conceallevel = 0
 o.confirm = true
 o.cursorline = true
@@ -21,6 +20,7 @@ o.fillchars = {
 o.foldcolumn = "1"
 o.foldlevel = 99
 o.foldlevelstart = 99
+o.guifont = "JetBrainsMono Nerd Font:h10"
 o.history = 50
 o.hlsearch = true
 o.ignorecase = true

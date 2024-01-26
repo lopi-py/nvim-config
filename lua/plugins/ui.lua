@@ -1,5 +1,4 @@
 local icons = require "config.icons"
-local util = require "util"
 
 return {
   {
@@ -86,12 +85,14 @@ return {
     event = { "LazyFile" },
     main = "ibl",
     opts = {
+      debounce = 50,
       indent = {
         char = "│",
         tab_char = "│",
       },
       scope = {
         enabled = false,
+        show_start = false,
       },
     },
   },
