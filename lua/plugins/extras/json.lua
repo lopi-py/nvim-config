@@ -1,7 +1,7 @@
 local rojo_schemas = {
   {
     fileMatch = { "*.project.json", "*.project.jsonc" },
-    url = "https://raw.githubusercontent.com/roblox-ts/rojo-resolver/master/rojo-schema.json",
+    url = "https://raw.githubusercontent.com/rojo-rbx/vscode-rojo/master/schemas/project.template.schema.json",
   },
 }
 
