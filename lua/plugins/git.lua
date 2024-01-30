@@ -74,17 +74,4 @@ return {
       },
     },
   },
-
-  {
-    "pwntester/octo.nvim",
-    keys = {
-      { "<leader>o", ":Octo actions<cr>" },
-    },
-    opts = {},
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-tree/nvim-web-devicons",
-      "nvim-telescope/telescope.nvim",
-    },
-  },
 }
