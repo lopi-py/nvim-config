@@ -87,8 +87,8 @@ return {
     opts = {
       debounce = 50,
       indent = {
-        char = "│",
-        tab_char = "│",
+        char = "▏",
+        tab_char = "▏",
       },
       scope = {
         enabled = false,

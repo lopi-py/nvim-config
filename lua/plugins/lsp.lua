@@ -95,7 +95,6 @@ return {
         float = {
           source = "always",
           border = icons.border,
-          header = false,
         },
       }
 
