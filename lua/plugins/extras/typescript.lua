@@ -13,9 +13,7 @@ return {
     opts = {
       setup = {
         tsserver = function()
-          require("typescript-tools").setup {
-            separate_diagnostic_server = false,
-          }
+          require("typescript-tools").setup {}
           return true
         end,
       },
