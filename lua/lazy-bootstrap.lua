@@ -6,13 +6,15 @@ local lazy_path = util.path_join(lazy_root, "lazy.nvim")
 local dev_path = util.path_join(util.on_windows and "F:" or "~", "dev", "nvim")
 
 if not util.path_exists(lazy_path) then
-  vim.fn.system {
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "https://github.com/folke/lazy.nvim.git",
-    lazy_path,
-  }
+  vim
+    .system({
+      "git",
+      "clone",
+      "--filter=blob:none",
+      "https://github.com/folke/lazy.nvim.git",
+      lazy_path,
+    })
+    :wait()
 end
 
 vim.opt.rtp:append(lazy_path)
