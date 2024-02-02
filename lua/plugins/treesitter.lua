@@ -19,6 +19,16 @@ return {
         enable = true,
         disable = disable,
       },
+      incremental_selection = {
+        enable = true,
+        disable = disable,
+        keymaps = {
+          init_selection = "<cr>",
+          scope_incremental = "<cr>",
+          node_incremental = "<tab>",
+          node_decremental = "<s-tab>",
+        },
+      },
       endwise = {
         enable = true,
         disable = disable,
