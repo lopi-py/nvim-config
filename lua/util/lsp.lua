@@ -12,7 +12,7 @@ function M.patch_settings(name, patcher)
     return
   end
 
-  local group = vim.api.nvim_create_augroup(string.format("lsp-patch-settings.%s", name))
+  local group = vim.api.nvim_create_augroup(string.format("lsp-patch-settings.%s", name), {})
 
   vim.api.nvim_create_autocmd("LspAttach", {
     group = group,

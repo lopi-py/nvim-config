@@ -18,13 +18,4 @@ return {
     cmd = { "Mason" },
     opts = {},
   },
-
-  {
-    "famiu/bufdelete.nvim",
-    keys = {
-      { "<leader>bd", ":Bdelete<cr>", desc = "delete buffer" },
-      { "<leader>bw", ":Bwipeout<cr>", desc = "wipeout buffer" },
-    },
-    cmd = { "Bdelete", "Bwipeout" },
-  },
 }
