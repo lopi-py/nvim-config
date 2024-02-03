@@ -3,8 +3,10 @@ local icons = require "config.icons"
 return {
   {
     "nvim-lualine/lualine.nvim",
-    lazy = false,
+    event = { "VeryLazy" },
     opts = function()
+      require("lualine_require").require = require
+
       local Block = {
         function()
           return " "
@@ -73,8 +75,11 @@ return {
           lualine_y = { "location", "progress" },
           lualine_z = { Block },
         },
-        extensions = { "lazy", "mason", "trouble", "oil", "nvim-tree" },
+        extensions = { "lazy", "mason", "trouble", "oil" },
       }
+    end,
+    init = function()
+      vim.o.statusline = " "
     end,
     dependencies = {
       "nvim-tree/nvim-web-devicons",

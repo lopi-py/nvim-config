@@ -27,17 +27,4 @@ return {
     },
     cmd = { "Bdelete", "Bwipeout" },
   },
-
-  {
-    "s1n7ax/nvim-window-picker",
-    opts = {
-      hint = "floating-big-letter",
-      filter_func = function(winnrs)
-        return vim.tbl_filter(function(winnr)
-          local bufnr = vim.api.nvim_win_get_buf(winnr)
-          return util.is_file(bufnr)
-        end, winnrs)
-      end,
-    },
-  },
 }

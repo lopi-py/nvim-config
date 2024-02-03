@@ -59,19 +59,4 @@ return {
       "nvim-lua/plenary.nvim",
     },
   },
-
-  {
-    "sindrets/diffview.nvim",
-    cmd = { "DiffviewOpen", "DiffviewFileHistory" },
-    opts = {
-      view = {
-        default = {
-          winbar_info = true,
-        },
-        file_history = {
-          winbar_info = true,
-        },
-      },
-    },
-  },
 }

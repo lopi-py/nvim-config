@@ -15,13 +15,13 @@ return {
             text = { builtin.foldfunc, " " },
             click = "v:lua.ScFa",
           },
-          {
-            sign = {
-              name = { ".*" },
-              text = { ".*" },
-            },
-            click = "v:lua.ScSa",
-          },
+          -- {
+          --   sign = {
+          --     name = { ".*" },
+          --     text = { ".*" },
+          --   },
+          --   click = "v:lua.ScSa",
+          -- },
           {
             text = { builtin.lnumfunc, " " },
             click = "v:lua.ScLa",
