@@ -1,9 +1,3 @@
-vim.filetype.add {
-  filename = {
-    [".luaurc"] = "json",
-  },
-}
-
 return {
   {
     "lopi-py/luau-lsp.nvim",
