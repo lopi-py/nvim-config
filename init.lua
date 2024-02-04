@@ -5,4 +5,4 @@ require "config.keymaps"
 require "config.autocmds"
 require "lazy-bootstrap"
 
-vim.cmd.colorscheme "duskfox"
+vim.cmd.colorscheme "rose-pine"

@@ -25,7 +25,6 @@ require("lazy").setup({
   { import = "plugins" },
   { import = "plugins.extras" },
 }, {
-  install = { colorscheme = { "duskfox", "habamax" } },
   root = lazy_root,
   defaults = {
     lazy = true,
