@@ -1,5 +1,3 @@
-local config = require "config"
-local icons = require "config.icons"
 local util = require "util"
 
 return {
@@ -7,6 +5,8 @@ return {
     "RRethy/vim-illuminate",
     event = { "LazyFile" },
     opts = {
+      delay = 250,
+      modes_denylist = { "i", "ic", "ix", "t" },
       should_enable = util.is_file,
     },
     config = function(_, opts)

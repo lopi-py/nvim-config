@@ -1,5 +1,3 @@
-local icons = require "config.icons"
-
 return {
   {
     "j-hui/fidget.nvim",

@@ -52,7 +52,7 @@ return {
           abbrv = { "kind", "text" },
           format = function(_, item)
             if icons.kind[item.kind] then
-              item.kind = icons.kind[item.kind]
+              item.kind = icons.kind[item.kind] .. item.kind
             end
             return item
           end,

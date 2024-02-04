@@ -43,8 +43,6 @@ return {
       require "nvim-treesitter.query_predicates"
     end,
     config = function(_, opts)
-      require("nvim-treesitter.install").compilers = { "clang", "cc", "gcc", "cl", "zig" }
-      require("nvim-treesitter.install").prefer_git = false
       require("nvim-treesitter.configs").setup(opts)
     end,
     dependencies = {
