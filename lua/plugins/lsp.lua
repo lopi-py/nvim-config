@@ -139,7 +139,7 @@ return {
         enabled = false,
       },
       virtual_text = {
-        enabled = true,
+        enabled = false,
         hl = "CursorLine",
       },
       autocmd = {
