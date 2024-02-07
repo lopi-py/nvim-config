@@ -47,7 +47,7 @@ return {
       local Filename = {
         "filename",
         symbols = {
-          modified = icons.modified,
+          modified = icons.modified .. " ",
           readonly = icons.lock,
         },
       }
