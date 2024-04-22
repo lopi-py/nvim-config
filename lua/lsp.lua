@@ -57,6 +57,7 @@ local function on_attach(client, bufnr)
   end
 
   if client.supports_method "textDocument/inlayHint" then
+    -- NOTE: https://github.com/neovim/neovim/pull/28461
     vim.lsp.inlay_hint.enable(bufnr, true)
   end
 end

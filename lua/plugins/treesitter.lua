@@ -24,6 +24,7 @@ return {
         "luau",
         "markdown",
         "markdown_inline",
+        "python",
         "query",
         "tsx",
         "typescript",

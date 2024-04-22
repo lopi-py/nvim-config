@@ -11,6 +11,8 @@ return {
         "lua-language-server",
         "luau-lsp",
         "prettierd",
+        "pyright",
+        "ruff-lsp",
         "selene",
         "stylua",
         "typescript-language-server",
