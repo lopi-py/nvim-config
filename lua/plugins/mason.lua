@@ -6,15 +6,15 @@ return {
     opts = {
       ensure_installed = {
         "clangd",
+        "jdtls",
+        "json-lsp",
         "lua-language-server",
         "luau-lsp",
-        "json-lsp",
-        "yaml-language-server",
-        "typescript-language-server",
-        "jdtls",
-        "stylua",
-        "selene",
         "prettierd",
+        "selene",
+        "stylua",
+        "typescript-language-server",
+        "yaml-language-server",
       },
     },
     config = function(_, opts)
