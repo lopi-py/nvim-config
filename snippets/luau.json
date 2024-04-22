@@ -1,23 +1,23 @@
 {
-	"create a class": {
-		"prefix": "class",
-		"body": [
-			"local ${1:ClassName} = {}",
-			"${1}.__index = ${1}\n",
-			"function ${1}.new(${3})",
-			"\tlocal self = setmetatable({}, ${1})",
-			"\t${4}",
-			"\treturn self",
-			"end\n",
-			"export type ${1} = typeof(${1}.new(...))"
-		]
-	},
-	"create a class method": {
-		"prefix": "method",
-		"body": [
-			"function ${1:ClassName}.${2:Method}(self: ${1}${3})",
-			"\t${4}",
-			"end"
-		]
-	}
+  "create a class": {
+    "prefix": "class",
+    "body": [
+      "local ${1:ClassName} = {}",
+      "${1}.__index = ${1}\n",
+      "function ${1}.new(${3})",
+      "\tlocal self = setmetatable({}, ${1})",
+      "\t${4}",
+      "\treturn self",
+      "end\n",
+      "export type ${1} = typeof(${1}.new(...))"
+    ]
+  },
+  "create a class method": {
+    "prefix": "method",
+    "body": [
+      "function ${1:ClassName}.${2:Method}(self: ${1}${3})",
+      "\t${4}",
+      "end"
+    ]
+  }
 }

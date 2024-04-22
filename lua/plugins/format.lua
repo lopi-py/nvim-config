@@ -1,3 +1,5 @@
+local prettier = { "prettierd", "prettier" }
+
 local function get_format_opts(bufnr)
   if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
     return
@@ -11,7 +13,14 @@ return {
     event = { "BufWritePre" },
     cmd = { "Format", "FormatEnable", "FormatDisable", "ConformInfo" },
     opts = {
-      formatters_by_ft = {},
+      formatters_by_ft = {
+        lua = { "stylua" },
+        luau = { "stylua" },
+        javascript = { prettier },
+        typescript = { prettier },
+        javascriptreact = { prettier },
+        typescriptreact = { prettier },
+      },
       formatters = {},
       format_after_save = get_format_opts,
     },
@@ -22,7 +31,11 @@ return {
       require("conform").setup(opts)
 
       vim.api.nvim_create_user_command("Format", function()
-        require("conform").format { timeout_ms = 500, lsp_fallback = true }
+        require("conform").format {
+          timeout_ms = 500,
+          lsp_fallback = true,
+          async = true,
+        }
       end, {})
 
       vim.api.nvim_create_user_command("FormatEnable", function()

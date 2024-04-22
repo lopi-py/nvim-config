@@ -1,60 +1,33 @@
 return {
-  "folke/neodev.nvim",
-
   {
-    "nvim-treesitter/nvim-treesitter",
-    opts = function(_, opts)
-      vim.list_extend(opts.ensure_installed, { "lua" })
-    end,
-  },
-
-  {
-    "neovim/nvim-lspconfig",
+    "folke/neodev.nvim",
+    ft = { "lua" },
     opts = {
-      setup = {
-        lua_ls = function()
-          require("neodev").setup {
-            library = {
-              plugins = false,
-            },
-            override = function(root_dir, library)
-              if root_dir:find "nvim" or root_dir:find "neovim" then
-                library.enabled = true
-              end
-            end,
-          }
-        end,
+      library = {
+        plugins = false,
       },
+      override = function(root_dir, library)
+        if root_dir:find "nvim" or root_dir:find "neovim" then
+          library.enabled = true
+        end
+      end,
+    },
+    config = function(_, opts)
+      require("neodev").setup(opts)
 
-      servers = {
-        lua_ls = {
-          settings = {
-            Lua = {
-              workspace = {
-                checkThirdParty = false,
-              },
+      local lspconfig = require "lspconfig"
+      local capabilities = require("lsp").capabilities
+
+      lspconfig.lua_ls.setup {
+        capabilities = capabilities(),
+        settings = {
+          Lua = {
+            workspace = {
+              checkThirdParty = false,
             },
           },
         },
-      },
-    },
-  },
-
-  {
-    "stevearc/conform.nvim",
-    opts = {
-      formatters_by_ft = {
-        lua = { "stylua" },
-      },
-    },
-  },
-
-  {
-    "mfussenegger/nvim-lint",
-    opts = {
-      linters_by_ft = {
-        lua = { "selene" },
-      },
-    },
+      }
+    end,
   },
 }

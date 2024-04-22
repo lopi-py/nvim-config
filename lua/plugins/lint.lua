@@ -6,12 +6,16 @@ return {
     "mfussenegger/nvim-lint",
     event = { "LazyFile" },
     opts = {
-      linters_by_ft = {},
+      linters_by_ft = {
+        lua = { "selene" },
+        luau = { "selene" },
+      },
       linters = {},
     },
     config = function(_, opts)
       local lint = require "lint"
       lint.linters_by_ft = opts.linters_by_ft
+
       for name, linter in ipairs(opts.linters) do
         lint[name] = linter
       end

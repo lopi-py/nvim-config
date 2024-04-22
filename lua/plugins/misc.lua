@@ -12,10 +12,4 @@ return {
       default = true,
     },
   },
-
-  {
-    "williamboman/mason.nvim",
-    cmd = { "Mason" },
-    opts = {},
-  },
 }
