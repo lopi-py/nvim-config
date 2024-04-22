@@ -23,7 +23,7 @@ require("util.plugin").lazy_file()
 
 require("lazy").setup({
   { import = "plugins" },
-  { import = "plugins.extras" },
+  { import = "plugins.lang" },
 }, {
   root = lazy_root,
   defaults = {

@@ -10,29 +10,28 @@ return {
   {
     "mfussenegger/nvim-jdtls",
     ft = { "java" },
-    config = function()
+    opts = function()
       local project_name = vim.fs.basename(vim.uv.cwd())
       local capabilities = require("lsp").capabilities
 
-      local function attach_jdtls()
-        require("jdtls").start_or_attach {
-          capabilities = capabilities(),
-          cmd = {
-            "jdtls",
-            "-configuration",
-            jdtls_config_dir(project_name),
-            "-data",
-            jdtls_workspace_dir(project_name),
-          },
-        }
-      end
-
+      return {
+        capabilities = capabilities(),
+        cmd = {
+          "jdtls",
+          "-configuration",
+          jdtls_config_dir(project_name),
+          "-data",
+          jdtls_workspace_dir(project_name),
+        },
+      }
+    end,
+    config = function(_, opts)
       vim.api.nvim_create_autocmd("FileType", {
         pattern = "java",
-        callback = attach_jdtls,
+        callback = function()
+          require("jdtls").start_or_attach(opts)
+        end,
       })
-
-      attach_jdtls()
     end,
   },
 }
