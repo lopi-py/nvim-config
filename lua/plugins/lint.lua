@@ -17,7 +17,7 @@ return {
       lint.linters_by_ft = opts.linters_by_ft
 
       for name, linter in ipairs(opts.linters) do
-        lint[name] = linter
+        lint.linters[name] = linter
       end
 
       vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile", "TextChanged", "InsertLeave" }, {
