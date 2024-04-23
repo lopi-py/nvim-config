@@ -4,7 +4,7 @@ return {
     keys = {
       { "<leader>dc", ":lua require('dap').continue()<cr>" },
       { "<leader>dj", ":lua require('dap').step_over()<cr>" },
-      { "<leader>di", ":lua require('dap').step_into()()<cr>" },
+      { "<leader>di", ":lua require('dap').step_into()<cr>" },
       { "<leader>do", ":lua require('dap').step_out()<cr>" },
       { "<leader>dl", ":lua require('dap').run_last()<cr>" },
       { "<leader>da", ":lua require('dap').list_breakpoints(true)<cr>" },
