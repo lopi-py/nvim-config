@@ -9,6 +9,8 @@ return {
         "debugpy",
         "jdtls",
         "json-lsp",
+        "java-debug-adapter",
+        "java-test",
         "lua-language-server",
         "luau-lsp",
         "prettierd",
