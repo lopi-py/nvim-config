@@ -9,13 +9,9 @@ return {
       height = 15,
       use_diagnostic_signs = true,
     },
-    dependencies = { "nvim-tree/nvim-web-devicons" },
-  },
-
-  {
-    "smjonas/inc-rename.nvim",
-    event = { "CmdlineEnter" },
-    opts = {},
+    dependencies = {
+      "nvim-tree/nvim-web-devicons",
+    },
   },
 
   {

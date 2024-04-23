@@ -4,18 +4,6 @@ vim.api.nvim_create_autocmd("TextYankPost", {
   end,
 })
 
-vim.api.nvim_create_autocmd("InsertEnter", {
-  callback = function()
-    pcall(vim.diagnostic.hide)
-  end,
-})
-
-vim.api.nvim_create_autocmd("InsertLeave", {
-  callback = function()
-    pcall(vim.diagnostic.show)
-  end,
-})
-
 vim.api.nvim_create_autocmd({ "InsertLeave", "WinEnter" }, {
   callback = function()
     local ok, value = pcall(vim.api.nvim_win_get_var, 0, "auto-cursorline")

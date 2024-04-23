@@ -34,13 +34,6 @@ return {
       for name, sign in pairs(signs) do
         vim.fn.sign_define("Dap" .. name, { text = sign[1], texthl = sign[2] })
       end
-
-      vim.api.nvim_create_autocmd("FileType", {
-        pattern = "dap-float",
-        callback = function(event)
-          vim.keymap.set("n", "q", vim.cmd.quit, { buffer = event.buf })
-        end,
-      })
     end,
     dependencies = {
       "rcarriga/nvim-dap-ui",
