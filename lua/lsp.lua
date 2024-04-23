@@ -64,7 +64,7 @@ end
 
 for name, icon in pairs(icons.diagnostics) do
   name = "DiagnosticSign" .. name:sub(1, 1):upper() .. name:sub(2)
-  vim.fn.sign_define(name, { text = icon, texthl = name, numhl = "" })
+  vim.fn.sign_define(name, { text = icon, texthl = name })
 end
 
 vim.diagnostic.config {

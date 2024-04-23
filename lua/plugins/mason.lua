@@ -6,6 +6,7 @@ return {
     opts = {
       ensure_installed = {
         "clangd",
+        "debugpy",
         "jdtls",
         "json-lsp",
         "lua-language-server",

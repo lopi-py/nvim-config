@@ -1,3 +1,5 @@
+local util = require "util"
+
 return {
   {
     "wookayin/semshi",
@@ -35,11 +37,26 @@ return {
   {
     "linux-cultist/venv-selector.nvim",
     ft = { "python" },
-    cmd = { "VenvSelect", "VenvSelectCurrent", "VenvSelectCached" },
-    opts = {},
+    cmd = { "VenvSelect" },
+    opts = {
+      dap_enabled = true,
+    },
     dependencies = {
       "neovim/nvim-lspconfig",
       "nvim-telescope/telescope.nvim",
+      "mfussenegger/nvim-dap-python",
+    },
+  },
+
+  {
+    "mfussenegger/nvim-dap-python",
+    ft = { "python" },
+    config = function()
+      local path = require("mason-registry").get_package("debugpy"):get_install_path()
+      require("dap-python").setup(util.path_join(path, "venv", "bin", "python"))
+    end,
+    dependencies = {
+      "mfussenegger/nvim-dap",
     },
   },
 }
