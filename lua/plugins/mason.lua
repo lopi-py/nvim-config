@@ -7,10 +7,11 @@ return {
       ensure_installed = {
         "clangd",
         "debugpy",
-        "jdtls",
-        "json-lsp",
+        "eslint-lsp",
         "java-debug-adapter",
         "java-test",
+        "jdtls",
+        "json-lsp",
         "lua-language-server",
         "luau-lsp",
         "prettierd",
