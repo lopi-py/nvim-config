@@ -14,6 +14,7 @@ return {
         "c",
         "cpp",
         "css",
+        "dap_repl",
         "html",
         "java",
         "javascript",
@@ -64,9 +65,11 @@ return {
       require "nvim-treesitter.query_predicates"
     end,
     config = function(_, opts)
+      require("nvim-dap-repl-highlights").setup()
       require("nvim-treesitter.configs").setup(opts)
     end,
     dependencies = {
+      "LiadOz/nvim-dap-repl-highlights",
       "RRethy/nvim-treesitter-endwise",
       "windwp/nvim-ts-autotag",
     },
