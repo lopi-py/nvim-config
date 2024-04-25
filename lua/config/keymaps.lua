@@ -2,8 +2,6 @@ require("util").patch_keymap_set()
 
 local map = vim.keymap.set
 
-vim.g.mapleader = " "
-
 map("n", "[b", vim.cmd.bprevious)
 map("n", "]b", vim.cmd.bnext)
 map("n", "[t", vim.cmd.tabprevious)

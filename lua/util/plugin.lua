@@ -15,7 +15,7 @@ function M.lazy_file()
     done = true
     vim.api.nvim_del_augroup_by_name "lazy_file"
 
-    ---@type table<string,string[]>
+    ---@type table<string, string[]>
     local skips = {}
     for _, event in ipairs(events) do
       skips[event.event] = skips[event.event] or Event.get_augroups(event.event)

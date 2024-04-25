@@ -4,8 +4,6 @@ return {
     ft = { "python" },
     build = ":UpdateRemotePlugins",
     init = function()
-      vim.g.python3_host_prog = vim.fn.exepath "python3"
-
       vim.g["semshi#error_sign"] = false
       vim.g["semshi#simplify_markup"] = false
       vim.g["semshi#mark_selected_nodes"] = false
