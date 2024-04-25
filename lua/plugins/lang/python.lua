@@ -1,7 +1,7 @@
 return {
   {
     "wookayin/semshi",
-    ft = { "python" },
+    event = { "LazyFile" },
     build = ":UpdateRemotePlugins",
     init = function()
       vim.g["semshi#error_sign"] = false
@@ -32,7 +32,6 @@ return {
 
   {
     "linux-cultist/venv-selector.nvim",
-    ft = { "python" },
     cmd = { "VenvSelect" },
     opts = {
       dap_enabled = true,
@@ -45,17 +44,21 @@ return {
   },
 
   {
-    "mfussenegger/nvim-dap-python",
-    ft = { "python" },
-    config = function()
-      local mason_registry = require "mason-registry"
-      local debugpy_path = mason_registry.get_package("debugpy"):get_install_path()
-
-      require("dap-python").setup(debugpy_path .. "/venv/bin/python")
-    end,
+    "mfussenegger/nvim-dap",
     dependencies = {
-      "williamboman/mason.nvim",
-      "mfussenegger/nvim-dap",
+      {
+        "mfussenegger/nvim-dap-python",
+        config = function()
+          local mason_registry = require "mason-registry"
+          local debugpy_path = mason_registry.get_package("debugpy"):get_install_path()
+
+          require("dap-python").setup(debugpy_path .. "/venv/bin/python")
+        end,
+        dependencies = {
+          "williamboman/mason.nvim",
+          "mfussenegger/nvim-dap",
+        },
+      },
     },
   },
 }
