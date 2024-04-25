@@ -6,6 +6,7 @@ return {
     opts = {
       ensure_installed = {
         "clangd",
+        "css-lsp",
         "debugpy",
         "emmet-ls",
         "eslint-lsp",

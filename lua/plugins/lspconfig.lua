@@ -32,6 +32,10 @@ return {
         },
       }
 
+      lspconfig.cssls.setup {
+        capabilities = capabilities(),
+      }
+
       lspconfig.emmet_ls.setup {
         capabilities = capabilities(),
       }
