@@ -4,9 +4,6 @@ local map = vim.keymap.set
 
 vim.g.mapleader = " "
 
-map("i", "<c-e>", "<end>")
-map("i", "<c-a>", "<esc>^i")
-
 map("n", "[b", vim.cmd.bprevious)
 map("n", "]b", vim.cmd.bnext)
 map("n", "[t", vim.cmd.tabprevious)

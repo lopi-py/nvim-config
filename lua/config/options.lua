@@ -40,7 +40,6 @@ o.relativenumber = true
 o.scrolloff = 1
 o.shiftround = true
 o.shiftwidth = 2
-o.shortmess:append "sI"
 o.showcmd = false
 o.showmode = false
 o.sidescrolloff = 1

@@ -7,7 +7,9 @@ return {
       ensure_installed = {
         "clangd",
         "debugpy",
+        "emmet-ls",
         "eslint-lsp",
+        "html-lsp",
         "java-debug-adapter",
         "java-test",
         "jdtls",

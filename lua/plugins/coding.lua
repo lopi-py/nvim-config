@@ -1,5 +1,3 @@
-local util = require "util"
-
 return {
   {
     "garymjr/nvim-snippets",
@@ -7,7 +5,7 @@ return {
     opts = {
       friendly_snippets = true,
       search_paths = {
-        util.path_join(vim.fn.stdpath "config" --[[@as string]], "snippets"),
+        vim.fn.stdpath "config" .. "/snippets",
       },
     },
     dependencies = {

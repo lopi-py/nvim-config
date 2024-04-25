@@ -32,7 +32,15 @@ return {
         },
       }
 
+      lspconfig.emmet_ls.setup {
+        capabilities = capabilities(),
+      }
+
       lspconfig.eslint.setup {
+        capabilities = capabilities(),
+      }
+
+      lspconfig.html.setup {
         capabilities = capabilities(),
       }
 

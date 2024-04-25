@@ -34,19 +34,14 @@ return {
           ["<c-u>"] = cmp.mapping.scroll_docs(-5),
           ["<c-d>"] = cmp.mapping.scroll_docs(5),
           ["<c-space>"] = cmp.mapping.complete(),
-          ["<c-o>"] = {
-            i = cmp.mapping.complete(),
-            c = cmp.mapping.complete(),
-          },
-          ["<c-c>"] = {
-            i = cmp.mapping.close(),
-            c = cmp.mapping.close(),
-          },
+          ["<c-e>"] = cmp.mapping(function()
+            cmp.abort()
+          end, { "i", "s", "c" }),
         },
         sources = {
           { name = "nvim_lsp" },
           { name = "snippets" },
-          { name = "buffer" },
+          { name = "buffer", keyword_length = 5 },
         },
         formatting = {
           expandable_indicator = false,
@@ -57,11 +52,6 @@ return {
             end
 
             return item
-          end,
-        },
-        snippet = {
-          expand = function(args)
-            vim.snippet.expand(args.body)
           end,
         },
       }
