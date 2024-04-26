@@ -27,7 +27,7 @@ return {
         html = { "prettierd" },
       },
       formatters = {},
-      format_after_save = function()
+      format_on_save = function()
         if vim.g.disable_autoformat then
           return
         end

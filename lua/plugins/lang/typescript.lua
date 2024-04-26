@@ -1,7 +1,7 @@
 return {
   {
     "pmizio/typescript-tools.nvim",
-    ft = { "typescript", "typescriptreact", "javascript", "javascriptreact" },
+    event = { "LazyFile" },
     opts = function()
       local capabilities = require("lsp").capabilities
 

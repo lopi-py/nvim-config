@@ -13,7 +13,7 @@ end
 return {
   {
     "mfussenegger/nvim-jdtls",
-    ft = { "java" },
+    event = { "LazyFile" },
     opts = function()
       local project_name = vim.fs.basename(vim.uv.cwd())
       local capabilities = require("lsp").capabilities

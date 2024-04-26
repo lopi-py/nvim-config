@@ -1,7 +1,7 @@
 return {
   {
     "lopi-py/luau-lsp.nvim",
-    ft = { "luau" },
+    event = { "LazyFile" },
     opts = function()
       local capabilities = require("lsp").capabilities
 

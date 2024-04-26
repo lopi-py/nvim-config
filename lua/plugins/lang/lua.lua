@@ -1,7 +1,7 @@
 return {
   {
     "folke/neodev.nvim",
-    ft = { "lua" },
+    event = { "LazyFile" },
     opts = {
       library = {
         plugins = false,
