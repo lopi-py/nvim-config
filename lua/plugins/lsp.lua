@@ -4,9 +4,7 @@ return {
     keys = {
       { "<leader>tt", ":TroubleToggle<cr>", desc = "Troggle trouble" },
     },
-    cmd = { "TroubleToggle" },
     opts = {
-      height = 15,
       use_diagnostic_signs = true,
     },
     dependencies = {

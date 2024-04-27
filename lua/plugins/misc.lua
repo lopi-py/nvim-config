@@ -1,5 +1,4 @@
 local icons = require "config.icons"
-local util = require "util"
 
 return {
   {
