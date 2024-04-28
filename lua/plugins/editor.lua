@@ -5,7 +5,7 @@ return {
     "RRethy/vim-illuminate",
     event = { "LazyFile" },
     opts = {
-      delay = 250,
+      delay = vim.o.updatetime,
       modes_denylist = { "i", "ic", "ix", "t" },
       should_enable = util.is_file,
     },

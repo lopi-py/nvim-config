@@ -20,11 +20,12 @@ return {
         enabled = false,
       },
       virtual_text = {
-        enabled = false,
+        enabled = true,
         hl = "CursorLine",
       },
       autocmd = {
         enabled = true,
+        updatetime = vim.o.updatetime,
       },
     },
   },
