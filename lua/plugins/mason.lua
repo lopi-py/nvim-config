@@ -26,6 +26,9 @@ return {
         "yaml-language-server",
       },
     },
+    init = function()
+      vim.env.PATH = vim.fn.stdpath "data" .. "/mason/bin" .. ":" .. vim.env.PATH
+    end,
     config = function(_, opts)
       require("mason").setup()
       require("mason-tool-installer").setup {

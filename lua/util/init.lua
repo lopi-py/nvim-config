@@ -3,21 +3,6 @@ local config = require "config"
 local M = {}
 M.on_windows = vim.loop.os_uname().sysname == "Windows_NT"
 
----@param debounce number
----@param callback function
----@return function
-function M.debounced(debounce, callback)
-  local timer = vim.uv.new_timer()
-
-  return function(...)
-    local args = { ... }
-    timer:stop()
-    timer:start(debounce, 0, function()
-      callback(unpack(args))
-    end)
-  end
-end
-
 ---@param bufnr number
 ---@return boolean
 function M.is_file(bufnr)

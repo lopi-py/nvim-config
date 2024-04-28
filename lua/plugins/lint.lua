@@ -1,6 +1,3 @@
-local config = require "config"
-local util = require "util"
-
 return {
   {
     "mfussenegger/nvim-lint",
@@ -20,20 +17,24 @@ return {
         lint.linters[name] = linter
       end
 
-      vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile", "TextChanged", "InsertLeave" }, {
-        callback = util.debounced(
-          config.text_debounce,
-          vim.schedule_wrap(function(event)
-            if util.is_file(event.buf) then
-              vim.api.nvim_buf_call(event.buf, lint.try_lint)
-            end
+      local function debounce(ms, callback)
+        local timer = vim.uv.new_timer()
+        return function(...)
+          local args = { ... }
+          timer:stop()
+          timer:start(ms, 0, function()
+            vim.schedule_wrap(callback)(unpack(args))
           end)
-        ),
+        end
+      end
+
+      vim.api.nvim_create_autocmd({ "BufReadPost", "InsertLeave", "TextChanged" }, {
+        callback = debounce(100, function()
+          lint.try_lint()
+        end),
       })
 
-      if util.is_file(vim.api.nvim_get_current_buf()) then
-        lint.try_lint()
-      end
+      lint.try_lint()
     end,
   },
 }
