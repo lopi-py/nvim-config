@@ -64,18 +64,21 @@ end
 vim.diagnostic.config {
   signs = false,
   float = {
+    source = true,
     border = icons.border,
   },
 }
 
-vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-  border = icons.border,
-  silent = true,
-})
+---@diagnostic disable-next-line: duplicate-set-field
+vim.lsp.util.stylize_markdown = function(bufnr, contents, opts)
+  contents = vim.lsp.util._normalize_markdown(contents, {
+    width = vim.lsp.util._make_floating_popup_size(contents, opts),
+  })
+  vim.treesitter.start(bufnr, "markdown")
+  vim.api.nvim_buf_set_lines(bufnr, 0, -1, false, contents)
 
-vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
-  border = icons.border,
-})
+  return contents
+end
 
 local register_capability = vim.lsp.handlers["client/registerCapability"]
 vim.lsp.handlers["client/registerCapability"] = function(err, result, ctx)
