@@ -48,13 +48,8 @@ local function on_attach(client, bufnr)
     vim.diagnostic.goto_next { severity = vim.diagnostic.severity.ERROR }
   end)
 
-  if client.supports_method "textDocument/codeAction" then
-    map({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action)
-  end
-
-  if client.supports_method "textDocument/rename" then
-    map("n", "<leader>cr", vim.lsp.buf.rename)
-  end
+  map({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action)
+  map("n", "<leader>cr", vim.lsp.buf.rename)
 
   if client.supports_method "textDocument/inlayHint" then
     vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
