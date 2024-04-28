@@ -10,15 +10,15 @@ return {
           capabilities = capabilities(),
           default_settings = {
             ["rust-analyzer"] = {
-              -- cargo = {
-              -- allFeatures = true,
-              -- loadOutDirsFromCheck = true,
-              -- runBuildScripts = true,
-              -- },
+              cargo = {
+                allFeatures = true,
+                loadOutDirsFromCheck = true,
+                runBuildScripts = true,
+              },
               checkOnSave = {
-                -- allFeatures = true,
+                allFeatures = true,
                 command = "clippy",
-                -- extraArgs = { "--no-deps" },
+                extraArgs = { "--no-deps" },
               },
             },
           },
