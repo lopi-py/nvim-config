@@ -7,8 +7,8 @@ return {
     event = { "LazyFile" },
     opts = {
       linters_by_ft = {
-        lua = { "selene" },
-        luau = { "selene" },
+        -- lua = { "selene" },
+        -- luau = { "selene" },
       },
       linters = {},
     },

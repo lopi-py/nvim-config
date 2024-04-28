@@ -19,6 +19,7 @@ return {
         "prettierd",
         "pyright",
         "ruff-lsp",
+        "rust-analyzer",
         "selene",
         "stylua",
         "typescript-language-server",

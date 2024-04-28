@@ -45,7 +45,6 @@ return {
         },
         formatting = {
           expandable_indicator = false,
-          fields = { "abbr", "kind" },
           format = function(_, item)
             if icons.kind[item.kind] then
               item.kind = icons.kind[item.kind] .. item.kind
