@@ -1,5 +1,4 @@
 local config = require "config"
-local icons = require "config.icons"
 
 return {
   {
@@ -15,35 +14,27 @@ return {
       current_line_blame_opts = {
         delay = 500,
       },
-      preview_config = {
-        border = icons.border,
-      },
       max_file_length = config.max_file_length,
       on_attach = function(bufnr)
-        local gs = require "gitsigns"
+        local gitsigns = require "gitsigns"
 
-        local function map(mode, lhs, rhs, desc)
-          vim.keymap.set(mode, lhs, rhs, { buffer = bufnr, desc = desc })
+        local function map(mode, lhs, rhs)
+          vim.keymap.set(mode, lhs, rhs, { buffer = bufnr })
         end
 
-        map("n", "]h", gs.next_hunk, "Next hunk")
-        map("n", "[h", gs.prev_hunk, "Prev hunk")
-        map({ "n", "v" }, "<leader>hs", ":Gitsigns stage_hunk<cr>", "Stage hunk")
-        map({ "n", "v" }, "<leader>hr", ":Gitsigns reset_hunk<cr>", "Reset hunk")
-        map("n", "<leader>hS", gs.stage_buffer, "Stage buffer")
-        map("n", "<leader>hu", gs.undo_stage_hunk, "Undo stage hunk")
-        map("n", "<leader>hR", gs.reset_buffer, "Reset buffer")
-        map("n", "<leader>hp", gs.preview_hunk, "Preview hunk")
-        map("n", "<leader>hb", function()
-          gs.blame_line { full = true }
-        end, "Blame Line")
-        map("n", "<leader>tb", gs.toggle_current_line_blame, "Toggle current line blame")
-        map("n", "<leader>hd", gs.diffthis, "Diff this")
-        map("n", "<leader>td", gs.toggle_deleted, "Toggle deleted")
-        map("n", "<leader>hD", function()
-          gs.diffthis "~"
-        end, "Diff this ~")
-        map({ "o", "x" }, "ih", ":<c-u>Gitsigns select_hunk<cr>", "GitSigns select hunk")
+        map("n", "]h", gitsigns.next_hunk)
+        map("n", "[h", gitsigns.prev_hunk)
+        map("n", "<leader>hs", gitsigns.stage_hunk)
+        map("n", "<leader>hr", gitsigns.reset_hunk)
+        map("n", "<leader>hu", gitsigns.undo_stage_hunk)
+        map("n", "<leader>hS", gitsigns.stage_buffer)
+        map("n", "<leader>hR", gitsigns.reset_buffer)
+        map("n", "<leader>hp", gitsigns.preview_hunk)
+        map("n", "<leader>hb", gitsigns.blame_line)
+        map("n", "<leader>hd", gitsigns.diffthis)
+        map("n", "<leader>tb", gitsigns.toggle_current_line_blame)
+        map("n", "<leader>td", gitsigns.toggle_deleted)
+        map({ "o", "x" }, "ih", ":<c-u>Gitsigns select_hunk<cr>")
       end,
     },
   },

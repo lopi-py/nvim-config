@@ -3,48 +3,38 @@ local icons = require "config.icons"
 return {
   {
     "hrsh7th/nvim-cmp",
-    event = { "InsertEnter", "CmdlineEnter" },
+    event = { "InsertEnter" },
     config = function()
       local cmp = require "cmp"
 
       cmp.setup {
         mapping = {
-          ["<tab>"] = cmp.mapping(function(fallback)
-            if cmp.visible() then
-              cmp.select_next_item { behavior = cmp.SelectBehavior.Select }
-            elseif vim.snippet.jumpable(1) then
-              vim.snippet.jump(1)
-            else
-              fallback()
-            end
-          end, { "i", "s", "c" }),
-          ["<s-tab>"] = cmp.mapping(function(fallback)
-            if cmp.visible() then
-              cmp.select_prev_item { behavior = cmp.SelectBehavior.Select }
-            elseif vim.snippet.jumpable(-1) then
-              vim.snippet.jump(-1)
-            else
-              fallback()
-            end
-          end, { "i", "s", "c" }),
-          ["<cr>"] = {
-            i = cmp.mapping.confirm { behavior = cmp.ConfirmBehavior.Insert, select = true },
-            c = cmp.mapping.confirm(),
-          },
-          ["<c-u>"] = cmp.mapping.scroll_docs(-5),
-          ["<c-d>"] = cmp.mapping.scroll_docs(5),
+          ["<c-n>"] = cmp.mapping.select_next_item(),
+          ["<c-p>"] = cmp.mapping.select_prev_item(),
+          ["<c-b>"] = cmp.mapping.scroll_docs(-4),
+          ["<c-f>"] = cmp.mapping.scroll_docs(4),
+          ["<c-y>"] = cmp.mapping.confirm { select = true },
+          ["<c-e>"] = cmp.mapping.abort(),
           ["<c-space>"] = cmp.mapping.complete(),
-          ["<c-e>"] = cmp.mapping(function()
-            cmp.abort()
-          end, { "i", "s", "c" }),
+
+          ["<c-l>"] = cmp.mapping(function()
+            if vim.snippet.active { direction = 1 } then
+              vim.snippet.jump(1)
+            end
+          end, { "i", "s" }),
+
+          ["<c-h>"] = cmp.mapping(function()
+            if vim.snippet.active { direction = -1 } then
+              vim.snippet.jump(-1)
+            end
+          end, { "i", "s" }),
         },
         sources = {
           { name = "nvim_lsp" },
-          { name = "snippets" },
           { name = "buffer", keyword_length = 5 },
+          { name = "snippets" },
         },
         formatting = {
-          expandable_indicator = false,
           format = function(_, item)
             if icons.kind[item.kind] then
               item.kind = icons.kind[item.kind] .. item.kind
@@ -54,25 +44,10 @@ return {
           end,
         },
       }
-
-      cmp.setup.cmdline(":", {
-        sources = {
-          { name = "path" },
-          { name = "cmdline" },
-        },
-      })
-
-      cmp.setup.cmdline({ "/", "?" }, {
-        sources = {
-          { name = "buffer" },
-        },
-      })
     end,
     dependencies = {
       "hrsh7th/cmp-nvim-lsp",
       "hrsh7th/cmp-buffer",
-      "hrsh7th/cmp-cmdline",
-      "hrsh7th/cmp-path",
     },
   },
 }

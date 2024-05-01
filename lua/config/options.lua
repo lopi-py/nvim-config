@@ -35,7 +35,6 @@ vim.opt.listchars = {
   precedes = "«",
   trail = "•",
 }
-vim.opt.modeline = false
 vim.opt.mousemoveevent = true
 vim.opt.number = true
 vim.opt.relativenumber = true
@@ -57,6 +56,5 @@ vim.opt.termguicolors = true
 vim.opt.undofile = false
 vim.opt.updatetime = 300
 vim.opt.whichwrap:append "<,>,[,],h,l"
-vim.opt.wildmenu = false
 vim.opt.wrap = true
 vim.opt.writebackup = false

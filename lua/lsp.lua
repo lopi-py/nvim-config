@@ -26,30 +26,14 @@ end
 ---@param client vim.lsp.Client
 ---@param bufnr number
 local function on_attach(client, bufnr)
-  local function map(mode, lhs, rhs, desc)
-    vim.keymap.set(mode, lhs, rhs, { buffer = bufnr, desc = desc })
+  local function map(mode, lhs, rhs)
+    vim.keymap.set(mode, lhs, rhs, { buffer = bufnr })
   end
 
   map("n", "gd", vim.lsp.buf.definition)
   map("n", "gD", vim.lsp.buf.declaration)
   map("n", "gi", vim.lsp.buf.implementation)
-  map("n", "gr", vim.lsp.buf.references)
   map("n", "gy", vim.lsp.buf.type_definition)
-  map("n", "K", vim.lsp.buf.hover)
-  map("n", "<c-k>", vim.lsp.buf.signature_help)
-
-  map("n", "<leader>cd", vim.diagnostic.open_float)
-  map("n", "[d", vim.diagnostic.goto_prev)
-  map("n", "]d", vim.diagnostic.goto_next)
-  map("n", "[e", function()
-    vim.diagnostic.goto_prev { severity = vim.diagnostic.severity.ERROR }
-  end)
-  map("n", "]e", function()
-    vim.diagnostic.goto_next { severity = vim.diagnostic.severity.ERROR }
-  end)
-
-  map({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action)
-  map("n", "<leader>cr", vim.lsp.buf.rename)
 
   if client.supports_method "textDocument/inlayHint" then
     vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
@@ -65,7 +49,7 @@ vim.diagnostic.config {
   signs = false,
   float = {
     source = true,
-    border = icons.border,
+    border = "rounded",
   },
 }
 
