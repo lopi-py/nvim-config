@@ -11,7 +11,7 @@ return {
 
   {
     "kevinhwang91/nvim-ufo",
-    event = { "LazyFile" },
+    event = { "VeryLazy" },
     opts = {
       open_fold_hl_timeout = 0,
     },
@@ -22,7 +22,7 @@ return {
 
   {
     "lukas-reineke/indent-blankline.nvim",
-    event = { "LazyFile" },
+    event = { "VeryLazy" },
     main = "ibl",
     opts = {
       debounce = 50,

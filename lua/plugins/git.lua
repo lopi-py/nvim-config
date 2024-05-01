@@ -3,7 +3,7 @@ local config = require "config"
 return {
   {
     "lewis6991/gitsigns.nvim",
-    event = { "LazyFile" },
+    event = { "VeryLazy" },
     opts = {
       signs = {
         add = { text = "▍" },

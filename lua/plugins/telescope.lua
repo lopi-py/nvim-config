@@ -14,13 +14,11 @@ return {
       { "<leader><leader>", ":Telescope buffers<cr>" },
     },
     cmd = { "Telescope" },
-    config = function()
-      require("telescope").setup {
-        defaults = {
-          file_ignore_pattern = config.ignored_files,
-        },
-      }
-    end,
+    opts = {
+      defaults = {
+        file_ignore_pattern = config.ignored_files,
+      },
+    },
     dependencies = {
       "nvim-lua/plenary.nvim",
     },

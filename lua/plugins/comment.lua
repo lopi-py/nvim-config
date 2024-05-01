@@ -1,7 +1,7 @@
 return {
   {
     "echasnovski/mini.comment",
-    event = { "LazyFile" },
+    event = { "VeryLazy" },
     opts = {
       options = {
         custom_commentstring = function()

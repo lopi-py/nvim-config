@@ -1,6 +1,6 @@
 return {
   "folke/todo-comments.nvim",
-  event = { "LazyFile" },
+  event = { "VeryLazy" },
   keys = {
     { "]t", ":lua require('todo-comments').jump_next()<cr>" },
     { "[t", ":lua require('todo-comments').jump_prev()<cr>" },
