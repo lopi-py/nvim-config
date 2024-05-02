@@ -30,5 +30,8 @@ return {
         end
       end
     end,
+    dependencies = {
+      "nvim-tree/nvim-web-devicons",
+    },
   },
 }

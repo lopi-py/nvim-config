@@ -58,8 +58,8 @@ vim.lsp.util.stylize_markdown = function(bufnr, contents, opts)
   contents = vim.lsp.util._normalize_markdown(contents, {
     width = vim.lsp.util._make_floating_popup_size(contents, opts),
   })
-  vim.treesitter.start(bufnr, "markdown")
   vim.api.nvim_buf_set_lines(bufnr, 0, -1, false, contents)
+  vim.treesitter.start(bufnr, "markdown")
 
   return contents
 end
