@@ -8,14 +8,19 @@ return {
           return require("ts_context_commentstring.internal").calculate_commentstring()
             or vim.bo.commentstring
         end,
+        ignore_blank_line = true,
       },
     },
-  },
-
-  {
-    "JoosepAlviste/nvim-ts-context-commentstring",
-    opts = {
-      enable_autocmd = false,
+    dependencies = {
+      {
+        "JoosepAlviste/nvim-ts-context-commentstring",
+        opts = {
+          enable_autocmd = false,
+        },
+        init = function()
+          vim.g.skip_ts_context_commentstring_module = true
+        end,
+      },
     },
   },
 }
