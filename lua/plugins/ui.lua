@@ -25,7 +25,6 @@ return {
     event = { "VeryLazy" },
     main = "ibl",
     opts = {
-      debounce = 50,
       indent = {
         char = "▏",
         tab_char = "▏",
