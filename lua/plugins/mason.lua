@@ -26,10 +26,12 @@ return {
       },
     },
     init = function()
-      vim.env.PATH = vim.fn.stdpath "data" .. "/mason/bin" .. ":" .. vim.env.PATH
+      vim.env.PATH = vim.fn.stdpath "data" .. "/mason/bin:" .. vim.env.PATH
     end,
     config = function(_, opts)
-      require("mason").setup()
+      require("mason").setup {
+        PATH = "skip",
+      }
       require("mason-tool-installer").setup {
         ensure_installed = opts.ensure_installed,
       }
