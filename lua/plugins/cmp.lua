@@ -4,14 +4,14 @@ return {
   {
     "hrsh7th/nvim-cmp",
     event = { "InsertEnter" },
-    config = function()
+    opts = function()
       local cmp = require "cmp"
 
-      cmp.setup {
+      return {
         mapping = {
           ["<c-n>"] = cmp.mapping.select_next_item(),
           ["<c-p>"] = cmp.mapping.select_prev_item(),
-          ["<c-b>"] = cmp.mapping.scroll_docs(-4),
+          ["<c-d>"] = cmp.mapping.scroll_docs(-4),
           ["<c-f>"] = cmp.mapping.scroll_docs(4),
           ["<c-y>"] = cmp.mapping.confirm { select = true },
           ["<c-e>"] = cmp.mapping.abort(),
@@ -45,9 +45,26 @@ return {
         },
       }
     end,
+    config = function(_, opts)
+      require("cmp").setup(opts)
+
+      vim.api.nvim_create_autocmd("InsertLeave", {
+        callback = vim.snippet.exit,
+      })
+    end,
     dependencies = {
       "hrsh7th/cmp-nvim-lsp",
       "hrsh7th/cmp-buffer",
+
+      {
+        "garymjr/nvim-snippets",
+        opts = {
+          friendly_snippets = true,
+        },
+        dependencies = {
+          "rafamadriz/friendly-snippets",
+        },
+      },
     },
   },
 }

@@ -1,19 +1,5 @@
 return {
   {
-    "garymjr/nvim-snippets",
-    event = { "InsertEnter" },
-    opts = {
-      friendly_snippets = true,
-      search_paths = {
-        vim.fn.stdpath "config" .. "/snippets",
-      },
-    },
-    dependencies = {
-      "rafamadriz/friendly-snippets",
-    },
-  },
-
-  {
     "windwp/nvim-autopairs",
     event = { "InsertEnter" },
     opts = {},
