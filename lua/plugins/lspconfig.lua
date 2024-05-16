@@ -36,10 +36,6 @@ return {
         capabilities = capabilities(),
       }
 
-      lspconfig.emmet_ls.setup {
-        capabilities = capabilities(),
-      }
-
       lspconfig.eslint.setup {
         capabilities = capabilities(),
       }

@@ -7,7 +7,6 @@ return {
         "clangd",
         "css-lsp",
         "debugpy",
-        "emmet-ls",
         "eslint-lsp",
         "html-lsp",
         "java-debug-adapter",
