@@ -49,7 +49,7 @@ return {
       require("cmp").setup(opts)
 
       vim.api.nvim_create_autocmd("InsertLeave", {
-        callback = vim.snippet.exit,
+        callback = vim.snippet.stop,
       })
     end,
     dependencies = {
