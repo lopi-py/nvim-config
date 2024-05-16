@@ -1,15 +1,5 @@
 return {
   {
-    "j-hui/fidget.nvim",
-    event = { "LspAttach" },
-    opts = {
-      progress = {
-        suppress_on_insert = true,
-      },
-    },
-  },
-
-  {
     "kevinhwang91/nvim-ufo",
     event = { "VeryLazy" },
     opts = {

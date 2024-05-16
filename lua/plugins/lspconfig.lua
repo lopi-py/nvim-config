@@ -73,4 +73,32 @@ return {
       "b0o/SchemaStore.nvim",
     },
   },
+
+  {
+    "j-hui/fidget.nvim",
+    event = { "LspAttach" },
+    opts = {
+      progress = {
+        suppress_on_insert = true,
+      },
+    },
+  },
+
+  {
+    "kosayoda/nvim-lightbulb",
+    event = { "LspAttach" },
+    opts = {
+      sign = {
+        enabled = false,
+      },
+      virtual_text = {
+        enabled = true,
+        hl = "CursorLine",
+      },
+      autocmd = {
+        enabled = true,
+        updatetime = vim.o.updatetime,
+      },
+    },
+  },
 }
