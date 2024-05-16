@@ -24,7 +24,6 @@ return {
         typescriptreact = { "prettierd" },
         javascript = { "prettierd" },
         javascriptreact = { "prettierd" },
-        html = { "prettierd" },
       },
       formatters = {},
       format_on_save = function()
