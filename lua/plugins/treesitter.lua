@@ -37,10 +37,6 @@ return {
         enable = true,
         disable = disable,
       },
-      indent = {
-        enable = true,
-        disable = disable,
-      },
       incremental_selection = {
         enable = true,
         disable = disable,
