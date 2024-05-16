@@ -16,11 +16,7 @@ function M.capabilities(overrides)
     lineFoldingOnly = true,
   }
 
-  if overrides then
-    return vim.tbl_deep_extend("force", capabilities, overrides)
-  else
-    return capabilities
-  end
+  return vim.tbl_deep_extend("force", capabilities, overrides or {})
 end
 
 ---@param client vim.lsp.Client
@@ -34,6 +30,10 @@ local function on_attach(client, bufnr)
   map("n", "gD", vim.lsp.buf.declaration)
   map("n", "gi", vim.lsp.buf.implementation)
   map("n", "gy", vim.lsp.buf.type_definition)
+  map("n", "gr", vim.lsp.buf.references)
+  map("n", "<leader>rn", vim.lsp.buf.rename)
+  map({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action)
+  map("i", "<c-s>", vim.lsp.buf.signature_help)
 
   if client.supports_method "textDocument/inlayHint" then
     vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
