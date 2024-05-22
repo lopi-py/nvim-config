@@ -16,4 +16,8 @@ map("n", "<leader>br", vim.cmd.edit)
 map("n", "<leader>bx", vim.cmd.bdelete)
 map("n", "<bs>", ":e #<cr>")
 
+map("n", "<leader>ti", function()
+  vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled {})
+end)
+
 map("t", "<c-w>", "<c-\\><c-n><c-w>", { remap = true })

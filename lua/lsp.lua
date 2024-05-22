@@ -34,10 +34,6 @@ local function on_attach(client, bufnr)
   map("n", "<leader>rn", vim.lsp.buf.rename)
   map({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action)
   map("i", "<c-s>", vim.lsp.buf.signature_help)
-
-  if client.supports_method "textDocument/inlayHint" then
-    vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
-  end
 end
 
 for name, icon in pairs(icons.diagnostics) do
@@ -52,6 +48,8 @@ vim.diagnostic.config {
     border = "rounded",
   },
 }
+
+vim.lsp.inlay_hint.enable(true)
 
 ---@diagnostic disable-next-line: duplicate-set-field
 vim.lsp.util.stylize_markdown = function(bufnr, contents, opts)
