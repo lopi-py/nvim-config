@@ -4,12 +4,6 @@ return {
     event = { "BufWritePre" },
     keys = {
       {
-        "<leader>tf",
-        function()
-          vim.g.disable_autoformat = not vim.g.disable_autoformat
-        end,
-      },
-      {
         "=",
         function()
           require("conform").format { async = true, lsp_fallback = true }

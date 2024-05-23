@@ -36,8 +36,8 @@ return {
         map("n", "<leader>hp", gitsigns.preview_hunk)
         map("n", "<leader>hb", gitsigns.blame_line)
         map("n", "<leader>hd", gitsigns.diffthis)
-        map("n", "<leader>tb", gitsigns.toggle_current_line_blame)
-        map("n", "<leader>td", gitsigns.toggle_deleted)
+        map("n", "<leader>ub", gitsigns.toggle_current_line_blame)
+        map("n", "<leader>uD", gitsigns.toggle_deleted)
         map({ "o", "x" }, "ih", ":<c-u>Gitsigns select_hunk<cr>")
       end,
     },

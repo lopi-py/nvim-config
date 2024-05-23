@@ -16,8 +16,20 @@ map("n", "<leader>br", vim.cmd.edit)
 map("n", "<leader>bx", vim.cmd.bdelete)
 map("n", "<bs>", ":e #<cr>")
 
-map("n", "<leader>ti", function()
+map("t", "<c-w>", "<c-\\><c-n><c-w>", { remap = true })
+
+map("n", "<leader>uh", function()
   vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled {})
 end)
-
-map("t", "<c-w>", "<c-\\><c-n><c-w>", { remap = true })
+map("n", "<leader>ud", function()
+  vim.diagnostic.enable(not vim.diagnostic.is_enabled())
+end)
+map("n", "<leader>ui", function()
+  vim.cmd.IBLToggle()
+end)
+map("n", "<leader>uw", function()
+  vim.o.wrap = not vim.o.wrap
+end)
+map("n", "<leader>uf", function()
+  vim.g.disable_autoformat = not vim.g.disable_autoformat
+end)
