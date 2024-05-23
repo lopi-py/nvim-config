@@ -10,16 +10,6 @@ return {
   },
 
   {
-    "rose-pine/neovim",
-    name = "rose-pine",
-    opts = {
-      styles = {
-        italic = false,
-      },
-    },
-  },
-
-  {
     "catppuccin/nvim",
     name = "catppuccin",
     opts = {
@@ -27,11 +17,8 @@ return {
       integrations = {
         fidget = true,
         mason = true,
-        neotree = true,
         neotest = true,
         notify = true,
-        window_picker = true,
-        octo = true,
         lsp_trouble = true,
         illuminate = true,
       },
@@ -45,12 +32,9 @@ return {
   },
 
   {
-    "olimorris/onedarkpro.nvim",
-    opts = {},
-  },
-
-  {
-    "EdenEast/nightfox.nvim",
-    opts = {},
+    "rebelot/kanagawa.nvim",
+    opts = {
+      compile = true,
+    },
   },
 }
