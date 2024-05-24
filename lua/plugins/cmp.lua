@@ -45,13 +45,6 @@ return {
         },
       }
     end,
-    config = function(_, opts)
-      require("cmp").setup(opts)
-
-      vim.api.nvim_create_autocmd("InsertLeave", {
-        callback = vim.snippet.stop,
-      })
-    end,
     dependencies = {
       "hrsh7th/cmp-nvim-lsp",
       "hrsh7th/cmp-buffer",

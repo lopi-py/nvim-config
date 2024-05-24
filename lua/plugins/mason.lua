@@ -17,7 +17,7 @@ return {
         "luau-lsp",
         "prettierd",
         "pyright",
-        "ruff-lsp",
+        "ruff",
         "rust-analyzer",
         "selene",
         "stylua",
