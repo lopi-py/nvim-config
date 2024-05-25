@@ -10,12 +10,4 @@ return {
     event = { "VeryLazy" },
     opts = {},
   },
-
-  {
-    "max397574/better-escape.nvim",
-    event = { "InsertEnter" },
-    opts = {
-      mapping = { "jj", "jk" },
-    },
-  },
 }
