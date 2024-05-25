@@ -5,7 +5,7 @@ return {
     "rcarriga/nvim-notify",
     keys = {
       {
-        "<leader>d",
+        "<leader>un",
         function()
           require("notify").dismiss { silent = true, pending = true }
         end,
