@@ -53,6 +53,17 @@ return {
         },
       }
 
+      lspconfig.lua_ls.setup {
+        capabilities = capabilities(),
+        settings = {
+          Lua = {
+            workspace = {
+              checkThirdParty = false,
+            },
+          },
+        },
+      }
+
       lspconfig.pyright.setup {
         capabilities = capabilities(),
       }

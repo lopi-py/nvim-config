@@ -1,33 +1,26 @@
 return {
   {
-    "folke/neodev.nvim",
+    "folke/lazydev.nvim",
     event = { "LazyFile" },
     opts = {
       library = {
-        plugins = false,
+        "luvit-meta/library",
       },
-      override = function(root_dir, library)
-        if root_dir:find "nvim" or root_dir:find "neovim" then
-          library.enabled = true
-        end
+      enabled = function(root_dir)
+        return root_dir:find "nvim" or root_dir:find "neovim"
       end,
     },
-    config = function(_, opts)
-      require("neodev").setup(opts)
+  },
 
-      local lspconfig = require "lspconfig"
-      local capabilities = require("lsp").capabilities
+  { "Bilal2453/luvit-meta" },
 
-      lspconfig.lua_ls.setup {
-        capabilities = capabilities(),
-        settings = {
-          Lua = {
-            workspace = {
-              checkThirdParty = false,
-            },
-          },
-        },
-      }
+  {
+    "hrsh7th/nvim-cmp",
+    opts = function(_, opts)
+      table.insert(opts.sources, {
+        name = "lazydev",
+        group_index = 0,
+      })
     end,
   },
 }
