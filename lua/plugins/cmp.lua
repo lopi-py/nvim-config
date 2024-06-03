@@ -29,7 +29,7 @@ return {
             end
           end, { "i", "s" }),
         },
-        sources = {
+        sources = cmp.config.sources {
           { name = "nvim_lsp" },
           { name = "buffer", keyword_length = 5 },
           { name = "snippets" },
