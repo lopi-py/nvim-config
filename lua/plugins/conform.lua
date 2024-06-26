@@ -6,7 +6,7 @@ return {
       {
         "=",
         function()
-          require("conform").format { async = true, lsp_fallback = true }
+          require("conform").format { async = true, lsp_format = "fallback" }
         end,
       },
     },
@@ -24,7 +24,7 @@ return {
         if vim.g.disable_autoformat then
           return
         end
-        return { timeout_ms = 500, lsp_fallback = true }
+        return { timeout_ms = 500, lsp_format = "fallback" }
       end,
       notify_on_error = false,
     },
