@@ -27,6 +27,7 @@ return {
         "markdown_inline",
         "python",
         "query",
+        "toml",
         "tsx",
         "typescript",
         "vim",
