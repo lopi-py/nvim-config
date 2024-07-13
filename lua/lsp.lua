@@ -16,6 +16,8 @@ function M.capabilities(overrides)
     lineFoldingOnly = true,
   }
 
+  capabilities.workspace.didChangeWatchedFiles.dynamicRegistration = true
+
   return vim.tbl_deep_extend("force", capabilities, overrides or {})
 end
 
