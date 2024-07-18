@@ -48,10 +48,6 @@ return {
           node_decremental = "<s-tab>",
         },
       },
-      autotag = {
-        enable = true,
-        disable = disable,
-      },
       endwise = {
         enable = true,
         disable = disable,
@@ -68,7 +64,6 @@ return {
     dependencies = {
       "LiadOz/nvim-dap-repl-highlights",
       "RRethy/nvim-treesitter-endwise",
-      "windwp/nvim-ts-autotag",
     },
   },
 }
