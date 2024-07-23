@@ -1,69 +1,47 @@
-local util = require "util"
-
-local function disable(_, bufnr)
-  return not util.within_fsize(bufnr)
-end
-
 return {
-  {
-    "nvim-treesitter/nvim-treesitter",
-    build = ":TSUpdate",
-    event = { "LazyFile" },
-    opts = {
-      ensure_installed = {
-        "c",
-        "cpp",
-        "css",
-        "dap_repl",
-        "html",
-        "java",
-        "javascript",
-        "json",
-        "json5",
-        "jsonc",
-        "lua",
-        "luau",
-        "markdown",
-        "markdown_inline",
-        "python",
-        "query",
-        "toml",
-        "tsx",
-        "typescript",
-        "vim",
-        "vimdoc",
-        "yaml",
-      },
-      highlight = {
-        enable = true,
-        disable = disable,
-      },
-      incremental_selection = {
-        enable = true,
-        disable = disable,
-        keymaps = {
-          init_selection = "<cr>",
-          scope_incremental = "<cr>",
-          node_incremental = "<tab>",
-          node_decremental = "<s-tab>",
-        },
-      },
-      endwise = {
-        enable = true,
-        disable = disable,
-      },
+  "nvim-treesitter/nvim-treesitter",
+  build = ":TSUpdate",
+  event = { "LazyFile" },
+  main = "nvim-treesitter.configs",
+  opts = {
+    ensure_installed = {
+      "c",
+      "cpp",
+      "css",
+      "html",
+      "java",
+      "javascript",
+      "json",
+      "json5",
+      "jsonc",
+      "lua",
+      "luau",
+      "markdown",
+      "markdown_inline",
+      "python",
+      "query",
+      "toml",
+      "tsx",
+      "typescript",
+      "vim",
+      "vimdoc",
+      "yaml",
     },
-    init = function(plugin)
-      require("lazy.core.loader").add_to_rtp(plugin)
-      require "nvim-treesitter.query_predicates"
-    end,
-    config = function(_, opts)
-      require("nvim-dap-repl-highlights").setup()
-      require("nvim-treesitter.configs").setup(opts)
-    end,
-    dependencies = {
-      "LiadOz/nvim-dap-repl-highlights",
-      "RRethy/nvim-treesitter-endwise",
+    highlight = {
+      enable = true,
+    },
+    incremental_selection = {
+      enable = true,
+      keymaps = {
+        init_selection = "<cr>",
+        scope_incremental = "<cr>",
+        node_incremental = "<tab>",
+        node_decremental = "<s-tab>",
+      },
     },
   },
+  init = function(plugin)
+    require("lazy.core.loader").add_to_rtp(plugin)
+    require "nvim-treesitter.query_predicates"
+  end,
 }

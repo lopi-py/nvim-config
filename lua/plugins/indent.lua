@@ -1,5 +1,5 @@
 return {
-  "p00f/clangd_extensions.nvim",
+  "darazaki/indent-o-matic",
   event = { "LazyFile" },
   opts = {},
 }

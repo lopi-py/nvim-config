@@ -1,5 +1,3 @@
-local icons = require "config.icons"
-
 local M = {}
 
 ---@param overrides lsp.ClientCapabilities?
@@ -36,11 +34,24 @@ local function on_attach(client, bufnr)
   map("n", "<leader>rn", vim.lsp.buf.rename)
   map({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action)
   map("i", "<c-s>", vim.lsp.buf.signature_help)
-end
 
-for name, icon in pairs(icons.diagnostics) do
-  name = "DiagnosticSign" .. name:sub(1, 1):upper() .. name:sub(2)
-  vim.fn.sign_define(name, { text = icon, texthl = name })
+  if client.supports_method "textDocument/documentHighlight" then
+    local group = vim.api.nvim_create_augroup("lsp/documentHighlight", {})
+    vim.api.nvim_create_autocmd({ "CursorHold", "InsertLeave" }, {
+      group = group,
+      buffer = bufnr,
+      callback = vim.lsp.buf.document_highlight,
+    })
+    vim.api.nvim_create_autocmd({ "CursorMoved", "InsertEnter", "BufLeave" }, {
+      group = group,
+      buffer = bufnr,
+      callback = vim.lsp.buf.clear_references,
+    })
+  end
+
+  if client.supports_method "textDocument/inlayHint" then
+    vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
+  end
 end
 
 vim.diagnostic.config {
@@ -50,8 +61,6 @@ vim.diagnostic.config {
     border = "rounded",
   },
 }
-
-vim.lsp.inlay_hint.enable(true)
 
 ---@diagnostic disable-next-line: duplicate-set-field
 vim.lsp.util.stylize_markdown = function(bufnr, contents, opts)
