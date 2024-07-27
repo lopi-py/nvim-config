@@ -21,7 +21,6 @@ o.fillchars = {
 o.foldcolumn = "1"
 o.foldlevel = 99
 o.foldlevelstart = 99
-o.guifont = "JetBrainsMono Nerd Font:h10"
 o.history = 50
 o.hlsearch = true
 o.ignorecase = true

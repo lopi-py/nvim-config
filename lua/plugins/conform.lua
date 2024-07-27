@@ -1,17 +1,7 @@
 return {
   "stevearc/conform.nvim",
   event = "BufWritePre",
-  keys = {
-    {
-      "=",
-      function()
-        require("conform").format { async = true }
-      end,
-    },
-  },
-
   opts = {
-    default_format_opts = { lsp_format = "fallback" },
     formatters_by_ft = {
       lua = { "stylua" },
       luau = { "stylua" },
@@ -20,13 +10,8 @@ return {
       javascript = { "prettierd" },
       javascriptreact = { "prettierd" },
     },
-    formatters = {
-      stylua = {
-        condition = function(_, ctx)
-          return vim.fs.root(ctx.buf, "stylua.toml")
-        end,
-      },
-    },
+    formatters = {},
+    default_format_opts = { lsp_format = "fallback" },
     format_on_save = function()
       if vim.g.disable_autoformat then
         return
