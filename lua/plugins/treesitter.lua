@@ -2,7 +2,7 @@ return {
   "nvim-treesitter/nvim-treesitter",
   branch = "main",
   build = ":TSUpdate",
-  event = "User LazyFile",
+  event = "User FilePost",
   opts = {
     ensure_install = {
       "c",
