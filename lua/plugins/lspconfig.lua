@@ -2,7 +2,7 @@ local function get_json_schemas()
   local schemas = require("schemastore").json.schemas()
 
   table.insert(schemas, {
-    fileMatch = { "*.project.json", "*.project.jsonc" },
+    fileMatch = { "*.project.json" },
     url = "https://raw.githubusercontent.com/rojo-rbx/vscode-rojo/master/schemas/project.template.schema.json",
   })
 
@@ -48,6 +48,7 @@ return {
       settings = {
         json = {
           schemas = get_json_schemas(),
+          validate = { enable = true },
         },
       },
     }

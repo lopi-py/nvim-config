@@ -89,13 +89,13 @@ vim.lsp.handlers["client/registerCapability"] = function(err, result, ctx)
 end
 
 vim.api.nvim_create_autocmd("LspAttach", {
-  callback = function(args)
-    local client = vim.lsp.get_client_by_id(args.data.client_id)
+  callback = function(event)
+    local client = vim.lsp.get_client_by_id(event.data.client_id)
     if not client then
       return
     end
 
-    on_attach(client, args.buf)
+    on_attach(client, event.buf)
   end,
 })
 
