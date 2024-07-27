@@ -1,40 +1,44 @@
 return {
   {
-    "folke/tokyonight.nvim",
+    "ellisonleao/gruvbox.nvim",
     opts = {
-      lualine_bold = true,
-      styles = {
-        keywords = { bold = true, italic = false },
+      italic = {
+        strings = false,
+        emphasis = false,
+        comments = false,
+        operators = false,
+        folds = false,
       },
-    },
-  },
-
-  {
-    "catppuccin/nvim",
-    name = "catppuccin",
-    opts = {
-      flavour = "mocha",
-      integrations = {
-        fidget = true,
-        mason = true,
-        neotest = true,
-        notify = true,
-        lsp_trouble = true,
-        illuminate = true,
+      overrides = {
+        CursorLineNr = { bg = "none" },
+        SignColumn = { link = "LineNr" },
+        FoldColumn = { link = "LineNr" },
+        FloatBorder = { fg = "#504945" },
+        NormalFloat = { bg = "none" },
+        LspReferenceText = { link = "Visual" },
+        LspReferenceRead = { link = "Visual" },
+        LspReferenceWrite = { link = "Visual" },
+        TelescopeResultsTitle = { link = "GruvboxGray" },
+        TelescopeResultsBorder = { fg = "#504945" },
+        TelescopePromptTitle = { link = "GruvboxGray" },
+        TelescopePromptBorder = { fg = "#504945" },
+        TelescopePreviewTitle = { link = "GruvboxGray" },
+        TelescopePreviewBorder = { fg = "#504945" },
+        ["@lsp.type.variable"] = {},
+        ["@lsp.type.selfKeyword"] = { link = "@variable.builtin" },
+        ["@lsp.typemod.class.defaultLibrary"] = { link = "@type.builtin" },
+        ["@lsp.typemod.enum.defaultLibrary"] = { link = "@type.builtin" },
+        ["@lsp.typemod.enumMember.defaultLibrary"] = { link = "@constant.builtin" },
+        ["@lsp.typemod.function.defaultLibrary"] = { link = "@function.builtin" },
+        ["@lsp.typemod.keyword.async"] = { link = "@keyword.coroutine" },
+        ["@lsp.typemod.macro.defaultLibrary"] = { link = "@function.builtin" },
+        ["@lsp.typemod.method.defaultLibrary"] = { link = "@function.builtin" },
+        ["@lsp.typemod.operator.injected"] = { link = "@operator" },
+        ["@lsp.typemod.string.injected"] = { link = "@string" },
+        ["@lsp.typemod.type.defaultLibrary"] = { link = "@type.builtin" },
+        ["@lsp.typemod.variable.defaultLibrary"] = { link = "@variable.builtin" },
+        ["@lsp.typemod.variable.injected"] = { link = "@variable" },
       },
-      styles = {
-        conditionals = { "bold" },
-        loops = { "bold" },
-        keywords = { "bold" },
-        booleans = { "bold" },
-      },
-    },
-  },
-
-  {
-    "rebelot/kanagawa.nvim",
-    opts = {
-      compile = true,
     },
   },
 }
