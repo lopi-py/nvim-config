@@ -9,6 +9,7 @@ return {
       end,
     },
   },
+
   opts = {
     default_format_opts = { lsp_format = "fallback" },
     formatters_by_ft = {
@@ -19,7 +20,13 @@ return {
       javascript = { "prettierd" },
       javascriptreact = { "prettierd" },
     },
-    formatters = {},
+    formatters = {
+      stylua = {
+        condition = function(_, ctx)
+          return vim.fs.root(ctx.buf, "stylua.toml")
+        end,
+      },
+    },
     format_on_save = function()
       if vim.g.disable_autoformat then
         return

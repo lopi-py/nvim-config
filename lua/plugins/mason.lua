@@ -13,6 +13,7 @@ return {
       "jdtls",
       "json-lsp",
       "lua-language-server",
+      "luacheck",
       "luau-lsp",
       "prettierd",
       "pyright",
