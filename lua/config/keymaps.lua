@@ -2,20 +2,13 @@ require("util").patch_keymap_set()
 
 local map = vim.keymap.set
 
-map({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>")
-
+map({ "i", "n" }, "<esc>", "<cmd>nohlsearch<cr><esc>")
 map("n", "<leader>w", vim.cmd.write)
-
+map("n", "<bs>", ":e #<cr>")
 map("n", "<tab>", vim.cmd.tabnext)
 map("n", "<s-tab>", vim.cmd.tabprevious)
-
 map("n", "<leader>tx", vim.cmd.tabclose)
-map("n", "<leader>bp", vim.cmd.bprevious)
-map("n", "<leader>bn", vim.cmd.bnext)
-map("n", "<leader>br", vim.cmd.edit)
 map("n", "<leader>bx", vim.cmd.bdelete)
-map("n", "<bs>", ":e #<cr>")
-
 map("t", "<c-w>", "<c-\\><c-n><c-w>", { remap = true })
 
 map("n", "<leader>uh", function()
@@ -29,4 +22,15 @@ map("n", "<leader>uw", function()
 end)
 map("n", "<leader>uf", function()
   vim.g.disable_autoformat = not vim.g.disable_autoformat
+end)
+
+map({ "i", "s" }, "<c-j>", function()
+  if vim.snippet.active { direction = 1 } then
+    vim.snippet.jump(1)
+  end
+end)
+map({ "i", "s" }, "<c-k>", function()
+  if vim.snippet.active { direction = -1 } then
+    vim.snippet.jump(-1)
+  end
 end)
