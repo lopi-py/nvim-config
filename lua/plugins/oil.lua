@@ -13,11 +13,10 @@ return {
     },
   },
   opts = {
-    default_file_explorer = true,
     view_options = {
       show_hidden = true,
       is_always_hidden = function(name)
-        return name == ".." or vim.list_contains(config.ignored_files, name)
+        return name == ".." or vim.list_contains(config.ignore_pattern, name)
       end,
     },
   },

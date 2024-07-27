@@ -15,7 +15,7 @@ return {
   cmd = "Telescope",
   opts = {
     defaults = {
-      file_ignore_pattern = config.ignored_files,
+      file_ignore_pattern = config.ignore_pattern,
     },
   },
   dependencies = {

@@ -1,12 +1,6 @@
-local icons = require "config.icons"
-
 return {
   "stevearc/dressing.nvim",
-  opts = {
-    input = {
-      border = icons.border,
-    },
-  },
+  opts = {},
   init = function()
     ---@diagnostic disable-next-line: duplicate-set-field
     vim.ui.select = function(...)

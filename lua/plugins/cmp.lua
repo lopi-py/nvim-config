@@ -1,4 +1,4 @@
-local icons = require "config.icons"
+local config = require "config"
 
 return {
   "hrsh7th/nvim-cmp",
@@ -23,8 +23,8 @@ return {
       }),
       formatting = {
         format = function(_, item)
-          if icons.kind[item.kind] then
-            item.kind = icons.kind[item.kind] .. item.kind
+          if config.icons.kind[item.kind] then
+            item.kind = config.icons.kind[item.kind] .. item.kind
           end
           return item
         end,

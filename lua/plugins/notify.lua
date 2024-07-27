@@ -1,5 +1,3 @@
-local icons = require "config.icons"
-
 return {
   "rcarriga/nvim-notify",
   keys = {
@@ -14,13 +12,6 @@ return {
   opts = {
     background_colour = "#000000",
     stages = "slide",
-    icons = {
-      ERROR = icons.diagnostics.error,
-      WARN = icons.diagnostics.warn,
-      INFO = icons.diagnostics.info,
-      TRACE = icons.trace,
-      DEBUG = icons.debug,
-    },
   },
   init = function()
     ---@diagnostic disable-next-line: duplicate-set-field

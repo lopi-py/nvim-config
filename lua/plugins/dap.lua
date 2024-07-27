@@ -26,9 +26,9 @@ return {
       local signs = {
         Breakpoint = { "", "DiagnosticError" },
         BreakpointCondition = { "", "DiagnosticError" },
-        LogPoint = { "⁋" },
-        Stopped = { "", "DiagnosticInfo" },
         BreakpointRejected = { "", "DiagnosticError" },
+        Stopped = { "", "DiagnosticInfo" },
+        LogPoint = { "⁋" },
       }
 
       for name, sign in pairs(signs) do

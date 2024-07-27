@@ -1,9 +1,11 @@
-local icons = require "config.icons"
+local config = require "config"
 
 return {
   "nvim-lualine/lualine.nvim",
   event = "VeryLazy",
   opts = function()
+    require("lualine_require").require = require
+
     local Block = {
       function()
         return " "
@@ -13,17 +15,16 @@ return {
 
     local Branch = {
       "b:gitsigns_head",
-      icon = icons.git.branch,
       color = { gui = "bold" },
-      padding = { left = 2, right = 1 },
+      padding = { left = 1, right = 1 },
     }
 
     local Diff = {
       "diff",
       symbols = {
-        added = icons.diff.added .. " ",
-        modified = icons.diff.modified .. " ",
-        removed = icons.diff.removed .. " ",
+        added = config.icons.git.added .. " ",
+        modified = config.icons.git.modified .. " ",
+        removed = config.icons.git.removed .. " ",
       },
       source = function()
         local status = vim.b.gitsigns_status_dict or {}
@@ -35,17 +36,10 @@ return {
       end,
     }
 
-    local Filename = {
-      "filename",
-      symbols = {
-        readonly = icons.lock,
-      },
-    }
-
     local Diagnostics = {
       "diagnostics",
       sources = { "nvim_diagnostic" },
-      symbols = icons.diagnostics,
+      symbols = config.icons.diagnostics,
     }
 
     return {
@@ -57,7 +51,7 @@ return {
       sections = {
         lualine_a = { Block },
         lualine_b = { Branch },
-        lualine_c = { Filename, Diff },
+        lualine_c = { "filename", Diff },
         lualine_x = { Diagnostics, "encoding", "filetype" },
         lualine_y = { "location", "progress" },
         lualine_z = { Block },
