@@ -3,10 +3,8 @@ local g = vim.g
 
 o.autoindent = true
 o.backspace = { "indent", "eol", "start" }
-o.colorcolumn = "+0"
 o.conceallevel = 0
 o.confirm = true
-o.cursorline = true
 o.errorbells = false
 o.expandtab = true
 o.exrc = true
