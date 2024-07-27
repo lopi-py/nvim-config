@@ -5,6 +5,14 @@ return {
   keys = {
     { "<a-t>", ":ToggleTerm<cr>", desc = "toggle terminal" },
   },
+  opts = {
+    open_mapping = "<a-t>",
+    direction = "horizontal",
+    size = 20,
+    winbar = {
+      enabled = true,
+    },
+  },
   init = function()
     if util.on_windows then
       vim.o.shell = "pwsh"
@@ -23,12 +31,4 @@ return {
       end,
     })
   end,
-  opts = {
-    open_mapping = "<a-t>",
-    direction = "horizontal",
-    size = 20,
-    winbar = {
-      enabled = true,
-    },
-  },
 }

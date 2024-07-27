@@ -5,11 +5,12 @@ return {
     {
       "=",
       function()
-        require("conform").format { async = true, lsp_format = "fallback" }
+        require("conform").format { async = true }
       end,
     },
   },
   opts = {
+    default_format_opts = { lsp_format = "fallback" },
     formatters_by_ft = {
       lua = { "stylua" },
       luau = { "stylua" },
@@ -23,7 +24,7 @@ return {
       if vim.g.disable_autoformat then
         return
       end
-      return { timeout_ms = 500, lsp_format = "fallback" }
+      return { timeout_ms = 500 }
     end,
     notify_on_error = false,
   },

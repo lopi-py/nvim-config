@@ -1,5 +1,5 @@
 return {
-  "darazaki/indent-o-matic",
+  "NMAC427/guess-indent.nvim",
   event = { "LazyFile" },
   opts = {},
 }

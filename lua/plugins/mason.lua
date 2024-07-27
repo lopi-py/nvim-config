@@ -2,7 +2,7 @@ return {
   "williamboman/mason.nvim",
   build = ":MasonUpdate",
   opts = {
-    ensure_installed = {
+    ensure_install = {
       "clangd",
       "css-lsp",
       "debugpy",
@@ -35,7 +35,7 @@ return {
       PATH = "skip",
     }
     require("mason-tool-installer").setup {
-      ensure_installed = opts.ensure_installed,
+      ensure_installed = opts.ensure_install,
     }
   end,
   dependencies = {

@@ -1,10 +1,10 @@
 return {
   "nvim-treesitter/nvim-treesitter",
+  branch = "main",
   build = ":TSUpdate",
-  event = { "LazyFile" },
-  main = "nvim-treesitter.configs",
+  event = "VeryLazy",
   opts = {
-    ensure_installed = {
+    ensure_install = {
       "c",
       "cpp",
       "css",
@@ -27,21 +27,21 @@ return {
       "vimdoc",
       "yaml",
     },
-    highlight = {
-      enable = true,
-    },
-    incremental_selection = {
-      enable = true,
-      keymaps = {
-        init_selection = "<cr>",
-        scope_incremental = "<cr>",
-        node_incremental = "<tab>",
-        node_decremental = "<s-tab>",
-      },
-    },
   },
-  init = function(plugin)
-    require("lazy.core.loader").add_to_rtp(plugin)
-    require "nvim-treesitter.query_predicates"
+  init = function()
+    -- schedule highlight avoid delays when opening a typescript file because the parser is slow to startup
+    vim.api.nvim_create_autocmd("FileType", {
+      callback = vim.schedule_wrap(function()
+        local has_parser = pcall(vim.treesitter.get_parser)
+        if not has_parser then
+          return
+        end
+
+        vim.treesitter.start()
+        vim.wo.foldmethod = "expr"
+        vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+        vim.bo.indentexpr = "v:lua.require('nvim-treesitter').indentexpr()"
+      end),
+    })
   end,
 }
