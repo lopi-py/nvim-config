@@ -11,7 +11,7 @@ end
 
 return {
   "neovim/nvim-lspconfig",
-  event = { "LazyFile" },
+  event = "User FilePost",
   config = function()
     local lspconfig = require "lspconfig"
     local capabilities = require("lsp").capabilities

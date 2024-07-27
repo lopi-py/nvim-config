@@ -2,7 +2,7 @@ local config = require "config"
 
 return {
   "lewis6991/gitsigns.nvim",
-  event = { "VeryLazy" },
+  event = "User FilePost",
   opts = {
     max_file_length = config.max_file_length,
     on_attach = function(bufnr)

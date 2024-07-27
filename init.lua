@@ -16,7 +16,6 @@ if not vim.uv.fs_stat(lazypath) then
 end
 vim.opt.rtp:append(lazypath)
 
-require("util.plugin").lazy_file()
 require("lazy").setup({
   { import = "plugins" },
   { import = "plugins.lang" },

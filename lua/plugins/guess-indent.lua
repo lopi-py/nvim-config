@@ -1,5 +1,5 @@
 return {
   "NMAC427/guess-indent.nvim",
-  event = { "LazyFile" },
+  event = "User FilePost",
   opts = {},
 }

@@ -1,8 +1,0 @@
-{
-  "neovim api": {
-    "prefix": "napi",
-    "body": [
-      "vim.api.nvim_${1}"
-    ]
-  }
-}

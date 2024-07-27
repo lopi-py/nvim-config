@@ -1,6 +1,6 @@
 return {
   "mrcjkb/rustaceanvim",
-  event = { "LazyFile" },
+  event = "User FilePost",
   opts = function()
     local capabilities = require("lsp").capabilities
 

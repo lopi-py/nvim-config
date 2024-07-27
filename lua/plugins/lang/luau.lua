@@ -5,7 +5,7 @@ end)
 
 return {
   "lopi-py/luau-lsp.nvim",
-  event = { "LazyFile" },
+  event = "User FilePost",
   opts = function()
     return {
       platform = {

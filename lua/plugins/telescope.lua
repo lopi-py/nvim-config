@@ -12,7 +12,7 @@ return {
     { "<leader>fs", ":Telescope git_status<cr>" },
     { "<leader><leader>", ":Telescope buffers<cr>" },
   },
-  cmd = { "Telescope" },
+  cmd = "Telescope",
   opts = {
     defaults = {
       file_ignore_pattern = config.ignored_files,

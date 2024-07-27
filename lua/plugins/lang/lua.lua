@@ -1,7 +1,7 @@
 return {
   {
     "folke/lazydev.nvim",
-    event = { "LazyFile" },
+    event = "User FilePost",
     opts = {
       library = {
         "luvit-meta/library",

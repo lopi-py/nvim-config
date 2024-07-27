@@ -1,5 +1,3 @@
-local util = require "util"
-
 return {
   "akinsho/toggleterm.nvim",
   keys = {
@@ -14,7 +12,7 @@ return {
     },
   },
   init = function()
-    if util.on_windows then
+    if vim.uv.os_uname().sysname == "Windows_NT" then
       vim.o.shell = "pwsh"
       vim.o.shellcmdflag =
         "-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;"

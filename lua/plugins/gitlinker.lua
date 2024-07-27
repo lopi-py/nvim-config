@@ -6,7 +6,7 @@ return {
     { "<leader>gy", ":GitLink<cr>", mode = { "v" } },
     { "<leader>gY", ":GitLink!<cr>", mode = { "v" } },
   },
-  cmd = { "GitLink" },
+  cmd = "GitLink",
   opts = {
     message = false,
     router = {

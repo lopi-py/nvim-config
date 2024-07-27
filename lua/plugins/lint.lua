@@ -1,11 +1,8 @@
 return {
   "mfussenegger/nvim-lint",
-  event = { "LazyFile" },
+  event = "User FilePost",
   opts = {
-    linters_by_ft = {
-      -- lua = { "selene" },
-      -- luau = { "selene" },
-    },
+    linters_by_ft = {},
     linters = {},
   },
   config = function(_, opts)

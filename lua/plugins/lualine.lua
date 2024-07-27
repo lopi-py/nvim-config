@@ -2,7 +2,7 @@ local icons = require "config.icons"
 
 return {
   "nvim-lualine/lualine.nvim",
-  event = { "VeryLazy" },
+  event = "VeryLazy",
   opts = function()
     require("lualine_require").require = require
 
