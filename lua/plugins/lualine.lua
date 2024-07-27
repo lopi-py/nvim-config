@@ -4,8 +4,6 @@ return {
   "nvim-lualine/lualine.nvim",
   event = "VeryLazy",
   opts = function()
-    require("lualine_require").require = require
-
     local Block = {
       function()
         return " "
@@ -18,9 +16,6 @@ return {
       icon = icons.git.branch,
       color = { gui = "bold" },
       padding = { left = 2, right = 1 },
-      on_click = function()
-        require("telescope.builtin").git_branches()
-      end,
     }
 
     local Diff = {
@@ -38,9 +33,6 @@ return {
           removed = status.removed,
         }
       end,
-      on_click = function()
-        require("gitsigns.actions").diffthis "~"
-      end,
     }
 
     local Filename = {
@@ -54,9 +46,6 @@ return {
       "diagnostics",
       sources = { "nvim_diagnostic" },
       symbols = icons.diagnostics,
-      on_click = function()
-        require("trouble").open()
-      end,
     }
 
     return {
