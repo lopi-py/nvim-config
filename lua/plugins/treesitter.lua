@@ -29,19 +29,17 @@ return {
     },
   },
   init = function()
-    -- schedule highlight avoid delays when opening a typescript file because the parser is slow to startup
     vim.api.nvim_create_autocmd("FileType", {
-      callback = vim.schedule_wrap(function(event)
-        local has_parser = pcall(vim.treesitter.get_parser, event.buf)
-        if not has_parser then
+      callback = function()
+        local started = pcall(vim.treesitter.start)
+        if not started then
           return
         end
 
-        vim.treesitter.start(event.buf)
         vim.wo.foldmethod = "expr"
         vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
-        vim.b[event.buf].indentexpr = "v:lua.require('nvim-treesitter').indentexpr()"
-      end),
+        vim.bo.indentexpr = "v:lua.require('nvim-treesitter').indentexpr()"
+      end,
     })
   end,
 }
