@@ -42,6 +42,9 @@ return {
           return item
         end,
       },
+      window = {
+        documentation = cmp.config.window.bordered(),
+      },
     }
   end,
   dependencies = {

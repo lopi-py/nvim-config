@@ -9,11 +9,6 @@ function M.capabilities(overrides)
     require("cmp_nvim_lsp").default_capabilities()
   )
 
-  capabilities.textDocument.foldingRange = {
-    dynamicRegistration = false,
-    lineFoldingOnly = true,
-  }
-
   capabilities.workspace.didChangeWatchedFiles.dynamicRegistration = true
 
   return vim.tbl_deep_extend("force", capabilities, overrides or {})
@@ -61,6 +56,14 @@ vim.diagnostic.config {
     border = "rounded",
   },
 }
+
+vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+  border = "rounded",
+})
+
+vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
+  border = "rounded",
+})
 
 ---@diagnostic disable-next-line: duplicate-set-field
 vim.lsp.util.stylize_markdown = function(bufnr, contents, opts)
