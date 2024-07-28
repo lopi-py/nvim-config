@@ -18,7 +18,7 @@ vim.opt.rtp:append(lazypath)
 
 require("lazy").setup({
   { import = "plugins" },
-  { import = "plugins.lang" },
+  { import = "plugins.language" },
 }, {
   defaults = { lazy = true },
   dev = {
