@@ -56,7 +56,7 @@ return {
         lualine_y = { "location", "progress" },
         lualine_z = { Block },
       },
-      extensions = { "lazy", "mason", "trouble", "oil" },
+      extensions = { "lazy", "mason", "oil" },
     }
   end,
   init = function()
