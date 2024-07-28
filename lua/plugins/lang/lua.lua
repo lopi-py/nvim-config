@@ -4,15 +4,13 @@ return {
     event = "User FilePost",
     opts = {
       library = {
-        "luvit-meta/library",
+        { path = "luvit-meta/library", words = { "vim%.uv" } },
       },
-      enabled = function(root_dir)
-        return root_dir:find "nvim" or root_dir:find "neovim"
-      end,
+    },
+    dependencies = {
+      "Bilal2453/luvit-meta",
     },
   },
-
-  { "Bilal2453/luvit-meta" },
 
   {
     "hrsh7th/nvim-cmp",
