@@ -1,6 +1,7 @@
 local o = vim.opt
 local g = vim.g
 
+o.signcolumn = "yes:1"
 o.autoindent = true
 o.backspace = { "indent", "eol", "start" }
 o.conceallevel = 0
@@ -11,12 +12,7 @@ o.exrc = true
 o.fillchars = {
   diff = "╱",
   eob = " ",
-  fold = " ",
-  foldsep = " ",
-  foldopen = "",
-  foldclose = "",
 }
-o.foldcolumn = "1"
 o.foldlevel = 99
 o.foldlevelstart = 99
 o.history = 50
