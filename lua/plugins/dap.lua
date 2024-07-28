@@ -24,24 +24,18 @@ return {
     },
     config = function()
       local signs = {
-        Breakpoint = { "", "DiagnosticError" },
-        BreakpointCondition = { "", "DiagnosticError" },
-        BreakpointRejected = { "", "DiagnosticError" },
-        Stopped = { "", "DiagnosticInfo" },
-        LogPoint = { "⁋" },
+        DapBreakpoint = "●",
+        DapBreakpointCondition = "●",
+        DapLogPoint = "◆",
       }
 
       for name, sign in pairs(signs) do
-        vim.fn.sign_define("Dap" .. name, { text = sign[1], texthl = sign[2] })
+        vim.fn.sign_define(name, { text = sign, texthl = name })
       end
     end,
     dependencies = {
       "rcarriga/nvim-dap-ui",
-
-      {
-        "theHamsta/nvim-dap-virtual-text",
-        opts = {},
-      },
+      "theHamsta/nvim-dap-virtual-text",
     },
   },
 
@@ -63,8 +57,12 @@ return {
       end
     end,
     dependencies = {
-      "mfussenegger/nvim-dap",
       "nvim-neotest/nvim-nio",
     },
+  },
+
+  {
+    "theHamsta/nvim-dap-virtual-text",
+    opts = {},
   },
 }
