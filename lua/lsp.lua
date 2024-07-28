@@ -57,14 +57,6 @@ vim.diagnostic.config {
   },
 }
 
-vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-  border = "rounded",
-})
-
-vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
-  border = "rounded",
-})
-
 ---@diagnostic disable-next-line: duplicate-set-field
 vim.lsp.util.stylize_markdown = function(bufnr, contents, opts)
   contents = vim.lsp.util._normalize_markdown(contents, {
