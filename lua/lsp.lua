@@ -31,7 +31,7 @@ local function on_attach(client, bufnr)
   map("i", "<c-s>", vim.lsp.buf.signature_help)
 
   if client.supports_method "textDocument/documentHighlight" then
-    local group = vim.api.nvim_create_augroup("lsp/documentHighlight", {})
+    local group = vim.api.nvim_create_augroup("lsp/documentHighlight/" .. bufnr, {})
     vim.api.nvim_create_autocmd({ "CursorHold", "InsertLeave" }, {
       group = group,
       buffer = bufnr,
