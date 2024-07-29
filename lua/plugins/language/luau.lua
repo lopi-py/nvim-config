@@ -18,11 +18,11 @@ return {
         capabilities = require("lsp").capabilities(),
         settings = {
           ["luau-lsp"] = {
-            ignoreGlobs = { "**/_Index/**", "**/node_modules/**" },
+            ignoreGlobs = { "**/_Index/**", "node_modules/**" },
             completion = {
               imports = {
                 enabled = true,
-                ignoreGlobs = { "**/_Index/**", "**/node_modules/**" },
+                ignoreGlobs = { "**/_Index/**", "node_modules/**" },
               },
             },
             inlayHints = {
