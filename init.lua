@@ -24,6 +24,7 @@ require("lazy").setup({
   dev = {
     path = "~/dev/nvim",
     patterns = { "lopi-py" },
+    fallback = true,
   },
   change_detection = { enabled = false },
   performance = {

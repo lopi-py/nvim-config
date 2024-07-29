@@ -2,7 +2,7 @@ require("util").patch_keymap_set()
 
 local map = vim.keymap.set
 
-map("n", "<esc>", ":nch<cr><esc>")
+map("n", "<esc>", ":nohlsearch<cr><esc>")
 map("n", "<leader>w", vim.cmd.write)
 map("n", "<tab>", vim.cmd.tabnext)
 map("n", "<s-tab>", vim.cmd.tabprevious)
