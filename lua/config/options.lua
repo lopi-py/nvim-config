@@ -1,56 +1,31 @@
-local o = vim.opt
-local g = vim.g
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
-o.signcolumn = "yes:1"
-o.autoindent = true
-o.backspace = { "indent", "eol", "start" }
-o.conceallevel = 0
-o.confirm = true
-o.errorbells = false
-o.expandtab = true
-o.exrc = true
-o.fillchars = {
-  diff = "╱",
-  eob = " ",
-}
-o.foldlevel = 99
-o.foldlevelstart = 99
-o.history = 50
-o.hlsearch = true
-o.ignorecase = true
-o.incsearch = true
-o.list = true
-o.listchars = {
-  eol = " ",
-  tab = "  ",
-  extends = "»",
-  precedes = "«",
-  trail = "•",
-}
-o.mousemoveevent = true
-o.number = true
-o.relativenumber = true
-o.scrolloff = 1
-o.shiftround = true
-o.shiftwidth = 2
-o.showcmd = false
-o.showmode = false
-o.sidescrolloff = 1
-o.smartcase = true
-o.smartindent = true
-o.smarttab = true
-o.smoothscroll = true
-o.splitbelow = true
-o.splitright = true
-o.swapfile = false
-o.tabstop = 2
-o.termguicolors = true
-o.undofile = false
-o.updatetime = 300
-o.whichwrap:append "<,>,[,],h,l"
-o.wrap = true
-o.writebackup = false
+vim.o.number = true
+vim.o.relativenumber = true
+vim.o.signcolumn = "yes"
 
-g.mapleader = " "
-g.maplocalleader = " "
-g.python3_host_prog = vim.fn.exepath "python3" or vim.fn.exepath "python"
+vim.o.tabstop = 4
+vim.o.shiftwidth = 4
+vim.o.softtabstop = 4
+vim.o.expandtab = true
+
+vim.o.splitbelow = true
+vim.o.splitright = true
+
+vim.o.inccommand = "split"
+vim.o.smartcase = true
+vim.o.ignorecase = true
+
+vim.o.foldtext = ""
+vim.o.foldlevel = 99
+
+vim.o.swapfile = false
+vim.o.undofile = true
+
+vim.o.wrap = true
+vim.o.linebreak = true
+vim.o.showmode = false
+vim.o.updatetime = 200
+
+vim.opt.fillchars = { fold = " ", diff = "╱" }

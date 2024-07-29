@@ -21,12 +21,5 @@ return {
       vim.o.shellquote = ""
       vim.o.shellxquote = ""
     end
-
-    vim.api.nvim_create_autocmd("FileType", {
-      pattern = "toggleterm",
-      callback = function()
-        vim.opt_local.foldcolumn = "0"
-      end,
-    })
   end,
 }
