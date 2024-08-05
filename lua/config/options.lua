@@ -21,11 +21,10 @@ vim.o.foldtext = ""
 vim.o.foldlevel = 99
 
 vim.o.swapfile = false
-vim.o.undofile = true
+vim.o.showmode = false
+vim.o.updatetime = 200
 
 vim.o.wrap = true
 vim.o.linebreak = true
-vim.o.showmode = false
-vim.o.updatetime = 200
 
 vim.opt.fillchars = { fold = " ", diff = "╱" }

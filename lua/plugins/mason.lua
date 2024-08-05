@@ -1,6 +1,7 @@
 return {
   "williamboman/mason.nvim",
   build = ":MasonUpdate",
+  cmd = { "Mason", "MasonInstall", "MasonInstallAll", "MasonUpdate" },
   opts = {
     ensure_install = {
       "clangd",
@@ -35,11 +36,20 @@ return {
     require("mason").setup {
       PATH = "skip",
     }
-    require("mason-tool-installer").setup {
-      ensure_installed = opts.ensure_install,
-    }
+
+    local registry = require "mason-registry"
+
+    vim.api.nvim_create_user_command("MasonInstallAll", function()
+      require("mason.ui").open()
+
+      registry.refresh(function()
+        for _, tool in ipairs(opts.ensure_install) do
+          local pkg = registry.get_package(tool)
+          if not pkg:is_installed() then
+            pkg:install()
+          end
+        end
+      end)
+    end, {})
   end,
-  dependencies = {
-    "WhoIsSethDaniel/mason-tool-installer.nvim",
-  },
 }

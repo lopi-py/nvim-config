@@ -47,13 +47,12 @@ return {
     },
     opts = {},
     config = function(_, opts)
-      local dap = require "dap"
-      local dapui = require "dapui"
+      require("dapui").setup(opts)
 
-      dapui.setup(opts)
+      local dap = require "dap"
 
       dap.listeners.after.event_initialized["dapui_config"] = function()
-        dapui.open()
+        require("dapui").open()
       end
     end,
     dependencies = {
