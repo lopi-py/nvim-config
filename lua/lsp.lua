@@ -1,17 +1,20 @@
 local M = {}
 
----@param overrides lsp.ClientCapabilities?
 ---@return lsp.ClientCapabilities
-function M.capabilities(overrides)
+function M.capabilities()
   local capabilities = vim.tbl_deep_extend(
     "force",
     vim.lsp.protocol.make_client_capabilities(),
     require("cmp_nvim_lsp").default_capabilities()
   )
 
-  capabilities.workspace.didChangeWatchedFiles.dynamicRegistration = true
-
-  return vim.tbl_deep_extend("force", capabilities, overrides or {})
+  return vim.tbl_deep_extend("force", capabilities, {
+    workspace = {
+      didChangeWatchedFiles = {
+        dynamicRegistration = true,
+      },
+    },
+  })
 end
 
 ---@param client vim.lsp.Client

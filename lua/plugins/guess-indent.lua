@@ -1,5 +1,5 @@
 return {
   "NMAC427/guess-indent.nvim",
-  event = "User FilePost",
+  event = { "BufNewFile", "BufReadPost" },
   opts = {},
 }

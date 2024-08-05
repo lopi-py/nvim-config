@@ -17,16 +17,13 @@ return {
     local capabilities = require("lsp").capabilities
 
     lspconfig.clangd.setup {
-      capabilities = capabilities {
-        offsetEncoding = { "utf-16" },
-      },
+      capabilities = capabilities(),
       cmd = {
         "clangd",
         "--background-index",
         "--clang-tidy",
         "--header-insertion=iwyu",
         "--completion-style=detailed",
-        "--function-arg-placeholders",
         "--fallback-style=llvm",
       },
     }
@@ -77,6 +74,15 @@ return {
 
     lspconfig.vtsls.setup {
       capabilities = capabilities(),
+      settings = {
+        vtsls = {
+          experimental = {
+            completion = {
+              enableServerSideFuzzyMatch = true,
+            },
+          },
+        },
+      },
     }
 
     lspconfig.yamlls.setup {
