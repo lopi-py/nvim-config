@@ -1,7 +1,8 @@
----@diagnostic disable-next-line: param-type-mismatch
-local rojo_project = vim.fs.root(vim.uv.cwd(), function(path)
-  return path:match "%.project.json$"
-end)
+local function rojo_project()
+  return vim.fs.root(0, function(name)
+    return name:match "%.project.json$"
+  end)
+end
 
 return {
   "lopi-py/luau-lsp.nvim",
@@ -9,10 +10,7 @@ return {
   opts = function()
     return {
       platform = {
-        type = rojo_project and "roblox" or "standard",
-      },
-      sourcemap = {
-        enabled = rojo_project ~= nil,
+        type = rojo_project() and "roblox" or "standard",
       },
       server = {
         capabilities = require("lsp").capabilities(),
@@ -24,6 +22,10 @@ return {
                 enabled = true,
                 ignoreGlobs = { "**/_Index/**", "node_modules/**" },
               },
+            },
+            require = {
+              mode = "relativeToFile",
+              directoryAliases = require("luau-lsp").aliases(),
             },
             inlayHints = {
               functionReturnTypes = true,

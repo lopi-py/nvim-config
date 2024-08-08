@@ -14,10 +14,10 @@ return {
   event = "User FilePost",
   config = function()
     local lspconfig = require "lspconfig"
-    local capabilities = require("lsp").capabilities
+    local capabilities = require("lsp").capabilities()
 
     lspconfig.clangd.setup {
-      capabilities = capabilities(),
+      capabilities = capabilities,
       cmd = {
         "clangd",
         "--background-index",
@@ -29,19 +29,19 @@ return {
     }
 
     lspconfig.cssls.setup {
-      capabilities = capabilities(),
+      capabilities = capabilities,
     }
 
     lspconfig.eslint.setup {
-      capabilities = capabilities(),
+      capabilities = capabilities,
     }
 
     lspconfig.html.setup {
-      capabilities = capabilities(),
+      capabilities = capabilities,
     }
 
     lspconfig.jsonls.setup {
-      capabilities = capabilities(),
+      capabilities = capabilities,
       settings = {
         json = {
           schemas = get_json_schemas(),
@@ -51,7 +51,7 @@ return {
     }
 
     lspconfig.lua_ls.setup {
-      capabilities = capabilities(),
+      capabilities = capabilities,
       settings = {
         Lua = {
           workspace = {
@@ -62,20 +62,27 @@ return {
     }
 
     lspconfig.pyright.setup {
-      capabilities = capabilities(),
+      capabilities = capabilities,
     }
 
     lspconfig.ruff.setup {
-      capabilities = capabilities(),
+      capabilities = capabilities,
       on_attach = function(client)
         client.server_capabilities.hoverProvider = false
       end,
     }
 
     lspconfig.vtsls.setup {
-      capabilities = capabilities(),
+      capabilities = capabilities,
       settings = {
+        typescript = {
+          updateImportsOnFileMove = "always",
+        },
+        javascript = {
+          updateImportsOnFileMove = "always",
+        },
         vtsls = {
+          enableMoveToFileCodeAction = true,
           experimental = {
             completion = {
               enableServerSideFuzzyMatch = true,
@@ -86,7 +93,7 @@ return {
     }
 
     lspconfig.yamlls.setup {
-      capabilities = capabilities(),
+      capabilities = capabilities,
     }
   end,
   dependencies = {
