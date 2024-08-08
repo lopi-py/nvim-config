@@ -4,11 +4,11 @@ local map = vim.keymap.set
 
 map("n", "<esc>", ":nohlsearch<cr><esc>")
 map("n", "<leader>w", vim.cmd.write)
-map("n", "<tab>", vim.cmd.tabnext)
-map("n", "<s-tab>", vim.cmd.tabprevious)
-map("n", "<leader>tx", vim.cmd.tabclose)
-map("n", "<leader>bx", vim.cmd.bdelete)
-map("n", "<bs>", ":e #<cr>")
+map("n", "<c-h>", vim.cmd.tabprevious)
+map("n", "<c-l>", vim.cmd.tabnext)
+map("n", "<c-x>", vim.cmd.tabclose)
+map("n", "<tab>", ":e #<cr>")
+map("n", "<bs>", vim.cmd.bdelete)
 
 map("t", "<c-w>", "<c-\\><c-n><c-w>", { remap = true })
 
