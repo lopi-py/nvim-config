@@ -33,20 +33,6 @@ local function on_attach(client, bufnr)
   map({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action)
   map("i", "<c-s>", vim.lsp.buf.signature_help)
 
-  if client.supports_method "textDocument/documentHighlight" then
-    local group = vim.api.nvim_create_augroup("lsp/documentHighlight/" .. bufnr, {})
-    vim.api.nvim_create_autocmd({ "CursorHold", "InsertLeave" }, {
-      group = group,
-      buffer = bufnr,
-      callback = vim.lsp.buf.document_highlight,
-    })
-    vim.api.nvim_create_autocmd({ "CursorMoved", "InsertEnter", "BufLeave" }, {
-      group = group,
-      buffer = bufnr,
-      callback = vim.lsp.buf.clear_references,
-    })
-  end
-
   if client.supports_method "textDocument/inlayHint" then
     vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
   end
