@@ -1,12 +1,12 @@
 return {
   "mrcjkb/rustaceanvim",
-  event = "User FilePost",
+  ft = "rust",
   opts = function()
-    local capabilities = require("lsp").capabilities
+    local capabilities = require("lsp").capabilities()
 
     return {
       server = {
-        capabilities = capabilities(),
+        capabilities = capabilities,
         settings = {
           ["rust-analyzer"] = {
             cargo = {
@@ -27,4 +27,7 @@ return {
   config = function(_, opts)
     vim.g.rustaceanvim = opts
   end,
+  dependencies = {
+    "mfussenegger/nvim-dap",
+  },
 }

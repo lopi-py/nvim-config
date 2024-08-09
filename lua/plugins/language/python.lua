@@ -1,14 +1,12 @@
 return {
   {
     "linux-cultist/venv-selector.nvim",
-    cmd = { "VenvSelect" },
-    opts = {
-      dap_enabled = true,
-    },
+    branch = "regexp",
+    cmd = "VenvSelect",
+    opts = {},
     dependencies = {
-      "neovim/nvim-lspconfig",
       "nvim-telescope/telescope.nvim",
-      "mfussenegger/nvim-dap-python",
+      "mfussenegger/nvim-dap",
     },
   },
 
@@ -25,7 +23,6 @@ return {
         end,
         dependencies = {
           "williamboman/mason.nvim",
-          "mfussenegger/nvim-dap",
         },
       },
     },

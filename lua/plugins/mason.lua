@@ -4,26 +4,35 @@ return {
   cmd = { "Mason", "MasonInstall", "MasonInstallAll", "MasonUpdate" },
   opts = {
     ensure_install = {
+      -- servers
+      "basedpyright",
       "clangd",
       "css-lsp",
-      "debugpy",
       "eslint-lsp",
       "html-lsp",
-      "java-debug-adapter",
-      "java-test",
       "jdtls",
       "json-lsp",
       "lua-language-server",
-      "luacheck",
       "luau-lsp",
-      "prettierd",
-      "pyright",
       "ruff",
       "rust-analyzer",
-      "selene",
-      "stylua",
+      "taplo",
       "vtsls",
       "yaml-language-server",
+
+      -- formatters
+      "prettierd",
+      "stylua",
+
+      -- linters
+      "luacheck",
+      "selene",
+
+      -- debuggers
+      "codelldb",
+      "debugpy",
+      "java-debug-adapter",
+      "java-test",
     },
   },
   init = function()
@@ -41,7 +50,6 @@ return {
 
     vim.api.nvim_create_user_command("MasonInstallAll", function()
       require("mason.ui").open()
-
       registry.refresh(function()
         for _, tool in ipairs(opts.ensure_install) do
           local pkg = registry.get_package(tool)

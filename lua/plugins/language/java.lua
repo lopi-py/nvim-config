@@ -12,9 +12,10 @@ end
 
 return {
   "mfussenegger/nvim-jdtls",
-  event = "User FilePost",
+  ft = "java",
   opts = function()
     local registry = require "mason-registry"
+    local capabilities = require("lsp").capabilities()
 
     local java_dbg_path = registry.get_package("java-debug-adapter"):get_install_path()
     local java_test_path = registry.get_package("java-test"):get_install_path()
@@ -27,7 +28,7 @@ return {
     -- stylua: ignore end
 
     return {
-      capabilities = require("lsp").capabilities(),
+      capabilities = capabilities,
       cmd = {
         "jdtls",
         "-configuration",
@@ -39,7 +40,6 @@ return {
         bundles = bundles,
       },
       on_attach = function()
-        require("jdtls").setup_dap { hotcodereplace = "auto", config_overrides = {} }
         require("jdtls.dap").setup_dap_main_class_configs()
       end,
     }
@@ -49,6 +49,7 @@ return {
       pattern = "java",
       callback = function()
         require("jdtls").start_or_attach(opts)
+        require("jdtls").setup_dap { hotcodereplace = "auto", config_overrides = {} }
       end,
     })
   end,

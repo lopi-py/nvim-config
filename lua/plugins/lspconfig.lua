@@ -1,100 +1,80 @@
-local function get_json_schemas()
-  local schemas = require("schemastore").json.schemas()
-
-  table.insert(schemas, {
-    fileMatch = { "*.project.json" },
-    url = "https://raw.githubusercontent.com/rojo-rbx/vscode-rojo/master/schemas/project.template.schema.json",
-  })
-
-  return schemas
-end
-
 return {
   "neovim/nvim-lspconfig",
   event = "User FilePost",
-  config = function()
-    local lspconfig = require "lspconfig"
-    local capabilities = require("lsp").capabilities()
-
-    lspconfig.clangd.setup {
-      capabilities = capabilities,
-      cmd = {
-        "clangd",
-        "--background-index",
-        "--clang-tidy",
-        "--header-insertion=iwyu",
-        "--completion-style=detailed",
-        "--fallback-style=llvm",
-      },
-    }
-
-    lspconfig.cssls.setup {
-      capabilities = capabilities,
-    }
-
-    lspconfig.eslint.setup {
-      capabilities = capabilities,
-    }
-
-    lspconfig.html.setup {
-      capabilities = capabilities,
-    }
-
-    lspconfig.jsonls.setup {
-      capabilities = capabilities,
-      settings = {
-        json = {
-          schemas = get_json_schemas(),
-          validate = { enable = true },
+  opts = {
+    servers = {
+      basedpyright = {},
+      clangd = {
+        cmd = {
+          "clangd",
+          "--background-index",
+          "--clang-tidy",
+          "--completion-style=detailed",
+          "--fallback-style=llvm",
+          "--header-insertion=iwyu",
         },
       },
-    }
-
-    lspconfig.lua_ls.setup {
-      capabilities = capabilities,
-      settings = {
-        Lua = {
-          workspace = {
-            checkThirdParty = false,
+      cssls = {},
+      eslint = {},
+      html = {},
+      jsonls = function()
+        return {
+          settings = {
+            json = {
+              schemas = require("schemastore").json.schemas {
+                extras = {
+                  {
+                    name = "default.project.json",
+                    description = "JSON schema for Rojo project files",
+                    fileMatch = { "*.project.json" },
+                    url = "https://raw.githubusercontent.com/rojo-rbx/vscode-rojo/master/schemas/project.template.schema.json",
+                  },
+                },
+              },
+              validate = {
+                enable = true,
+              },
+            },
           },
-        },
-      },
-    }
-
-    lspconfig.pyright.setup {
-      capabilities = capabilities,
-    }
-
-    lspconfig.ruff.setup {
-      capabilities = capabilities,
-      on_attach = function(client)
-        client.server_capabilities.hoverProvider = false
+        }
       end,
-    }
-
-    lspconfig.vtsls.setup {
-      capabilities = capabilities,
-      settings = {
-        typescript = {
-          updateImportsOnFileMove = "always",
-        },
-        javascript = {
-          updateImportsOnFileMove = "always",
-        },
-        vtsls = {
-          enableMoveToFileCodeAction = true,
-          experimental = {
-            completion = {
-              enableServerSideFuzzyMatch = true,
+      lua_ls = {},
+      ruff = {
+        on_attach = function(client)
+          client.server_capabilities.hoverProvider = false
+        end,
+      },
+      taplo = {},
+      vtsls = {
+        settings = {
+          typescript = {
+            updateImportsOnFileMove = "always",
+          },
+          javascript = {
+            updateImportsOnFileMove = "always",
+          },
+          vtsls = {
+            enableMoveToFileCodeAction = true,
+            experimental = {
+              completion = {
+                enableServerSideFuzzyMatch = true,
+              },
             },
           },
         },
       },
-    }
+      yamlls = {},
+    },
+  },
+  config = function(_, opts)
+    local capabilities = require("lsp").capabilities()
 
-    lspconfig.yamlls.setup {
-      capabilities = capabilities,
-    }
+    for server, config in pairs(opts.servers) do
+      config = type(config) == "function" and config() or config
+      config.capabilities = vim.tbl_deep_extend("force", capabilities, config.capabilities or {})
+
+      require("lspconfig")[server].setup(config)
+    end
   end,
   dependencies = {
     "hrsh7th/cmp-nvim-lsp",

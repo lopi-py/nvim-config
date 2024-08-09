@@ -20,6 +20,7 @@ return {
       "markdown_inline",
       "python",
       "query",
+      "rust",
       "toml",
       "tsx",
       "typescript",
@@ -31,10 +32,7 @@ return {
   init = function()
     vim.api.nvim_create_autocmd("FileType", {
       callback = function()
-        local success = pcall(vim.treesitter.start)
-        if not success then
-          return
-        end
+        pcall(vim.treesitter.start)
 
         vim.wo.foldmethod = "expr"
         vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"

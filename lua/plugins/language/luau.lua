@@ -6,14 +6,16 @@ end
 
 return {
   "lopi-py/luau-lsp.nvim",
-  event = "User FilePost",
+  ft = "luau",
   opts = function()
+    local capabilities = require("lsp").capabilities()
+
     return {
       platform = {
         type = rojo_project() and "roblox" or "standard",
       },
       server = {
-        capabilities = require("lsp").capabilities(),
+        capabilities = capabilities,
         settings = {
           ["luau-lsp"] = {
             ignoreGlobs = { "**/_Index/**", "node_modules/**" },
