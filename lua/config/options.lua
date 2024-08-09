@@ -21,8 +21,8 @@ vim.o.foldtext = ""
 vim.o.foldlevel = 99
 
 vim.o.swapfile = false
-vim.o.showmode = false
 vim.o.updatetime = 200
+vim.o.guicursor = ""
 
 vim.o.wrap = true
 vim.o.linebreak = true
