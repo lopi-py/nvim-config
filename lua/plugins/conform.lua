@@ -9,6 +9,7 @@ return {
       typescriptreact = { "prettierd" },
       javascript = { "prettierd" },
       javascriptreact = { "prettierd" },
+      python = { "black" },
     },
     formatters = {},
     default_format_opts = { lsp_format = "fallback" },
