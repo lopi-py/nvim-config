@@ -1,3 +1,4 @@
+vim.o.exrc = true
 return {
   "neovim/nvim-lspconfig",
   event = "User FilePost",
@@ -43,6 +44,15 @@ return {
         on_attach = function(client)
           client.server_capabilities.hoverProvider = false
         end,
+      },
+      rust_analyzer = {
+        settings = {
+          ["rust-analyzer"] = {
+            check = {
+              command = "clippy",
+            },
+          },
+        },
       },
       taplo = {},
       vtsls = {
