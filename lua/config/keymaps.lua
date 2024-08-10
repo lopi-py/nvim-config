@@ -22,7 +22,7 @@ map("n", "<leader>uw", function()
   vim.o.wrap = not vim.o.wrap
 end)
 map("n", "<leader>uf", function()
-  vim.g.disable_autoformat = not vim.g.disable_autoformat
+  vim.g.autoformat = not vim.g.autoformat
 end)
 
 map({ "i", "s" }, "<c-j>", function()

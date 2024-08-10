@@ -3,14 +3,8 @@ local config = require "config"
 return {
   "stevearc/oil.nvim",
   keys = {
-    { "-", ":Oil<cr>", desc = "Open parent directory" },
-    {
-      "_",
-      function()
-        require("oil").open(vim.uv.cwd())
-      end,
-      desc = "Open currenty working directory",
-    },
+    { "-", ":Oil<cr>" },
+    { "_", ":Oil .<cr>" },
   },
   opts = {
     view_options = {

@@ -40,6 +40,7 @@ return {
         bundles = bundles,
       },
       on_attach = function()
+        require("jdtls").setup_dap { hotcodereplace = "auto", config_overrides = {} }
         require("jdtls.dap").setup_dap_main_class_configs()
       end,
     }
@@ -49,7 +50,6 @@ return {
       pattern = "java",
       callback = function()
         require("jdtls").start_or_attach(opts)
-        require("jdtls").setup_dap { hotcodereplace = "auto", config_overrides = {} }
       end,
     })
   end,

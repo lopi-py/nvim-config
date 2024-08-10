@@ -14,7 +14,7 @@ return {
     formatters = {},
     default_format_opts = { lsp_format = "fallback" },
     format_on_save = function()
-      if vim.g.disable_autoformat then
+      if not vim.g.autoformat then
         return
       end
       return { timeout_ms = 500 }
@@ -22,6 +22,7 @@ return {
     notify_on_error = false,
   },
   init = function()
+    vim.g.autoformat = true
     vim.o.formatexpr = "v:lua.require('conform').formatexpr()"
   end,
 }
