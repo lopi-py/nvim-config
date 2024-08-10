@@ -1,4 +1,3 @@
-vim.o.exrc = true
 return {
   "neovim/nvim-lspconfig",
   event = "User FilePost",
