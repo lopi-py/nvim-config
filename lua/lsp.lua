@@ -17,9 +17,7 @@ function M.capabilities()
   })
 end
 
----@param client vim.lsp.Client
----@param bufnr number
-local function on_attach(client, bufnr)
+local function on_attach(_, bufnr)
   local function map(mode, lhs, rhs)
     vim.keymap.set(mode, lhs, rhs, { buffer = bufnr })
   end
@@ -32,11 +30,9 @@ local function on_attach(client, bufnr)
   map("n", "<leader>rn", vim.lsp.buf.rename)
   map({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action)
   map("i", "<c-s>", vim.lsp.buf.signature_help)
-
-  if client.supports_method "textDocument/inlayHint" then
-    vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
-  end
 end
+
+vim.lsp.inlay_hint.enable(true)
 
 vim.diagnostic.config {
   signs = false,
