@@ -1,20 +1,18 @@
 local M = {}
 
----@return lsp.ClientCapabilities
 function M.capabilities()
-  local capabilities = vim.tbl_deep_extend(
+  return vim.tbl_deep_extend(
     "force",
     vim.lsp.protocol.make_client_capabilities(),
-    require("cmp_nvim_lsp").default_capabilities()
-  )
-
-  return vim.tbl_deep_extend("force", capabilities, {
-    workspace = {
-      didChangeWatchedFiles = {
-        dynamicRegistration = true,
+    require("cmp_nvim_lsp").default_capabilities(),
+    {
+      workspace = {
+        didChangeWatchedFiles = {
+          dynamicRegistration = true,
+        },
       },
-    },
-  })
+    }
+  )
 end
 
 local function on_attach(_, bufnr)

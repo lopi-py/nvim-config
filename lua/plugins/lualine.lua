@@ -38,15 +38,14 @@ return {
 
     local Diagnostics = {
       "diagnostics",
-      sources = { "nvim_diagnostic" },
       symbols = config.icons.diagnostics,
     }
 
     return {
       options = {
         globalstatus = true,
-        section_separators = { left = "", right = "" },
-        component_separators = { left = "", right = "" },
+        section_separators = "",
+        component_separators = "",
       },
       sections = {
         lualine_a = { Block },

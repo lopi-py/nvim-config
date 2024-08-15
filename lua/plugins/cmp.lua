@@ -1,6 +1,6 @@
 local config = require "config"
 
-local MAX_ABBR_WIDTH = 25
+local MAX_ABBR_WIDTH = 30
 local MAX_MENU_WIDTH = 30
 
 return {
