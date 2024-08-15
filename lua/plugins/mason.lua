@@ -28,12 +28,6 @@ return {
       -- linters
       "luacheck",
       "selene",
-
-      -- debuggers
-      "codelldb",
-      "debugpy",
-      "java-debug-adapter",
-      "java-test",
     },
   },
   init = function()
@@ -47,13 +41,11 @@ return {
       PATH = "skip",
     }
 
-    local registry = require "mason-registry"
-
     vim.api.nvim_create_user_command("MasonInstallAll", function()
       require("mason.ui").open()
-      registry.refresh(function()
+      require("mason-registry").refresh(function()
         for _, tool in ipairs(opts.ensure_install) do
-          local pkg = registry.get_package(tool)
+          local pkg = require("mason-registry").get_package(tool)
           if not pkg:is_installed() then
             pkg:install()
           end
