@@ -17,7 +17,7 @@ return {
       if not vim.g.autoformat then
         return
       end
-      return { timeout_ms = 500 }
+      return { timeout_ms = 250 }
     end,
     notify_on_error = false,
   },

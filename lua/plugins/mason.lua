@@ -21,6 +21,7 @@ return {
       "yaml-language-server",
 
       -- formatters
+      "black",
       "prettierd",
       "stylua",
 

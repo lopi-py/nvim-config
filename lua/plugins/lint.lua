@@ -17,7 +17,7 @@ return {
       },
       luacheck = {
         condition = function(_, bufnr)
-          return vim.fs.root(bufnr, ".luacheck")
+          return vim.fs.root(bufnr, ".luacheckrc")
         end,
       },
     },
