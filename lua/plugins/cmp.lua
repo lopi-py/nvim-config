@@ -1,5 +1,3 @@
-local config = require "config"
-
 local MAX_ABBR_WIDTH = 30
 local MAX_MENU_WIDTH = 30
 
@@ -26,9 +24,6 @@ return {
       }),
       formatting = {
         format = function(_, item)
-          if config.icons.kind[item.kind] then
-            item.kind = config.icons.kind[item.kind] .. item.kind
-          end
           if vim.api.nvim_strwidth(item.abbr) > MAX_ABBR_WIDTH then
             item.abbr = vim.fn.strcharpart(item.abbr, 0, MAX_ABBR_WIDTH) .. "…"
           end
