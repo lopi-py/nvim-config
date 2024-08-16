@@ -20,13 +20,13 @@ local function on_attach(_, bufnr)
     vim.keymap.set(mode, lhs, rhs, { buffer = bufnr })
   end
 
-  map("n", "gd", vim.lsp.buf.definition)
+  map("n", "gd", ":Telescope lsp_definitions<cr>")
   map("n", "gD", vim.lsp.buf.declaration)
-  map("n", "gi", vim.lsp.buf.implementation)
-  map("n", "gy", vim.lsp.buf.type_definition)
-  map("n", "gr", vim.lsp.buf.references)
-  map("n", "<leader>rn", vim.lsp.buf.rename)
-  map({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action)
+  map("n", "gi", ":Telescope lsp_implementations<cr>")
+  map("n", "gy", ":Telescope lsp_type_definitions<cr>")
+  map("n", "grr", ":Telescope lsp_references<cr>")
+  map("n", "grn", vim.lsp.buf.rename)
+  map({ "n", "v" }, "gra", vim.lsp.buf.code_action)
   map("i", "<c-s>", vim.lsp.buf.signature_help)
 end
 
