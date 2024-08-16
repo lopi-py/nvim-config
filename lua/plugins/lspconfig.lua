@@ -82,7 +82,6 @@ return {
     for server, config in pairs(opts.servers) do
       config = type(config) == "function" and config() or config
       config.capabilities = vim.tbl_deep_extend("force", capabilities, config.capabilities or {})
-
       require("lspconfig")[server].setup(config)
     end
   end,

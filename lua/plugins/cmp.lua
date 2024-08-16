@@ -29,15 +29,12 @@ return {
           if config.icons.kind[item.kind] then
             item.kind = config.icons.kind[item.kind] .. item.kind
           end
-
           if vim.api.nvim_strwidth(item.abbr) > MAX_ABBR_WIDTH then
             item.abbr = vim.fn.strcharpart(item.abbr, 0, MAX_ABBR_WIDTH) .. "…"
           end
-
           if vim.api.nvim_strwidth(item.menu or "") > MAX_MENU_WIDTH then
             item.menu = vim.fn.strcharpart(item.menu, 0, MAX_MENU_WIDTH) .. "…"
           end
-
           return item
         end,
       },
@@ -46,7 +43,6 @@ return {
   dependencies = {
     "hrsh7th/cmp-nvim-lsp",
     "hrsh7th/cmp-buffer",
-
     {
       "garymjr/nvim-snippets",
       opts = {

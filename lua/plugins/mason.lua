@@ -19,12 +19,10 @@ return {
       "taplo",
       "vtsls",
       "yaml-language-server",
-
       -- formatters
       "black",
       "prettierd",
       "stylua",
-
       -- linters
       "luacheck",
       "selene",
@@ -33,7 +31,6 @@ return {
   init = function()
     local path_sep = vim.uv.os_uname().sysname == "Windows_NT" and ";" or ":"
     local bin_path = vim.fn.stdpath "data" .. "/mason/bin"
-
     vim.env.PATH = bin_path .. path_sep .. vim.env.PATH
   end,
   config = function(_, opts)

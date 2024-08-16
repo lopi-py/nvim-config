@@ -6,20 +6,19 @@ return {
   opts = function()
     require("lualine_require").require = require
 
-    local Block = {
+    local block = {
       function()
         return " "
       end,
       padding = { left = 0, right = 0 },
     }
 
-    local Branch = {
+    local branch = {
       "b:gitsigns_head",
       color = { gui = "bold" },
-      padding = { left = 1, right = 1 },
     }
 
-    local Diff = {
+    local diff = {
       "diff",
       symbols = {
         added = config.icons.git.added .. " ",
@@ -36,7 +35,7 @@ return {
       end,
     }
 
-    local Diagnostics = {
+    local diagnostics = {
       "diagnostics",
       symbols = config.icons.diagnostics,
     }
@@ -48,12 +47,12 @@ return {
         component_separators = "",
       },
       sections = {
-        lualine_a = { Block },
-        lualine_b = { Branch },
-        lualine_c = { "filename", Diff },
-        lualine_x = { Diagnostics, "encoding", "filetype" },
+        lualine_a = { block },
+        lualine_b = { branch },
+        lualine_c = { "filename", diff },
+        lualine_x = { diagnostics, "encoding", "filetype" },
         lualine_y = { "location", "progress" },
-        lualine_z = { Block },
+        lualine_z = { block },
       },
       extensions = { "lazy", "mason", "oil" },
     }
