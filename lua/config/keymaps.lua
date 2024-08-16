@@ -6,7 +6,6 @@ map("n", "<esc>", ":nohlsearch<cr><esc>")
 map("n", "<leader>w", vim.cmd.write)
 map("n", "<c-h>", vim.cmd.tabprevious)
 map("n", "<c-l>", vim.cmd.tabnext)
-map("n", "<c-x>", vim.cmd.tabclose)
 map("n", "<tab>", ":e #<cr>")
 map("n", "<bs>", vim.cmd.bdelete)
 

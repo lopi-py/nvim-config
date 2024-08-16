@@ -22,7 +22,7 @@ return {
           settings = {
             json = {
               schemas = require("schemastore").json.schemas {
-                extras = {
+                extra = {
                   {
                     name = "default.project.json",
                     description = "JSON schema for Rojo project files",
