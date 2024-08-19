@@ -1,6 +1,6 @@
 local function rojo_project()
   return vim.fs.root(0, function(name)
-    return name:match "%.project.json$"
+    return name:match ".+%.project%.json$"
   end)
 end
 
