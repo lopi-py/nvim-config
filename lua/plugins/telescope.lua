@@ -1,5 +1,3 @@
-local config = require "config"
-
 return {
   "nvim-telescope/telescope.nvim",
   keys = {
@@ -15,11 +13,7 @@ return {
     { "<leader><leader>", ":Telescope buffers<cr>" },
   },
   cmd = "Telescope",
-  opts = {
-    defaults = {
-      file_ignore_pattern = config.ignore_pattern,
-    },
-  },
+  opts = {},
   dependencies = {
     "nvim-lua/plenary.nvim",
   },

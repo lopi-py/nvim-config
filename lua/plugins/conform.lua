@@ -9,7 +9,8 @@ return {
       typescriptreact = { "prettierd" },
       javascript = { "prettierd" },
       javascriptreact = { "prettierd" },
-      python = { "black" },
+      python = { "ruff_organize_imports", "ruff_format" },
+      ["_"] = { "trim_whitespace", "trim_newlines" },
     },
     formatters = {},
     default_format_opts = { lsp_format = "fallback" },
@@ -17,12 +18,11 @@ return {
       if not vim.g.autoformat then
         return
       end
-      return { timeout_ms = 250 }
+      return { timeout_ms = 500 }
     end,
     notify_on_error = false,
   },
   init = function()
     vim.g.autoformat = true
-    vim.o.formatexpr = "v:lua.require('conform').formatexpr()"
   end,
 }

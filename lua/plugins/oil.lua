@@ -1,5 +1,3 @@
-local config = require "config"
-
 return {
   "stevearc/oil.nvim",
   keys = {
@@ -10,7 +8,7 @@ return {
     view_options = {
       show_hidden = true,
       is_always_hidden = function(name)
-        return name == ".." or vim.list_contains(config.ignore_pattern, name)
+        return name == ".." or name == ".git"
       end,
     },
   },

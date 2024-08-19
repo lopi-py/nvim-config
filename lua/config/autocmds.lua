@@ -8,12 +8,6 @@ autocmd({ "BufNewFile", "BufReadPost", "BufWritePost" }, {
   end),
 })
 
-autocmd("TextYankPost", {
-  callback = function()
-    vim.highlight.on_yank()
-  end,
-})
-
 autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
   command = "checktime",
 })

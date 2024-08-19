@@ -1,5 +1,4 @@
 return {
-  ignore_pattern = { ".git" },
   icons = {
     diagnostics = {
       info = " ",

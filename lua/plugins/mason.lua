@@ -20,7 +20,6 @@ return {
       "vtsls",
       "yaml-language-server",
       -- formatters
-      "black",
       "prettierd",
       "stylua",
       -- linters
