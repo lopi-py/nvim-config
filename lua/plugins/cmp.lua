@@ -18,9 +18,9 @@ return {
       },
       sources = cmp.config.sources({
         { name = "nvim_lsp" },
+        { name = "snippets" },
       }, {
         { name = "buffer", keyword_length = 4 },
-        { name = "snippets" },
       }),
       formatting = {
         format = function(_, item)

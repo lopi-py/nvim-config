@@ -28,7 +28,6 @@ map({ "i", "s" }, "<c-j>", function()
     vim.snippet.jump(1)
   end
 end)
-
 map({ "i", "s" }, "<c-k>", function()
   if vim.snippet.active { direction = -1 } then
     vim.snippet.jump(-1)

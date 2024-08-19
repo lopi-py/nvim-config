@@ -26,7 +26,9 @@ require("lazy").setup({
     patterns = { "lopi-py" },
     fallback = true,
   },
-  change_detection = { notify = false },
+  change_detection = {
+    notify = false,
+  },
 })
 
 vim.cmd.colorscheme "catppuccin"
