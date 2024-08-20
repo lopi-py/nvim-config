@@ -40,11 +40,6 @@ return {
       end,
     }
 
-    local filename = {
-      "filename",
-      path = 1,
-    }
-
     local diagnostics = {
       "diagnostics",
       symbols = config.icons.diagnostics,
