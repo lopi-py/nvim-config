@@ -35,6 +35,11 @@ return {
       end,
     }
 
+    local filename = {
+      "filename",
+      path = 1,
+    }
+
     local diagnostics = {
       "diagnostics",
       symbols = config.icons.diagnostics,
@@ -49,7 +54,7 @@ return {
       sections = {
         lualine_a = { block },
         lualine_b = { branch },
-        lualine_c = { "filename", diff },
+        lualine_c = { filename, diff },
         lualine_x = { diagnostics, "encoding", "filetype" },
         lualine_y = { "location", "progress" },
         lualine_z = { block },
