@@ -18,6 +18,11 @@ return {
       color = { gui = "bold" },
     }
 
+    local filename = {
+      "filename",
+      path = 1,
+    }
+
     local diff = {
       "diff",
       symbols = {
