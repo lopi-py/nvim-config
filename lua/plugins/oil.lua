@@ -1,8 +1,8 @@
 return {
   "stevearc/oil.nvim",
   keys = {
-    { "-", ":Oil<cr>" },
-    { "_", ":Oil .<cr>" },
+    { "-", "<cmd>Oil<cr>" },
+    { "_", "<cmd>Oil .<cr>" },
   },
   opts = {
     view_options = {
