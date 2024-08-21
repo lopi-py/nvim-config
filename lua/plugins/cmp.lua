@@ -40,6 +40,7 @@ return {
     "hrsh7th/cmp-buffer",
     {
       "garymjr/nvim-snippets",
+      opts = {},
     },
   },
 }
