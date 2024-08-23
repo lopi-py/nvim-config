@@ -3,7 +3,7 @@ return {
   build = ":MasonUpdate",
   cmd = { "Mason", "MasonInstall", "MasonInstallAll", "MasonUpdate" },
   opts = {
-    ensure_install = {
+    ensure_installed = {
       -- servers
       "basedpyright",
       "clangd",
@@ -40,7 +40,7 @@ return {
     vim.api.nvim_create_user_command("MasonInstallAll", function()
       require("mason.ui").open()
       require("mason-registry").refresh(function()
-        for _, tool in ipairs(opts.ensure_install) do
+        for _, tool in ipairs(opts.ensure_installed) do
           local pkg = require("mason-registry").get_package(tool)
           if not pkg:is_installed() then
             pkg:install()

@@ -1,10 +1,10 @@
 return {
   "nvim-treesitter/nvim-treesitter",
-  branch = "main",
   build = ":TSUpdate",
   event = "User FilePost",
+  main = "nvim-treesitter.configs",
   opts = {
-    ensure_install = {
+    ensure_installed = {
       "c",
       "cpp",
       "css",
@@ -28,12 +28,15 @@ return {
       "vimdoc",
       "yaml",
     },
+    highlight = {
+      enable = true,
+    },
+    indent = {
+      enable = true,
+    },
   },
-  init = function()
-    vim.api.nvim_create_autocmd("FileType", {
-      callback = function()
-        pcall(vim.treesitter.start)
-      end,
-    })
+  init = function(plugin)
+    require("lazy.core.loader").add_to_rtp(plugin)
+    require "nvim-treesitter.query_predicates"
   end,
 }
