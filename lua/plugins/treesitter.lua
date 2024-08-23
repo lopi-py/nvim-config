@@ -18,6 +18,7 @@ return {
       "luau",
       "markdown",
       "markdown_inline",
+      "php",
       "python",
       "query",
       "rust",

@@ -10,6 +10,7 @@ return {
       "css-lsp",
       "eslint-lsp",
       "html-lsp",
+      "intelephense",
       "jdtls",
       "json-lsp",
       "lua-language-server",

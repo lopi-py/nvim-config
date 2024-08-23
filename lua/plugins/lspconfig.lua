@@ -17,6 +17,7 @@ return {
       cssls = {},
       eslint = {},
       html = {},
+      intelephense = {},
       jsonls = function()
         return {
           settings = {
