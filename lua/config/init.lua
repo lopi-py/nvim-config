@@ -6,10 +6,5 @@ return {
       warn = " ",
       error = " ",
     },
-    git = {
-      added = "",
-      modified = "",
-      removed = "",
-    },
   },
 }
