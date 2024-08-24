@@ -10,7 +10,6 @@ return {
       javascript = { "prettierd" },
       javascriptreact = { "prettierd" },
       python = { "ruff_organize_imports", "ruff_format" },
-      ["_"] = { "trim_whitespace", "trim_newlines" },
     },
     formatters = {},
     default_format_opts = { lsp_format = "fallback" },
