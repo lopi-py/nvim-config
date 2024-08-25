@@ -1,5 +1,3 @@
-local config = require "config"
-
 return {
   "nvim-lualine/lualine.nvim",
   event = "VeryLazy",
@@ -35,11 +33,6 @@ return {
       end,
     }
 
-    local diagnostics = {
-      "diagnostics",
-      symbols = config.icons.diagnostics,
-    }
-
     return {
       options = {
         globalstatus = true,
@@ -50,7 +43,7 @@ return {
         lualine_a = { block },
         lualine_b = { branch },
         lualine_c = { filename, diff },
-        lualine_x = { diagnostics, "encoding", "filetype" },
+        lualine_x = { "diagnostics", "encoding", "filetype" },
         lualine_y = { "location", "progress" },
         lualine_z = { block },
       },
