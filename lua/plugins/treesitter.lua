@@ -1,7 +1,8 @@
 return {
   "nvim-treesitter/nvim-treesitter",
   build = ":TSUpdate",
-  event = "User FilePost",
+  event = "VeryLazy",
+  lazy = vim.fn.argv(-1) == 0,
   main = "nvim-treesitter.configs",
   opts = {
     ensure_installed = {
@@ -36,8 +37,4 @@ return {
       enable = true,
     },
   },
-  init = function(plugin)
-    require("lazy.core.loader").add_to_rtp(plugin)
-    require "nvim-treesitter.query_predicates"
-  end,
 }

@@ -13,11 +13,9 @@ return {
     },
   },
   init = function()
-    if vim.fn.argc(-1) == 1 then
-      local stat = vim.uv.fs_stat(vim.fn.argv(0))
-      if stat and stat.type == "directory" then
-        require("lazy").load { plugins = { "oil.nvim" } }
-      end
+    local stat = vim.uv.fs_stat(vim.fn.argv(0))
+    if stat and stat.type == "directory" then
+      require("lazy").load { plugins = { "oil.nvim" } }
     end
   end,
   dependencies = {
