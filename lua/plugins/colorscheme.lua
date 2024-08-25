@@ -2,6 +2,9 @@ return {
   {
     "catppuccin/nvim",
     name = "catppuccin",
-    opts = { no_italic = true },
+    opts = {
+      transparent_background = true,
+      no_italic = true,
+    },
   },
 }
