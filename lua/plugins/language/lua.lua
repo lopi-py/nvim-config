@@ -13,7 +13,7 @@ return {
   },
 
   {
-    "hrsh7th/nvim-cmp",
+    "yioneko/nvim-cmp",
     opts = function(_, opts)
       table.insert(opts.sources, {
         name = "lazydev",

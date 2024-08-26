@@ -2,7 +2,8 @@ local MAX_ABBR_WIDTH = 30
 local MAX_MENU_WIDTH = 30
 
 return {
-  "hrsh7th/nvim-cmp",
+  "yioneko/nvim-cmp",
+  branch = "perf",
   event = "InsertEnter",
   opts = function()
     local cmp = require "cmp"
