@@ -36,7 +36,6 @@ vim.diagnostic.config {
   signs = false,
   float = {
     source = true,
-    border = "rounded",
   },
 }
 
