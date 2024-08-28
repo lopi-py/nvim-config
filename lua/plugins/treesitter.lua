@@ -2,7 +2,7 @@ return {
   "nvim-treesitter/nvim-treesitter",
   build = ":TSUpdate",
   event = "VeryLazy",
-  lazy = vim.fn.argv(-1) == 0,
+  lazy = vim.fn.argc(-1) == 0,
   main = "nvim-treesitter.configs",
   opts = {
     ensure_installed = {

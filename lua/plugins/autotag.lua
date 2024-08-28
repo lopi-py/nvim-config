@@ -1,5 +1,5 @@
 return {
   "windwp/nvim-ts-autotag",
-  event = "User FilePost",
+  event = "InsertEnter",
   opts = {},
 }
