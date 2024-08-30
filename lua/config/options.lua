@@ -20,8 +20,6 @@ vim.o.ignorecase = true
 vim.o.foldtext = ""
 vim.o.foldlevel = 99
 
-vim.o.smartindent = true
-
 vim.o.swapfile = false
 vim.o.updatetime = 200
 

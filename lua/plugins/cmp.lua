@@ -9,12 +9,15 @@ return {
     local cmp = require "cmp"
 
     return {
+      completion = {
+        completeopt = "menu,menuone",
+      },
       mapping = {
         ["<c-n>"] = cmp.mapping.select_next_item(),
         ["<c-p>"] = cmp.mapping.select_prev_item(),
         ["<c-u>"] = cmp.mapping.scroll_docs(-4),
         ["<c-d>"] = cmp.mapping.scroll_docs(4),
-        ["<c-y>"] = cmp.mapping.confirm { select = true },
+        ["<c-y>"] = cmp.mapping.confirm(),
         ["<c-e>"] = cmp.mapping.abort(),
       },
       sources = cmp.config.sources({
