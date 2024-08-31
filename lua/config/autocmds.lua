@@ -7,7 +7,3 @@ autocmd({ "BufNewFile", "BufReadPost", "BufWritePost" }, {
     vim.api.nvim_exec_autocmds("FileType", {})
   end),
 })
-
-autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
-  command = "checktime",
-})
