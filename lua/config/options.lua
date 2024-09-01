@@ -13,7 +13,6 @@ vim.o.expandtab = true
 vim.o.splitbelow = true
 vim.o.splitright = true
 
-vim.o.inccommand = "split"
 vim.o.smartcase = true
 vim.o.ignorecase = true
 
