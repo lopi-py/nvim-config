@@ -23,6 +23,5 @@ vim.o.swapfile = false
 vim.o.updatetime = 200
 
 vim.o.wrap = true
-vim.o.linebreak = true
 
 vim.opt.fillchars = { fold = " ", diff = "╱" }
