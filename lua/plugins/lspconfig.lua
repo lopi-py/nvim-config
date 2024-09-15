@@ -39,6 +39,7 @@ return {
           },
         }
       end,
+      lemminx = {},
       lua_ls = {},
       ruff = {
         on_attach = function(client)

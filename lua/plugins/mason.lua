@@ -13,6 +13,7 @@ return {
       "intelephense",
       "jdtls",
       "json-lsp",
+      "lemminx",
       "lua-language-server",
       "luau-lsp",
       "ruff",
