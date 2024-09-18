@@ -4,7 +4,7 @@ return {
     { "<leader>/", "<cmd>Telescope live_grep<cr>" },
     { "<leader>,", "<cmd>Telescope buffers sort_mru=true<cr>" },
     { "<leader>ff", "<cmd>Telescope find_files<cr>" },
-    { "<leader>fr", "<cmd>Telescope oldfiles cwd_only<cr>" },
+    { "<leader>fr", "<cmd>Telescope oldfiles cwd_only=true<cr>" },
     { "<leader>fg", "<cmd>Telescope git_files<cr>" },
     { "<leader>gc", "<cmd>Telescope git_commits<cr>" },
     { "<leader>gC", "<cmd>Telescope git_bcommits<cr>" },
