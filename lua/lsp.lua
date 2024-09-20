@@ -30,8 +30,6 @@ local function on_attach(_, bufnr)
   map("i", "<c-s>", vim.lsp.buf.signature_help)
 end
 
-vim.lsp.inlay_hint.enable(true)
-
 vim.diagnostic.config {
   signs = false,
   float = {
