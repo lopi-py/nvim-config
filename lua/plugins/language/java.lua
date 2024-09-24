@@ -15,7 +15,7 @@ return {
     return {
       capabilities = capabilities,
       cmd = {
-        "jdtls",
+        vim.fn.exepath "jdtls",
         "-configuration",
         jdtls_config_dir(vim.fs.basename(vim.uv.cwd())),
         "-data",
