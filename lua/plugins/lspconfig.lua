@@ -10,8 +10,6 @@ return {
           "--background-index",
           "--clang-tidy",
           "--completion-style=detailed",
-          "--header-insertion=iwyu",
-          "--fallback-style=llvm",
         },
       },
       cssls = {},
