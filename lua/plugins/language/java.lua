@@ -11,7 +11,6 @@ return {
   ft = "java",
   opts = function()
     local capabilities = require("lsp").capabilities()
-
     return {
       capabilities = capabilities,
       cmd = {

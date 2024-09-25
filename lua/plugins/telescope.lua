@@ -12,7 +12,6 @@ return {
     { "<leader>gb", "<cmd>Telescope git_branches<cr>" },
   },
   cmd = "Telescope",
-  opts = {},
   config = function(_, opts)
     require("telescope").setup(opts)
     require("telescope").load_extension "fzf"
