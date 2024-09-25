@@ -3,7 +3,6 @@ return {
   event = "User FilePost",
   opts = {
     servers = {
-      basedpyright = {},
       clangd = {
         cmd = {
           "clangd",
@@ -39,6 +38,7 @@ return {
       end,
       lemminx = {},
       lua_ls = {},
+      pyright = {},
       ruff = {
         on_attach = function(client)
           client.server_capabilities.hoverProvider = false
@@ -78,7 +78,6 @@ return {
   },
   config = function(_, opts)
     local capabilities = require("lsp").capabilities()
-
     for server, config in pairs(opts.servers) do
       config = type(config) == "function" and config() or config
       config.capabilities = vim.tbl_deep_extend("force", capabilities, config.capabilities or {})

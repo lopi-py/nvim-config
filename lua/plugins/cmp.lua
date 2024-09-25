@@ -7,7 +7,6 @@ return {
   event = "InsertEnter",
   opts = function()
     local cmp = require "cmp"
-
     return {
       mapping = {
         ["<c-n>"] = cmp.mapping.select_next_item(),
@@ -39,9 +38,6 @@ return {
   dependencies = {
     "hrsh7th/cmp-nvim-lsp",
     "hrsh7th/cmp-buffer",
-    {
-      "garymjr/nvim-snippets",
-      opts = {},
-    },
+    { "garymjr/nvim-snippets", opts = {} },
   },
 }

@@ -20,7 +20,6 @@ require("lazy").setup({
   { import = "plugins" },
   { import = "plugins.language" },
 }, {
-  defaults = { lazy = true },
   dev = {
     path = "~/dev/nvim",
     patterns = { "lopi-py" },

@@ -3,36 +3,6 @@ return {
   event = "VeryLazy",
   opts = function()
     require("lualine_require").require = require
-
-    local block = {
-      function()
-        return " "
-      end,
-      padding = { left = 0, right = 0 },
-    }
-
-    local branch = {
-      "b:gitsigns_head",
-      color = { gui = "bold" },
-    }
-
-    local filename = {
-      "filename",
-      path = 1,
-    }
-
-    local diff = {
-      "diff",
-      source = function()
-        local status = vim.b.gitsigns_status_dict or {}
-        return {
-          added = status.added,
-          modified = status.changed,
-          removed = status.removed,
-        }
-      end,
-    }
-
     return {
       options = {
         globalstatus = true,
@@ -40,12 +10,35 @@ return {
         component_separators = "",
       },
       sections = {
-        lualine_a = { block },
-        lualine_b = { branch },
-        lualine_c = { filename, diff },
+        lualine_a = {
+          {
+            function()
+              return " "
+            end,
+            padding = { left = 0, right = 0 },
+          },
+        },
+        lualine_b = {
+          {
+            "b:gitsigns_head",
+            color = { gui = "bold" },
+          },
+        },
+        lualine_c = {
+          { "filename", path = 1 },
+          {
+            "diff",
+            source = function()
+              local status = vim.b.gitsigns_status_dict or {}
+              return {
+                added = status.added,
+                modified = status.changed,
+                removed = status.removed,
+              }
+            end,
+          },
+        },
         lualine_x = { "diagnostics", "encoding", "filetype" },
-        lualine_y = { "location", "progress" },
-        lualine_z = { block },
       },
       extensions = { "lazy", "mason", "oil" },
     }

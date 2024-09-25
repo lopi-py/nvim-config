@@ -9,7 +9,6 @@ return {
   ft = "luau",
   opts = function()
     local capabilities = require("lsp").capabilities()
-
     return {
       platform = {
         type = rojo_project() and "roblox" or "standard",

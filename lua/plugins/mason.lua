@@ -5,7 +5,6 @@ return {
   opts = {
     ensure_installed = {
       -- servers
-      "basedpyright",
       "clangd",
       "css-lsp",
       "eslint-lsp",
@@ -16,6 +15,7 @@ return {
       "lemminx",
       "lua-language-server",
       "luau-lsp",
+      "pyright",
       "ruff",
       "rust-analyzer",
       "taplo",
