@@ -4,7 +4,6 @@ return {
   cmd = { "Mason", "MasonInstall", "MasonInstallAll", "MasonUpdate" },
   opts = {
     ensure_installed = {
-      -- servers
       "clangd",
       "css-lsp",
       "eslint-lsp",
@@ -14,19 +13,17 @@ return {
       "json-lsp",
       "lemminx",
       "lua-language-server",
+      "luacheck",
       "luau-lsp",
+      "prettierd",
       "pyright",
       "ruff",
       "rust-analyzer",
+      "selene",
+      "stylua",
       "taplo",
       "vtsls",
       "yaml-language-server",
-      -- formatters
-      "prettierd",
-      "stylua",
-      -- linters
-      "luacheck",
-      "selene",
     },
   },
   init = function()

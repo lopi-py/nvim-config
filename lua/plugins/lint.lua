@@ -10,14 +10,14 @@ return {
       luau = { "selene" },
     },
     linters = {
-      selene = {
-        condition = function(_, bufnr)
-          return vim.fs.root(bufnr, "selene.toml")
-        end,
-      },
       luacheck = {
         condition = function(_, bufnr)
           return vim.fs.root(bufnr, ".luacheckrc")
+        end,
+      },
+      selene = {
+        condition = function(_, bufnr)
+          return vim.fs.root(bufnr, "selene.toml")
         end,
       },
     },
