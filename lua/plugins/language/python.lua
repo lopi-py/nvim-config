@@ -3,7 +3,4 @@ return {
   branch = "regexp",
   cmd = "VenvSelect",
   opts = {},
-  dependencies = {
-    "nvim-telescope/telescope.nvim",
-  },
 }

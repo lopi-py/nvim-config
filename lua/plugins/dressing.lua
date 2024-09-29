@@ -13,7 +13,4 @@ return {
       vim.ui.input(...)
     end
   end,
-  dependencies = {
-    "nvim-telescope/telescope.nvim",
-  },
 }
