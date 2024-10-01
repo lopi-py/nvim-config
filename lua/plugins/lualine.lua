@@ -5,7 +5,6 @@ return {
     require("lualine_require").require = require
     return {
       options = {
-        globalstatus = true,
         section_separators = "",
         component_separators = "",
       },
@@ -44,6 +43,7 @@ return {
     }
   end,
   init = function()
+    vim.o.laststatus = 3
     vim.o.statusline = " "
   end,
   dependencies = {
