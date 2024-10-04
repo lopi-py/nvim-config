@@ -1,6 +1,6 @@
 return {
   "neovim/nvim-lspconfig",
-  event = "User FilePost",
+  event = { "BufReadPost", "BufNewFile" },
   opts = {
     servers = {
       clangd = {
