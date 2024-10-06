@@ -13,7 +13,7 @@ if not vim.uv.fs_stat(lazypath) then
     })
     :wait()
 end
-vim.opt.rtp:append(lazypath)
+vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
   { import = "plugins" },
