@@ -54,6 +54,7 @@ return {
           },
         },
       },
+      tailwindcss = {},
       taplo = {},
       vtsls = {
         settings = {
@@ -65,11 +66,6 @@ return {
           },
           vtsls = {
             enableMoveToFileCodeAction = true,
-            experimental = {
-              completion = {
-                enableServerSideFuzzyMatch = true,
-              },
-            },
           },
         },
       },

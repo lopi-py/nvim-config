@@ -21,6 +21,7 @@ return {
       "rust-analyzer",
       "selene",
       "stylua",
+      "tailwindcss",
       "taplo",
       "vtsls",
       "yaml-language-server",
