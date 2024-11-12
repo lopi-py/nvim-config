@@ -12,13 +12,14 @@ return {
     },
   },
 
-  {
-    "yioneko/nvim-cmp",
-    opts = function(_, opts)
-      table.insert(opts.sources, {
-        name = "lazydev",
-        group_index = 0,
-      })
-    end,
-  },
+  -- TODO: add to blink
+  -- {
+  --   "yioneko/nvim-cmp",
+  --   opts = function(_, opts)
+  --     table.insert(opts.sources, {
+  --       name = "lazydev",
+  --       group_index = 0,
+  --     })
+  --   end,
+  -- },
 }

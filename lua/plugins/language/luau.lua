@@ -25,7 +25,6 @@ return {
               },
             },
             require = {
-              mode = "relativeToFile",
               directoryAliases = require("luau-lsp").aliases(),
             },
             inlayHints = {
