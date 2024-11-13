@@ -20,14 +20,3 @@ end)
 map("n", "<leader>uf", function()
   vim.g.autoformat = not vim.g.autoformat
 end)
-
-map({ "i", "s" }, "<c-j>", function()
-  if vim.snippet.active { direction = 1 } then
-    vim.snippet.jump(1)
-  end
-end)
-map({ "i", "s" }, "<c-k>", function()
-  if vim.snippet.active { direction = -1 } then
-    vim.snippet.jump(-1)
-  end
-end)

@@ -7,5 +7,10 @@ return {
         enabled = true,
       },
     },
+    windows = {
+      ghost_text = {
+        enabled = true,
+      },
+    },
   },
 }
