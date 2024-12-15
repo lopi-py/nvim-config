@@ -4,22 +4,24 @@ return {
     ft = "lua",
     opts = {
       library = {
-        { path = "luvit-meta/library", words = { "vim%.uv" } },
+        { path = "${3rd}/luv/library", words = { "vim%.uv" } },
       },
-    },
-    dependencies = {
-      "Bilal2453/luvit-meta",
     },
   },
 
-  -- TODO: add to blink
-  -- {
-  --   "yioneko/nvim-cmp",
-  --   opts = function(_, opts)
-  --     table.insert(opts.sources, {
-  --       name = "lazydev",
-  --       group_index = 0,
-  --     })
-  --   end,
-  -- },
+  {
+    "lopi-py/blink.cmp",
+    opts = {
+      sources = {
+        default = { "lazydev" },
+        providers = {
+          lazydev = {
+            name = "LazyDev",
+            module = "lazydev.integrations.blink",
+            fallbacks = { "lsp" },
+          },
+        },
+      },
+    },
+  },
 }
