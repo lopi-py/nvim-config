@@ -9,8 +9,12 @@ return {
           enabled = true,
         },
       },
-    },
-    windows = {
+      menu = {
+        min_width = 1,
+        draw = {
+          columns = { { "label", "label_description", gap = 1 }, { "kind" } },
+        },
+      },
       ghost_text = {
         enabled = true,
       },
