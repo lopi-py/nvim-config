@@ -15,12 +15,10 @@ return {
           columns = { { "label", "label_description", gap = 1 }, { "kind" } },
         },
       },
-      ghost_text = {
-        enabled = true,
-      },
     },
     sources = {
       default = { "lsp", "path", "snippets", "buffer" },
+      cmdline = {},
     },
   },
 }

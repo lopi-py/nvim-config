@@ -39,7 +39,7 @@ return {
         },
         lualine_x = { "diagnostics", "encoding", "filetype" },
       },
-      extensions = { "lazy", "mason", "oil" },
+      extensions = { "lazy", "mason", "fzf", "oil" },
     }
   end,
   init = function()

@@ -4,6 +4,7 @@ return {
   opts = {
     integrations = {
       blink_cmp = true,
+      fzf = true,
     },
   },
 
