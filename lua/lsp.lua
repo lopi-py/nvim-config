@@ -30,6 +30,16 @@ local function on_attach(_, bufnr)
   map("i", "<c-s>", vim.lsp.buf.signature_help)
 end
 
+vim.lsp.config("*", {
+  capabilities = {
+    workspace = {
+      didChangeWatchedFiles = {
+        dynamicRegistration = true,
+      },
+    },
+  },
+})
+
 vim.diagnostic.config {
   signs = false,
   float = {

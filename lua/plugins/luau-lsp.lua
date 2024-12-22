@@ -24,9 +24,6 @@ return {
                 ignoreGlobs = { "**/_Index/**", "node_modules/**" },
               },
             },
-            require = {
-              directoryAliases = require("luau-lsp").aliases(),
-            },
             inlayHints = {
               functionReturnTypes = true,
               parameterTypes = true,
