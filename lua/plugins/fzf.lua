@@ -17,6 +17,12 @@ return {
     fzf_opts = {
       ["--no-scrollbar"] = true,
     },
+    keymap = {
+      builtin = {
+        ["<c-f>"] = "preview-page-down",
+        ["<c-b>"] = "preview-page-up",
+      },
+    },
     defaults = {
       formatter = "path.dirname_first",
       git_icons = false,
