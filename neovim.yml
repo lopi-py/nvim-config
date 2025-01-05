@@ -1,8 +1,0 @@
-base: "lua51"
-name: "neovim"
-
-globals:
-  vim:
-    any: true
-  jit:
-    any: true
