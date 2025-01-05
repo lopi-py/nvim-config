@@ -15,10 +15,7 @@ if not vim.uv.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup({
-  { import = "plugins" },
-  { import = "plugins.language" },
-}, {
+require("lazy").setup("plugins", {
   dev = {
     path = "~/dev/nvim",
     patterns = { "lopi-py" },
