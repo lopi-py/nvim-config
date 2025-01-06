@@ -17,7 +17,7 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup("plugins", {
   dev = {
-    path = "~/dev/nvim",
+    path = "~/workspace",
     patterns = { "lopi-py" },
     fallback = true,
   },
