@@ -28,6 +28,9 @@ vim.api.nvim_create_autocmd("LspAttach", {
       vim.keymap.set(mode, lhs, rhs, { buffer = event.buf })
     end
 
+    map("i", "<ctrl-s>", vim.lsp.buf.signature_help)
+    map("n", "grn", vim.lsp.buf.rename)
+    map("n", "gra", vim.lsp.buf.code_action)
     map("n", "gd", "<cmd>FzfLua lsp_definitions jump_to_single_result=true<cr>")
     map("n", "gD", "<cmd>FzfLua lsp_declarations jump_to_single_result=true<cr>")
     map("n", "gy", "<cmd>FzfLua lsp_typedefs jump_to_single_result=true<cr>")
