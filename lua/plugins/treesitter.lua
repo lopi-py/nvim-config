@@ -34,8 +34,9 @@ return {
     highlight = {
       enable = true,
     },
-    indent = {
-      enable = true,
-    },
+    -- NOTE: forces a re-parse, which negates the benefit of async parsing
+    -- indent = {
+    --   enable = true,
+    -- },
   },
 }
