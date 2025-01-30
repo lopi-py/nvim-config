@@ -36,4 +36,7 @@ return {
       vim.ui.select(...)
     end
   end,
+  dependencies = {
+    "nvim-tree/nvim-web-devicons",
+  },
 }

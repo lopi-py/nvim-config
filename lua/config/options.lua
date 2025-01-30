@@ -21,7 +21,9 @@ vim.o.foldlevel = 99
 
 vim.o.swapfile = false
 vim.o.updatetime = 200
+vim.o.laststatus = 3
 
+vim.o.mouse = ""
 vim.o.wrap = true
 
 vim.opt.fillchars = { fold = " ", diff = "╱" }
