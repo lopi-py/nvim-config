@@ -90,7 +90,7 @@ return {
         if vim.bo.buftype == "help" then
           filename = vim.fn.fnamemodify(filename, ":t")
         elseif vim.bo.buftype == "terminal" then
-          filename = filename:gsub(".*:", "")
+          filename = filename:gsub(".*%d:", "")
         end
         return #filename > 0 and filename or "[No Name]"
       end,
