@@ -15,18 +15,23 @@ return {
   opts = {
     fzf_colors = true,
     fzf_opts = {
+      ["--cycle"] = true,
       ["--no-scrollbar"] = true,
-    },
-    keymap = {
-      builtin = {
-        ["<c-f>"] = "preview-page-down",
-        ["<c-b>"] = "preview-page-up",
-      },
     },
     defaults = {
       formatter = "path.dirname_first",
-      git_icons = false,
       header = false,
+    },
+    keymap = {
+      builtin = {
+        ["<c-u>"] = "preview-page-up",
+        ["<c-d>"] = "preview-page-down",
+      },
+    },
+    winopts = {
+      preview = {
+        scrollbar = false,
+      },
     },
   },
   init = function()

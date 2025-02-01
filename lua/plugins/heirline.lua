@@ -206,7 +206,6 @@ return {
     return {
       colors = function()
         return {
-          fg = utils.get_highlight("StatusLine").fg,
           bg = utils.get_highlight("StatusLine").bg,
 
           red = utils.get_highlight("DiagnosticError").fg,
