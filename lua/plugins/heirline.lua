@@ -197,17 +197,15 @@ return {
 
     local Ruler = {
       update = "ModeChanged",
-      provider = " %P %l:%c ",
+      provider = "%P %l:%c",
       hl = function(self)
-        return { fg = "bg", bg = self:mode_color() }
+        return { fg = self:mode_color(), bold = true }
       end,
     }
 
     return {
       colors = function()
         return {
-          bg = utils.get_highlight("StatusLine").bg,
-
           red = utils.get_highlight("DiagnosticError").fg,
           yellow = utils.get_highlight("DiagnosticWarn").fg,
           green = utils.get_highlight("DiagnosticOk").fg,
@@ -254,7 +252,8 @@ return {
         Diagnostics,
         pad(FileEncoding),
         pad(FileType),
-        Ruler,
+        pad(Ruler),
+        ViMode,
       },
     }
   end,
