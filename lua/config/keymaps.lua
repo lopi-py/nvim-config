@@ -20,3 +20,10 @@ end)
 map("n", "<leader>uf", function()
   vim.g.autoformat = not vim.g.autoformat
 end)
+
+map("n", "[e", function()
+  vim.diagnostic.jump { count = -1, severity = vim.diagnostic.severity.ERROR }
+end)
+map("n", "]e", function()
+  vim.diagnostic.jump { count = 1, severity = vim.diagnostic.severity.ERROR }
+end)
