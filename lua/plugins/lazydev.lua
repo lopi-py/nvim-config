@@ -10,7 +10,7 @@ return {
   },
 
   {
-    "lopi-py/blink.cmp",
+    "Saghen/blink.cmp",
     opts = {
       sources = {
         default = { "lazydev" },

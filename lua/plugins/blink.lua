@@ -1,14 +1,10 @@
 return {
-  "lopi-py/blink.cmp",
-  event = "InsertEnter",
+  "Saghen/blink.cmp",
+  version = "*",
+  event = "VeryLazy",
   opts_extend = { "sources.default" },
   opts = {
     completion = {
-      accept = {
-        auto_brackets = {
-          enabled = true,
-        },
-      },
       menu = {
         min_width = 1,
         draw = {
@@ -18,7 +14,9 @@ return {
     },
     sources = {
       default = { "lsp", "path", "snippets", "buffer" },
-      cmdline = {},
+    },
+    cmdline = {
+      enabled = false,
     },
   },
 }

@@ -4,7 +4,6 @@ map("n", "<esc>", "<cmd>nohlsearch<cr><esc>")
 map("n", "<c-h>", vim.cmd.tabprevious)
 map("n", "<c-l>", vim.cmd.tabnext)
 map("n", "<tab>", "<cmd>edit #<cr>")
-map("n", "<bs>", vim.cmd.bdelete)
 
 map("t", "<c-w>", "<c-\\><c-n><c-w>", { remap = true })
 
