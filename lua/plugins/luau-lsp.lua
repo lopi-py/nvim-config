@@ -13,6 +13,11 @@ return {
       platform = {
         type = rojo_project() and "roblox" or "standard",
       },
+      fflags = {
+        override = {
+          LuauTableTypeMaximumStringifierLength = "0",
+        },
+      },
       server = {
         capabilities = capabilities,
         settings = {
