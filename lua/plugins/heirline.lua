@@ -32,7 +32,9 @@ return {
     }
 
     local GitBranch = {
-      condition = conditions.is_git_repo,
+      condition = function()
+        return vim.b.gitsigns_head and vim.b.gitsigns_head ~= ""
+      end,
       provider = function()
         return vim.b.gitsigns_head
       end,
@@ -97,6 +99,9 @@ return {
     }
 
     local FileFlags = {
+      condition = function()
+        return vim.bo.buftype ~= "prompt"
+      end,
       {
         condition = function()
           return vim.bo.modified
@@ -107,7 +112,7 @@ return {
         condition = function()
           return not vim.bo.modifiable or vim.bo.readonly
         end,
-        provider = " ",
+        provider = " [-]",
       },
     }
 

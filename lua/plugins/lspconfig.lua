@@ -12,6 +12,16 @@ return {
         },
       },
       cssls = {},
+      emmet_language_server = {
+        filetypes = {
+          "blade",
+          "css",
+          "html",
+          "javascriptreact",
+          "php",
+          "typescriptreact",
+        },
+      },
       eslint = {},
       html = {},
       intelephense = {},
