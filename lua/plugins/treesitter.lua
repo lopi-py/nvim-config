@@ -34,6 +34,8 @@ return {
     },
     highlight = {
       enable = true,
+      -- NOTE: php indent needs vim regex enabled to work properly
+      additional_vim_regex_highlighting = { "php" },
     },
     -- NOTE: forces a re-parse, which negates the benefit of async parsing
     -- indent = {
