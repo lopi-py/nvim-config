@@ -3,7 +3,7 @@
 
 return {
   "mfussenegger/nvim-lint",
-  event = { "BufReadPost", "BufNewFile" },
+  event = "VeryLazy",
   opts = {
     linters_by_ft = {
       lua = { "selene", "luacheck" },

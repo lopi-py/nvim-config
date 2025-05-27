@@ -1,6 +1,6 @@
 return {
   "stevearc/conform.nvim",
-  event = "BufWritePre",
+  event = "VeryLazy",
   opts = {
     formatters_by_ft = {
       javascript = { "prettierd" },

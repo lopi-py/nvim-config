@@ -1,11 +1,10 @@
 return {
   "nvim-treesitter/nvim-treesitter",
+  branch = "main",
   build = ":TSUpdate",
-  event = "VeryLazy",
-  lazy = vim.fn.argc(-1) == 0,
-  main = "nvim-treesitter.configs",
   opts = {
-    ensure_installed = {
+    ensure_install = {
+      "asm",
       "blade",
       "c",
       "cpp",
@@ -21,6 +20,7 @@ return {
       "markdown",
       "markdown_inline",
       "php",
+      "php_only",
       "python",
       "query",
       "rust",
@@ -32,14 +32,30 @@ return {
       "xml",
       "yaml",
     },
-    highlight = {
-      enable = true,
-      -- NOTE: php indent needs vim regex enabled to work properly
-      additional_vim_regex_highlighting = { "php" },
-    },
-    -- NOTE: forces a re-parse, which negates the benefit of async parsing
-    -- indent = {
-    --   enable = true,
-    -- },
+    vim_regex = { "php" },
   },
+  config = function(_, opts)
+    vim.api.nvim_create_user_command("TSInstallAll", function()
+      require("nvim-treesitter").install(opts.ensure_install)
+    end, {})
+
+    vim.api.nvim_create_autocmd("FileType", {
+      callback = function()
+        local ok = pcall(vim.treesitter.start)
+        if not ok then
+          return
+        end
+
+        -- NOTE: not needed if indent actually worked for these languages without vim regex
+        -- or if treesitter indent was used
+        if vim.tbl_contains(opts.vim_regex, vim.bo.filetype) then
+          vim.bo.syntax = "on"
+        end
+
+        -- NOTE: indent forces a re-parse, which negates the benefit of async parsing
+        -- see https://github.com/nvim-treesitter/nvim-treesitter/issues/7840
+        -- vim.bo.indentexpr = "v:lua.require('nvim-treesitter').indentexpr()"
+      end,
+    })
+  end,
 }
