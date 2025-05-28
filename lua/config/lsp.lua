@@ -1,19 +1,12 @@
-local M = {}
-
-function M.capabilities()
-  return vim.tbl_deep_extend(
-    "force",
-    vim.lsp.protocol.make_client_capabilities(),
-    require("blink.cmp").get_lsp_capabilities(),
-    {
-      workspace = {
-        didChangeWatchedFiles = {
-          dynamicRegistration = true,
-        },
+vim.lsp.config("*", {
+  capabilities = {
+    workspace = {
+      didChangeWatchedFiles = {
+        dynamicRegistration = true,
       },
-    }
-  )
-end
+    },
+  },
+})
 
 vim.diagnostic.config {
   virtual_text = {
@@ -35,5 +28,3 @@ vim.api.nvim_create_autocmd("LspAttach", {
     map("n", "gO", "<cmd>lua Snacks.picker.lsp_symbols()<cr>")
   end,
 })
-
-return M

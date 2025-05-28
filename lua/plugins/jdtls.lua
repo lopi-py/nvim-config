@@ -10,9 +10,8 @@ return {
   "mfussenegger/nvim-jdtls",
   ft = "java",
   opts = function()
-    local capabilities = require("lsp").capabilities()
     return {
-      capabilities = capabilities,
+      capabilities = vim.lsp.config["*"].capabilities,
       cmd = {
         vim.fn.exepath "jdtls",
         "-configuration",
