@@ -5,6 +5,11 @@ return {
   opts_extend = { "sources.default" },
   opts = {
     completion = {
+      accept = {
+        auto_brackets = {
+          enabled = false,
+        },
+      },
       menu = {
         min_width = 1,
         draw = {

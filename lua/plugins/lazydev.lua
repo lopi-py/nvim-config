@@ -1,6 +1,7 @@
 return {
   {
-    "folke/lazydev.nvim",
+    "Jari27/lazydev.nvim",
+    branch = "deprecate_client_notify",
     ft = "lua",
     opts = {
       library = {
