@@ -31,6 +31,7 @@ return {
       "vimdoc",
       "xml",
       "yaml",
+      "zig",
     },
     vim_regex = { "php" },
   },

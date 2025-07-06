@@ -26,6 +26,7 @@ return {
       "taplo",
       "vtsls",
       "yaml-language-server",
+      "zls",
     },
   },
   init = function()

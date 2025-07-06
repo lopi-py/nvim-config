@@ -17,7 +17,6 @@ return {
         default = { "lazydev" },
         providers = {
           lazydev = {
-            name = "LazyDev",
             module = "lazydev.integrations.blink",
             fallbacks = { "lsp" },
           },

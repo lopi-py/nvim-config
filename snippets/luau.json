@@ -36,5 +36,18 @@
       "",
       "return ${1}"
     ]
+  },
+  "react hook": {
+    "prefix": "rhook",
+    "body": [
+      "local ReplicatedStorage = game:GetService(\"ReplicatedStorage\")",
+      "local React = require(ReplicatedStorage.Packages.React)",
+      "",
+      "local function use${1:Hook}(${2})",
+      "\t${0}",
+      "end",
+      "",
+      "return use${1}"
+    ]
   }
 }
