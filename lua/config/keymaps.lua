@@ -1,9 +1,10 @@
 local map = vim.keymap.set
 
+-- TODO: map to switch to alternate buffer (#)
 map("n", "<esc>", "<cmd>nohlsearch<cr><esc>")
 map("n", "<c-h>", vim.cmd.tabprevious)
 map("n", "<c-l>", vim.cmd.tabnext)
-map("n", "<cr>", "<cmd>edit #<cr>")
+map("n", "<leader>q", vim.diagnostic.setqflist)
 
 map("t", "<c-w>", "<c-\\><c-n><c-w>", { remap = true })
 

@@ -18,6 +18,7 @@ return {
     { "<leader>gs", "<cmd>lua Snacks.picker.git_status()<cr>" },
     { "<leader>gS", "<cmd>lua Snacks.picker.git_stash()<cr>" },
 
+    { "<leader>sq", "<cmd>lua Snacks.picker.qflist()<cr>" },
     { "<leader>sb", "<cmd>lua Snacks.picker.lines()<cr>" },
     { "<leader>sB", "<cmd>lua Snacks.picker.grep_buffers()<cr>" },
     { "<leader>sp", "<cmd>lua Snacks.picker.lazy()<cr>" },

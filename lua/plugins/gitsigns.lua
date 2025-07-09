@@ -37,6 +37,7 @@ return {
       map("n", "<leader>hb", gitsigns.blame_line)
       map("n", "<leader>hd", gitsigns.diffthis)
       map("n", "<leader>ub", gitsigns.toggle_current_line_blame)
+      map("n", "<leader>H", gitsigns.setqflist)
       map({ "o", "x" }, "ih", ":<c-u>Gitsigns select_hunk<cr>")
     end,
   },
