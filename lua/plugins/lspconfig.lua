@@ -18,7 +18,6 @@ return {
       "ruff",
       "rust_analyzer",
       "tailwindcss",
-      "taplo",
       "vtsls",
       "yamlls",
       "zls",

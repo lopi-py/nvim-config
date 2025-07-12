@@ -23,7 +23,6 @@ return {
       "selene",
       "stylua",
       "tailwindcss-language-server",
-      "taplo",
       "vtsls",
       "yaml-language-server",
       "zls",
