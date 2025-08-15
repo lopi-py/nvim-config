@@ -30,7 +30,6 @@ return {
     { "<leader>su", "<cmd>lua Snacks.picker.undo()<cr>" },
 
     { "<leader>e", "<cmd>lua Snacks.explorer()<cr>" },
-    { "<bs>", "<cmd>lua Snacks.bufdelete()<cr>" },
   },
   opts = {
     picker = {

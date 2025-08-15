@@ -1,6 +1,7 @@
 return {
   "folke/tokyonight.nvim",
   opts = {
+    transparent = true,
     on_highlights = function(hl)
       hl.PmenuExtra = "NonText"
       hl.BlinkCmpKindFile = "PmenuNormal"

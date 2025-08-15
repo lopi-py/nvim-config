@@ -1,6 +1,6 @@
 local map = vim.keymap.set
 
--- TODO: map to switch to alternate buffer (#)
+map("n", "<bs>", "<cmd>edit #<cr>")
 map("n", "<esc>", "<cmd>nohlsearch<cr><esc>")
 map("n", "<c-h>", vim.cmd.tabprevious)
 map("n", "<c-l>", vim.cmd.tabnext)
