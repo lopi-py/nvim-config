@@ -6,6 +6,7 @@ return {
 
     vim.lsp.enable {
       "clangd",
+      "copilot",
       "cssls",
       "emmet_language_server",
       "eslint",

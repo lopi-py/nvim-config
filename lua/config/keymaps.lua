@@ -8,11 +8,20 @@ map("n", "<leader>q", vim.diagnostic.setqflist)
 
 map("t", "<c-w>", "<c-\\><c-n><c-w>", { remap = true })
 
+map("i", "<tab>", function()
+  if not vim.lsp.inline_completion.get() then
+    return "<tab>"
+  end
+end, { expr = true })
+
 map("n", "<leader>uh", function()
   vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
 end)
 map("n", "<leader>uc", function()
   vim.lsp.document_color.enable(not vim.lsp.document_color.is_enabled())
+end)
+map("n", "<leader>ui", function()
+  vim.lsp.inline_completion.enable(not vim.lsp.inline_completion.is_enabled())
 end)
 map("n", "<leader>ud", function()
   vim.diagnostic.enable(not vim.diagnostic.is_enabled())
@@ -22,6 +31,9 @@ map("n", "<leader>uw", function()
 end)
 map("n", "<leader>uf", function()
   vim.g.autoformat = not vim.g.autoformat
+end)
+map("n", "<leader>un", function()
+  require("sidekick.nes").toggle()
 end)
 
 map("n", "[e", function()

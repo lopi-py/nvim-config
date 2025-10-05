@@ -5,6 +5,7 @@ return {
   opts = {
     ensure_install = {
       "clangd",
+      "copilot-language-server",
       "css-lsp",
       "emmet-language-server",
       "eslint-lsp",
