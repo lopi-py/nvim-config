@@ -12,6 +12,7 @@ return {
       "eslint",
       "html",
       "intelephense",
+      "jdtls",
       "jsonls",
       "lemminx",
       "lua_ls",
