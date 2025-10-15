@@ -1,25 +1,4 @@
 {
-  "create a class": {
-    "prefix": "class",
-    "body": [
-      "local ${1:Class} = {}",
-      "${1}.__index = ${1}",
-      "",
-      "export type ${1} = typeof(setmetatable({} :: {}, ${1}))",
-      "",
-      "function ${1}.new(): ${1}",
-      "\treturn setmetatable({${0}}, ${1})",
-      "end"
-    ]
-  },
-  "create a class method": {
-    "prefix": "method",
-    "body": [
-      "function ${1:Class}.${2:method}(self: ${1})",
-      "\t${0}",
-      "end"
-    ]
-  },
   "react functional component": {
     "prefix": "rfc",
     "body": [
@@ -28,7 +7,7 @@
       "",
       "local e = React.createElement",
       "",
-      "local function ${1:Component}()",
+      "local function ${1:${TM_FILENAME_BASE}}()",
       "\treturn e(${2}, {",
       "\t\t${0}",
       "\t})",
@@ -38,16 +17,16 @@
     ]
   },
   "react hook": {
-    "prefix": "rhook",
+    "prefix": "hook",
     "body": [
       "local ReplicatedStorage = game:GetService(\"ReplicatedStorage\")",
       "local React = require(ReplicatedStorage.Packages.React)",
       "",
-      "local function use${1:Hook}(${2})",
+      "local function ${1:${TM_FILENAME_BASE}}(${2})",
       "\t${0}",
       "end",
       "",
-      "return use${1}"
+      "return ${1}"
     ]
   }
 }
