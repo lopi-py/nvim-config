@@ -12,7 +12,7 @@ local function on_attach(client, bufnr)
   map("n", "gO", "<cmd>lua Snacks.picker.lsp_symbols()<cr>")
 
   if client.name == "clangd" then
-    vim.keymap.set("n", "<leader>ch", "<cmd>LspClangdSwitchSourceHeader<cr>")
+    map("n", "<leader>ch", "<cmd>LspClangdSwitchSourceHeader<cr>")
   end
 
   if client:supports_method "textDocument/foldingRange" then
@@ -37,7 +37,7 @@ vim.diagnostic.config {
   },
 }
 
-vim.lsp.document_color.enable(false)
+vim.lsp.inline_completion.enable()
 
 vim.api.nvim_create_autocmd("LspAttach", {
   callback = function(event)
@@ -47,5 +47,3 @@ vim.api.nvim_create_autocmd("LspAttach", {
     end
   end,
 })
-
-vim.lsp.inline_completion.enable()

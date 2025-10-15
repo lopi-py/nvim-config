@@ -43,6 +43,10 @@ return {
         },
       },
       icons = {
+        ui = {
+          selected = "+ ",
+          unselected = "  ",
+        },
         diagnostics = {
           Error = "E",
           Warn = "W",
