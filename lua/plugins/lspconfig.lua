@@ -5,6 +5,7 @@ return {
     require "config.lsp"
 
     vim.lsp.enable {
+      "basedpyright",
       "clangd",
       "copilot",
       "cssls",
@@ -16,7 +17,6 @@ return {
       "jsonls",
       "lemminx",
       "lua_ls",
-      "pyright",
       "ruff",
       "rust_analyzer",
       "tailwindcss",
