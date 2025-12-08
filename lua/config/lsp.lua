@@ -5,10 +5,11 @@ local function on_attach(client, bufnr)
 
   map("n", "gd", "<cmd>lua Snacks.picker.lsp_definitions()<cr>")
   map("n", "gD", "<cmd>lua Snacks.picker.lsp_declarations()<cr>")
-  map("n", "grr", "<cmd>lua Snacks.picker.lsp_references()<cr>")
   map("n", "gri", "<cmd>lua Snacks.picker.lsp_implementations()<cr>")
+  map("n", "grr", "<cmd>lua Snacks.picker.lsp_references()<cr>")
   map("n", "grt", "<cmd>lua Snacks.picker.lsp_type_definitions()<cr>")
-  map("n", "grc", vim.lsp.document_color.color_presentation)
+  map("n", "gai", "<cmd>lua Snacks.picker.lsp_incoming_calls()<cr>")
+  map("n", "gao", "<cmd>lua Snacks.picker.lsp_outgoing_calls()<cr>")
   map("n", "gO", "<cmd>lua Snacks.picker.lsp_symbols()<cr>")
 
   if client.name == "clangd" then
