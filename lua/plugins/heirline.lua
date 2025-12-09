@@ -232,9 +232,9 @@ return {
           diag_info = utils.get_highlight("DiagnosticInfo").fg,
           diag_hint = utils.get_highlight("DiagnosticHint").fg,
 
-          git_add = utils.get_highlight("GitSignsAdd").fg,
-          git_change = utils.get_highlight("GitSignsChange").fg,
-          git_delete = utils.get_highlight("GitSignsDelete").fg,
+          git_add = (utils.get_highlight "GitSignsAdd" or utils.get_highlight "Added").fg,
+          git_change = (utils.get_highlight "GitSignsChange" or utils.get_highlight "Changed").fg,
+          git_delete = (utils.get_highlight "GitSignsDelete" or utils.get_highlight "Removed").fg,
         }
       end,
       statusline = {
