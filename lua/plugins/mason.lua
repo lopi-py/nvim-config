@@ -4,6 +4,7 @@ return {
   cmd = { "Mason", "MasonInstall", "MasonInstallAll", "MasonUpdate" },
   opts = {
     ensure_install = {
+      "basedpyright",
       "clangd",
       "copilot-language-server",
       "css-lsp",
@@ -18,7 +19,6 @@ return {
       "luacheck",
       "luau-lsp",
       "prettierd",
-      "pyright",
       "ruff",
       "rust-analyzer",
       "selene",

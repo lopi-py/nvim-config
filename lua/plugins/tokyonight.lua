@@ -4,7 +4,6 @@ return {
     transparent = true,
     on_highlights = function(hl)
       hl.PmenuExtra = "NonText"
-      hl.BlinkCmpKindFile = "PmenuNormal"
     end,
   },
   config = function(_, opts)

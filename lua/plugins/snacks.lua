@@ -1,6 +1,6 @@
 return {
   "folke/snacks.nvim",
-  lazy = false,
+  event = "VeryLazy",
   keys = {
     { "<leader><leader>", "<cmd>lua Snacks.picker.smart({ filter = { cwd = true } })<cr>" },
     { "<leader>/", "<cmd>lua Snacks.picker.grep()<cr>" },

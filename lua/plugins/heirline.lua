@@ -81,6 +81,9 @@ return {
     }
 
     local FileName = {
+      condition = function()
+        return vim.bo.buftype ~= "prompt"
+      end,
       provider = function()
         local filename
         if package.loaded.oil then
@@ -102,6 +105,12 @@ return {
       condition = function()
         return vim.bo.buftype ~= "prompt"
       end,
+      {
+        condition = function()
+          return vim.bo.filetype == "help"
+        end,
+        provider = " (help)",
+      },
       {
         condition = function()
           return vim.bo.modified
@@ -142,7 +151,7 @@ return {
 
     local FileType = {
       condition = function()
-        return vim.bo.filetype ~= ""
+        return vim.bo.filetype ~= "" and vim.bo.buftype == ""
       end,
       FileIcon,
       {

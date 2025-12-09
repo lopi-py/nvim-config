@@ -15,18 +15,5 @@
       "",
       "return ${1}"
     ]
-  },
-  "react hook": {
-    "prefix": "hook",
-    "body": [
-      "local ReplicatedStorage = game:GetService(\"ReplicatedStorage\")",
-      "local React = require(ReplicatedStorage.Packages.React)",
-      "",
-      "local function ${1:${TM_FILENAME_BASE}}(${2})",
-      "\t${0}",
-      "end",
-      "",
-      "return ${1}"
-    ]
   }
 }
