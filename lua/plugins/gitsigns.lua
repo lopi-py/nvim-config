@@ -2,6 +2,20 @@ return {
   "lewis6991/gitsigns.nvim",
   event = "VeryLazy",
   opts = {
+    -- TODO: remove when https://github.com/lewis6991/gitsigns.nvim/pull/1439 is merged
+    status_formatter = function(status)
+      local status_txt = {}
+      if status.added and status.added > 0 then
+        table.insert(status_txt, "%#GitSignsAdd#+" .. status.added .. "%##")
+      end
+      if status.changed and status.changed > 0 then
+        table.insert(status_txt, "%#GitSignsChange#~" .. status.changed .. "%##")
+      end
+      if status.removed and status.removed > 0 then
+        table.insert(status_txt, "%#GitSignsDelete#-" .. status.removed .. "%##")
+      end
+      return table.concat(status_txt, " ")
+    end,
     signs = {
       add = { text = "+" },
       change = { text = "~" },

@@ -44,40 +44,12 @@ return {
     }
 
     local GitDiff = {
-      condition = conditions.is_git_repo,
-      init = function(self)
-        local status = vim.b.gitsigns_status_dict
-        self.added = status.added or 0
-        self.changed = status.changed or 0
-        self.removed = status.removed or 0
+      condition = function()
+        return vim.b.gitsigns_status and vim.b.gitsigns_status ~= ""
       end,
-      {
-        condition = function(self)
-          return self.added > 0
-        end,
-        provider = function(self)
-          return "+" .. self.added .. " "
-        end,
-        hl = { fg = "git_add" },
-      },
-      {
-        condition = function(self)
-          return self.changed > 0
-        end,
-        provider = function(self)
-          return "~" .. self.changed .. " "
-        end,
-        hl = { fg = "git_change" },
-      },
-      {
-        condition = function(self)
-          return self.removed > 0
-        end,
-        provider = function(self)
-          return "-" .. self.removed .. " "
-        end,
-        hl = { fg = "git_delete" },
-      },
+      provider = function()
+        return vim.b.gitsigns_status
+      end,
     }
 
     local FileName = {
@@ -93,11 +65,13 @@ return {
           filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(0), ":.")
         end
         if vim.bo.buftype == "help" then
-          filename = vim.fn.fnamemodify(filename, ":t")
+          return vim.fn.fnamemodify(filename, ":t")
         elseif vim.bo.buftype == "terminal" then
-          filename = filename:gsub(".*%d:", "")
+          return filename:gsub(".*%d:", "")
+        elseif #filename == 0 then
+          return "[No Name]"
         end
-        return #filename > 0 and filename or "[No Name]"
+        return filename
       end,
     }
 
@@ -151,7 +125,7 @@ return {
 
     local FileType = {
       condition = function()
-        return vim.bo.filetype ~= "" and vim.bo.buftype == ""
+        return vim.bo.filetype ~= ""
       end,
       FileIcon,
       {
@@ -163,50 +137,10 @@ return {
 
     local Diagnostics = {
       condition = conditions.has_diagnostics,
-      init = function(self)
-        self.errors = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.ERROR })
-        self.warnings = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.WARN })
-        self.info = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.INFO })
-        self.hints = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.HINT })
-      end,
       update = { "DiagnosticChanged", "BufEnter" },
-      {
-        condition = function(self)
-          return self.errors > 0
-        end,
-        provider = function(self)
-          return "E" .. self.errors .. " "
-        end,
-        hl = { fg = "diag_error" },
-      },
-      {
-        condition = function(self)
-          return self.warnings > 0
-        end,
-        provider = function(self)
-          return "W" .. self.warnings .. " "
-        end,
-
-        hl = { fg = "diag_warn" },
-      },
-      {
-        condition = function(self)
-          return self.info > 0
-        end,
-        provider = function(self)
-          return "I" .. self.info .. " "
-        end,
-        hl = { fg = "diag_info" },
-      },
-      {
-        condition = function(self)
-          return self.hints > 0
-        end,
-        provider = function(self)
-          return "H" .. self.hints .. " "
-        end,
-        hl = { fg = "diag_hint" },
-      },
+      provider = function()
+        return vim.diagnostic.status()
+      end,
     }
 
     local Ruler = {
@@ -226,15 +160,6 @@ return {
           ["function"] = utils.get_highlight("Function").fg,
           constant = utils.get_highlight("Constant").fg,
           statement = utils.get_highlight("Statement").fg,
-
-          diag_error = utils.get_highlight("DiagnosticError").fg,
-          diag_warn = utils.get_highlight("DiagnosticWarn").fg,
-          diag_info = utils.get_highlight("DiagnosticInfo").fg,
-          diag_hint = utils.get_highlight("DiagnosticHint").fg,
-
-          git_add = (utils.get_highlight "GitSignsAdd" or utils.get_highlight "Added").fg,
-          git_change = (utils.get_highlight "GitSignsChange" or utils.get_highlight "Changed").fg,
-          git_delete = (utils.get_highlight "GitSignsDelete" or utils.get_highlight "Removed").fg,
         }
       end,
       statusline = {
@@ -261,9 +186,9 @@ return {
         pad(ViMode),
         pad(GitBranch),
         pad { FileName, FileFlags },
-        GitDiff,
+        pad(GitDiff),
         { provider = "%=" },
-        Diagnostics,
+        pad(Diagnostics),
         pad(FileEncoding),
         pad(FileType),
         pad(Ruler),
@@ -271,6 +196,7 @@ return {
       },
     }
   end,
+
   config = function(_, opts)
     vim.api.nvim_create_autocmd("ColorScheme", {
       callback = function()

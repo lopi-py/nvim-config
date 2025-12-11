@@ -29,7 +29,6 @@ return {
     { "<leader>sm", "<cmd>lua Snacks.picker.man()<cr>" },
     { "<leader>sp", "<cmd>lua Snacks.picker.lazy()<cr>" },
     { "<leader>sq", "<cmd>lua Snacks.picker.qflist()<cr>" },
-    { "<leader>su", "<cmd>lua Snacks.picker.undo()<cr>" },
     { "<leader>sw", "<cmd>lua Snacks.picker.grep_word()<cr>" },
   },
   opts = {
@@ -42,7 +41,11 @@ return {
       },
       win = {
         preview = {
-          wo = { signcolumn = "no", wrap = false },
+          wo = {
+            number = false,
+            signcolumn = "no",
+            wrap = false,
+          },
         },
       },
       icons = {
