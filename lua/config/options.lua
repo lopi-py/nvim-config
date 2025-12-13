@@ -29,5 +29,5 @@ vim.o.list = true
 vim.o.mouse = ""
 vim.o.showmode = false
 
-vim.opt.listchars = { extends = "»", precedes = "«", trail = "·" }
+vim.opt.listchars = { tab = "  ", trail = "·", extends = "»", precedes = "«" }
 vim.opt.fillchars = { fold = " ", diff = "╱" }

@@ -11,6 +11,7 @@ return {
       ignoreGlobs = ignore_globs,
       completion = {
         imports = {
+          -- remove when https://github.com/JohnnyMorganz/luau-lsp/pull/1290 is merged
           enabled = true,
           ignoreGlobs = ignore_globs,
         },
