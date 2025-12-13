@@ -25,6 +25,9 @@ vim.o.swapfile = false
 vim.o.updatetime = 200
 vim.o.laststatus = 3
 
+vim.o.list = true
 vim.o.mouse = ""
+vim.o.showmode = false
 
+vim.opt.listchars = { extends = "»", precedes = "«", trail = "·" }
 vim.opt.fillchars = { fold = " ", diff = "╱" }

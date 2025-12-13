@@ -19,7 +19,7 @@ return {
       },
     },
     sources = {
-      default = { "lsp", "path", "snippets", "buffer" },
+      default = { "lsp", "snippets", "buffer" },
     },
     cmdline = {
       enabled = false,
