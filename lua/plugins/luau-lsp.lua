@@ -20,7 +20,4 @@ return {
       type = rojo_project and "roblox" or "standard",
     },
   },
-  dependencies = {
-    "nvim-lua/plenary.nvim",
-  },
 }
