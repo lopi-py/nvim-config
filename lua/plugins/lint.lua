@@ -33,13 +33,13 @@ return {
       end
     end
 
-    local function debounce(ms, callback)
-      local timer = vim.uv.new_timer()
+    local function debounce(ms, fn)
+      local timer = assert(vim.uv.new_timer())
       return function(...)
-        local args = { ... }
+        local args = vim.F.pack_len(...)
         timer:stop()
         timer:start(ms, 0, function()
-          vim.schedule_wrap(callback)(unpack(args))
+          vim.schedule_wrap(fn)(vim.F.unpack_len(args))
         end)
       end
     end

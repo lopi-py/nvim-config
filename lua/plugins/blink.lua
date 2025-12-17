@@ -6,9 +6,7 @@ return {
   opts = {
     completion = {
       accept = {
-        auto_brackets = {
-          enabled = false,
-        },
+        auto_brackets = { enabled = false },
       },
       menu = {
         auto_show = false,
@@ -21,8 +19,6 @@ return {
     sources = {
       default = { "lsp", "snippets", "buffer" },
     },
-    cmdline = {
-      enabled = false,
-    },
+    cmdline = { enabled = false },
   },
 }

@@ -1,6 +1,6 @@
 return {
   "nvim-treesitter/nvim-treesitter",
-  branch = "main",
+  event = "VeryLazy",
   build = ":TSUpdate",
   opts = {
     ensure_install = {
@@ -33,7 +33,7 @@ return {
       "yaml",
       "zig",
     },
-    vim_regex = { "php" },
+    allow_vim_regex = { "php" },
   },
   config = function(_, opts)
     vim.api.nvim_create_user_command("TSInstallAll", function()
@@ -49,7 +49,7 @@ return {
 
         -- NOTE: not needed if indent actually worked for these languages without vim regex
         -- or if treesitter indent was used
-        if vim.tbl_contains(opts.vim_regex, vim.bo.filetype) then
+        if vim.tbl_contains(opts.allow_vim_regex, vim.bo.filetype) then
           vim.bo.syntax = "on"
         end
 

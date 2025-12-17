@@ -19,7 +19,5 @@ require("lazy").setup("plugins", {
     patterns = { "lopi-py" },
     fallback = true,
   },
-  change_detection = {
-    notify = false,
-  },
+  change_detection = { notify = false },
 })

@@ -11,6 +11,7 @@ local function on_attach(client, bufnr)
   map("n", "gai", "<cmd>lua Snacks.picker.lsp_incoming_calls()<cr>")
   map("n", "gao", "<cmd>lua Snacks.picker.lsp_outgoing_calls()<cr>")
   map("n", "gO", "<cmd>lua Snacks.picker.lsp_symbols()<cr>")
+  map("n", "ss", "<cmd>lua Snacks.picker.lsp_workspace_symbols()<cr>")
 
   if client.name == "clangd" then
     map("n", "<leader>ch", "<cmd>LspClangdSwitchSourceHeader<cr>")
