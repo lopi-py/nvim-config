@@ -13,7 +13,8 @@ return {
     },
   },
   init = function()
-    local stat = vim.uv.fs_stat(vim.fn.argv(0))
+    local path = vim.fn.argv(0) ---@cast path string
+    local stat = vim.uv.fs_stat(path)
     if stat and stat.type == "directory" then
       require "oil"
     end
