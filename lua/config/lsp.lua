@@ -37,13 +37,12 @@ vim.api.nvim_create_autocmd("LspAttach", {
     map("n", "gO", "<cmd>lua Snacks.picker.lsp_symbols()<cr>")
     map("n", "ss", "<cmd>lua Snacks.picker.lsp_workspace_symbols()<cr>")
 
-    if client.name == "clangd" then
-      map("n", "<leader>ch", "<cmd>LspClangdSwitchSourceHeader<cr>")
+    if client:supports_method "textDocument/foldingRange" then
+      vim.wo.foldexpr = "v:lua.vim.lsp.foldexpr()"
     end
 
-    if client:supports_method "textDocument/foldingRange" then
-      local win = vim.api.nvim_get_current_win()
-      vim.wo[win].foldexpr = "v:lua.vim.lsp.foldexpr()"
+    if client.name == "clangd" then
+      map("n", "<leader>ch", "<cmd>LspClangdSwitchSourceHeader<cr>")
     end
   end,
 })

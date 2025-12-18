@@ -2,8 +2,6 @@ local map = vim.keymap.set
 
 map("n", "<bs>", "<cmd>edit #<cr>")
 map("n", "<esc>", "<cmd>nohlsearch<cr><esc>")
-map("n", "<c-h>", vim.cmd.tabprevious)
-map("n", "<c-l>", vim.cmd.tabnext)
 map("n", "<leader>q", vim.diagnostic.setqflist)
 
 map("t", "<c-w>", "<c-\\><c-n><c-w>", { remap = true })

@@ -58,7 +58,7 @@ return {
     end
 
     vim.api.nvim_create_autocmd({ "BufReadPost", "InsertLeave", "TextChanged" }, {
-      callback = debounce(100, try_lint),
+      callback = debounce(200, try_lint),
     })
     try_lint()
   end,
