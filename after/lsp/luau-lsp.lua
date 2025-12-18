@@ -10,9 +10,7 @@ return {
     ["luau-lsp"] = {
       ignoreGlobs = ignore_globs,
       completion = {
-        imports = {
-          ignoreGlobs = ignore_globs,
-        },
+        imports = { ignoreGlobs = ignore_globs },
         addParentheses = false,
         fillCallArguments = false,
       },

@@ -1,9 +1,7 @@
 return {
   settings = {
     basedpyright = {
-      analysis = {
-        typeCheckingMode = "standard",
-      },
+      analysis = { typeCheckingMode = "standard" },
     },
   },
 }
