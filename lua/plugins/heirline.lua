@@ -3,13 +3,6 @@ return {
   event = "VeryLazy",
   init = function()
     vim.o.statusline = " "
-    vim.api.nvim_create_autocmd("DiagnosticChanged", {
-      command = "redrawstatus",
-    })
-    vim.api.nvim_create_autocmd("User", {
-      pattern = "GitSignsUpdate",
-      command = "redrawstatus",
-    })
   end,
   opts = function()
     local conditions = require "heirline.conditions"
@@ -196,13 +189,20 @@ return {
       },
     }
   end,
-
   config = function(_, opts)
+    vim.api.nvim_create_autocmd("DiagnosticChanged", {
+      command = "redrawstatus",
+    })
+    vim.api.nvim_create_autocmd("User", {
+      pattern = "GitSignsUpdate",
+      command = "redrawstatus",
+    })
     vim.api.nvim_create_autocmd("ColorScheme", {
       callback = function()
         require("heirline.utils").on_colorscheme(opts.colors)
       end,
     })
+
     require("heirline").load_colors(opts.colors)
     require("heirline").setup(opts)
   end,
