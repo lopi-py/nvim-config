@@ -32,6 +32,9 @@ end)
 map("n", "<leader>uf", function()
   vim.g.autoformat = not vim.g.autoformat
 end)
+map("n", "<leader>uu", function()
+  vim.cmd.Undotree()
+end)
 
 map("n", "[e", function()
   vim.diagnostic.jump { count = -1, severity = vim.diagnostic.severity.ERROR }
