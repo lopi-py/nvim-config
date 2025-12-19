@@ -2,6 +2,7 @@ return {
   "folke/snacks.nvim",
   event = "VeryLazy",
   keys = {
+    { "<leader>e", "<cmd>lua Snacks.picker.explorer()<cr>" },
     { "<leader><leader>", "<cmd>lua Snacks.picker.smart({ filter = { cwd = true } })<cr>" },
     { "<leader>,", "<cmd>lua Snacks.picker.buffers()<cr>" },
     { "<leader>/", "<cmd>lua Snacks.picker.grep()<cr>" },

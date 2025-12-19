@@ -19,7 +19,6 @@ vim.o.ignorecase = true
 vim.o.foldtext = ""
 vim.o.foldlevel = 99
 vim.o.foldmethod = "expr"
-vim.o.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 
 vim.o.mouse = ""
 vim.o.confirm = true
