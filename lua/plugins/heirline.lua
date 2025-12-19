@@ -46,9 +46,6 @@ return {
     }
 
     local FileName = {
-      condition = function()
-        return vim.bo.buftype ~= "prompt"
-      end,
       provider = function()
         local filename
         if package.loaded.oil then
@@ -59,6 +56,8 @@ return {
         end
         if vim.bo.buftype == "help" then
           return vim.fn.fnamemodify(filename, ":t")
+        elseif vim.bo.buftype == "prompt" then
+          return "[Prompt]"
         elseif vim.bo.buftype == "terminal" then
           return filename:gsub(".*%d:", "")
         elseif #filename == 0 then
@@ -76,7 +75,7 @@ return {
         condition = function()
           return vim.bo.filetype == "help"
         end,
-        provider = " (help)",
+        provider = " [Help]",
       },
       {
         condition = function()

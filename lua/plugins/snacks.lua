@@ -3,15 +3,13 @@ return {
   event = "VeryLazy",
   keys = {
     { "<leader><leader>", "<cmd>lua Snacks.picker.smart({ filter = { cwd = true } })<cr>" },
+    { "<leader>,", "<cmd>lua Snacks.picker.buffers()<cr>" },
     { "<leader>/", "<cmd>lua Snacks.picker.grep()<cr>" },
-    { "<leader>:", "<cmd>lua Snacks.picker.command_history()<cr>" },
-    { "<leader>e", "<cmd>lua Snacks.explorer()<cr>" },
 
     { "<leader>fb", "<cmd>lua Snacks.picker.buffers()<cr>" },
     { "<leader>ff", "<cmd>lua Snacks.picker.files()<cr>" },
     { "<leader>fg", "<cmd>lua Snacks.picker.git_files()<cr>" },
-    { "<leader>fp", "<cmd>lua Snacks.picker.projects()<cr>" },
-    { "<leader>fr", "<cmd>lua Snacks.picker.recent({ filter = { cwd = true } })<cr>" },
+    { "<leader>fr", "<cmd>lua Snacks.picker.resume()<cr>" },
 
     { "<leader>gb", "<cmd>lua Snacks.picker.git_branches()<cr>" },
     { "<leader>gc", "<cmd>lua Snacks.picker.git_log()<cr>" },

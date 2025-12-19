@@ -27,6 +27,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
       vim.keymap.set(mode, lhs, rhs, { buffer = event.buf })
     end
 
+    map("i", "<m-i>", vim.lsp.inline_completion.get)
     map("n", "gd", "<cmd>lua Snacks.picker.lsp_definitions()<cr>")
     map("n", "gD", "<cmd>lua Snacks.picker.lsp_declarations()<cr>")
     map("n", "gri", "<cmd>lua Snacks.picker.lsp_implementations()<cr>")

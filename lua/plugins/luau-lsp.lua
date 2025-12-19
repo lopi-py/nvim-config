@@ -14,7 +14,7 @@ end
 
 return {
   "lopi-py/luau-lsp.nvim",
-  ft = "luau",
+  event = "VeryLazy",
   opts = {
     platform = {
       type = rojo_project and "roblox" or "standard",
