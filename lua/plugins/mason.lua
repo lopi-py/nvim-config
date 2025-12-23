@@ -37,6 +37,7 @@ return {
   config = function(_, opts)
     require("mason").setup {
       PATH = "skip",
+      ui = { border = "none" },
     }
 
     vim.api.nvim_create_user_command("MasonInstallAll", function()

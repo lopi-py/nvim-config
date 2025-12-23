@@ -7,7 +7,6 @@ return {
     { "<leader>,", "<cmd>lua Snacks.picker.buffers()<cr>" },
     { "<leader>/", "<cmd>lua Snacks.picker.grep()<cr>" },
 
-    { "<leader>fb", "<cmd>lua Snacks.picker.buffers()<cr>" },
     { "<leader>ff", "<cmd>lua Snacks.picker.files()<cr>" },
     { "<leader>fg", "<cmd>lua Snacks.picker.git_files()<cr>" },
     { "<leader>fr", "<cmd>lua Snacks.picker.resume()<cr>" },
@@ -26,8 +25,6 @@ return {
     { "<leader>sD", "<cmd>lua Snacks.picker.diagnostics_buffer()<cr>" },
     { "<leader>sh", "<cmd>lua Snacks.picker.help()<cr>" },
     { "<leader>sm", "<cmd>lua Snacks.picker.man()<cr>" },
-    { "<leader>sp", "<cmd>lua Snacks.picker.lazy()<cr>" },
-    { "<leader>sq", "<cmd>lua Snacks.picker.qflist()<cr>" },
     { "<leader>sw", "<cmd>lua Snacks.picker.grep_word()<cr>" },
   },
   opts = {

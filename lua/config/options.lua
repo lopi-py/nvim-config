@@ -27,6 +27,7 @@ vim.o.updatetime = 200
 
 vim.o.showmode = false
 vim.o.laststatus = 3
+vim.o.winborder = "solid"
 vim.o.list = true
 
 vim.opt.listchars = { tab = "  ", trail = "·", extends = "»", precedes = "«" }
