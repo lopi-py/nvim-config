@@ -12,7 +12,6 @@ return {
       "java",
       "javascript",
       "json",
-      "jsonc",
       "lua",
       "luau",
       "markdown",
