@@ -5,7 +5,6 @@ return {
     vim.lsp.enable {
       "basedpyright",
       "clangd",
-      "copilot",
       "cssls",
       "emmet_language_server",
       "emmylua_ls",

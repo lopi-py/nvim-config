@@ -6,7 +6,6 @@ return {
     ensure_install = {
       "basedpyright",
       "clangd",
-      "copilot-language-server",
       "css-lsp",
       "emmet-language-server",
       "emmylua_ls",

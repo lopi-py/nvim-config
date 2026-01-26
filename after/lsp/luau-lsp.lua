@@ -9,6 +9,9 @@ return {
   settings = {
     ["luau-lsp"] = {
       ignoreGlobs = ignore_globs,
+      format = {
+        convertQuotes = true,
+      },
       completion = {
         imports = { ignoreGlobs = ignore_globs },
         addParentheses = false,
