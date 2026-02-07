@@ -22,6 +22,7 @@ vim.o.foldmethod = "expr"
 
 vim.o.mouse = ""
 vim.o.confirm = true
+vim.o.exrc = true
 vim.o.swapfile = false
 vim.o.updatetime = 200
 
