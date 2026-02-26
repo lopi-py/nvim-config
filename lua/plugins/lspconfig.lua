@@ -6,6 +6,7 @@ return {
       "basedpyright",
       "clangd",
       "cssls",
+      "dartls",
       "emmet_language_server",
       "emmylua_ls",
       "eslint",
