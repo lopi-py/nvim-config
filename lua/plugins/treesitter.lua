@@ -1,5 +1,5 @@
 return {
-  "nvim-treesitter/nvim-treesitter",
+  "so1ve/tiny-treesitter.nvim",
   build = ":TSUpdate",
   opts = {
     ensure_install = {
@@ -33,9 +33,8 @@ return {
     allow_vim_regex = { "php" },
   },
   config = function(_, opts)
-    local parsers_loaded = {}
-    local parsers_pending = {}
-    local parsers_failed = {}
+    local loaded = {}
+    local pending = {}
 
     local ns = vim.api.nvim_create_namespace "treesitter.start"
 
@@ -43,7 +42,7 @@ return {
     local function start(lang)
       local ok = pcall(vim.treesitter.start, 0, lang)
       if not ok then
-        return false
+        return
       end
 
       -- NOTE: not needed if indent actually worked for these languages without
@@ -55,55 +54,57 @@ return {
       vim.wo[0][0].foldexpr = "v:lua.vim.treesitter.foldexpr()"
 
       -- NOTE: indent forces a re-parse, which negates the benefit of async
-      -- parsing see https://github.com/nvim-treesitter/nvim-treesitter/issues/7840
+      -- parsing, see https://github.com/nvim-treesitter/nvim-treesitter/issues/7840
       -- vim.bo.indentexpr = "v:lua.require('nvim-treesitter').indentexpr()"
 
-      return true
+      loaded[lang] = true
     end
 
-    -- NOTE: parsers may take long to load (big binary files) so try to start
-    -- them async in the next render if not loaded yet
+    -- NOTE: parsers may take long to parse queries so try to start them async
+    -- in the next render if not loaded yet
     vim.api.nvim_set_decoration_provider(ns, {
-      on_start = vim.schedule_wrap(function()
-        if #parsers_pending == 0 then
+      on_start = function()
+        if not next(pending) then
           return false
         end
-        for _, data in ipairs(parsers_pending) do
-          if vim.api.nvim_win_is_valid(data.winnr) and vim.api.nvim_buf_is_valid(data.bufnr) then
-            vim._with({ win = data.winnr, buf = data.bufnr }, function()
-              if start(data.lang) then
-                parsers_loaded[data.lang] = true
-              else
-                parsers_failed[data.lang] = true
-              end
-            end)
+
+        vim.schedule(function()
+          local queued = pending
+          pending = {}
+
+          for winnr, data in pairs(queued) do
+            if vim.api.nvim_win_is_valid(winnr) then
+              vim._with({ win = winnr, buf = data.bufnr }, function()
+                start(data.lang)
+              end)
+            end
           end
-        end
-        parsers_pending = {}
-      end),
+        end)
+
+        return false
+      end,
     })
 
     vim.api.nvim_create_autocmd("FileType", {
       callback = function(event)
         local lang = vim.treesitter.language.get_lang(event.match)
-        if not lang or parsers_failed[lang] then
+        if not lang then
           return
         end
 
-        if parsers_loaded[lang] then
+        if loaded[lang] then
           start(lang)
         else
-          table.insert(parsers_pending, {
+          pending[vim.api.nvim_get_current_win()] = {
             lang = lang,
-            winnr = vim.api.nvim_get_current_win(),
             bufnr = event.buf,
-          })
+          }
         end
       end,
     })
 
-    vim.api.nvim_create_user_command("TSInstallAll", function()
-      require("nvim-treesitter").install(opts.ensure_install)
-    end, {})
+    require("tiny-treesitter").setup {
+      ensure_installed = opts.ensure_install,
+    }
   end,
 }

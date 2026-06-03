@@ -1,10 +1,10 @@
+-- TODO: replace mason with system/project packages
 return {
   "mason-org/mason.nvim",
   build = ":MasonUpdate",
   cmd = { "Mason", "MasonInstall", "MasonInstallAll", "MasonUpdate" },
   opts = {
     ensure_install = {
-      "basedpyright",
       "clangd",
       "css-lsp",
       "emmet-language-server",
@@ -18,12 +18,14 @@ return {
       "luacheck",
       "luau-lsp",
       "prettierd",
+      "qmlls",
       "ruff",
       "rust-analyzer",
       "selene",
       "stylua",
       "tailwindcss-language-server",
-      "vtsls",
+      "tsgo",
+      "ty",
       "yaml-language-server",
       "zls",
     },

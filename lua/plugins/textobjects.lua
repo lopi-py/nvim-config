@@ -9,24 +9,24 @@ return {
 
     local map = vim.keymap.set
 
-    map({ "n", "x", "o" }, "]f", function()
+    map({ "n", "x", "o" }, "]m", function()
       move.goto_next_start("@function.outer", "textobjects")
     end)
-    map({ "n", "x", "o" }, "]F", function()
+    map({ "n", "x", "o" }, "]M", function()
       move.goto_next_end("@function.outer", "textobjects")
     end)
 
-    map({ "n", "x", "o" }, "[f", function()
+    map({ "n", "x", "o" }, "[m", function()
       move.goto_previous_start("@function.outer", "textobjects")
     end)
-    map({ "n", "x", "o" }, "[F", function()
+    map({ "n", "x", "o" }, "[M", function()
       move.goto_previous_end("@function.outer", "textobjects")
     end)
 
-    map({ "x", "o" }, "af", function()
+    map({ "x", "o" }, "am", function()
       select.select_textobject("@function.outer", "textobjects")
     end)
-    map({ "x", "o" }, "if", function()
+    map({ "x", "o" }, "im", function()
       select.select_textobject("@function.inner", "textobjects")
     end)
 

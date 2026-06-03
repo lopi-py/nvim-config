@@ -3,7 +3,6 @@ return {
   event = "VeryLazy",
   config = function()
     vim.lsp.enable {
-      "basedpyright",
       "clangd",
       "cssls",
       "dartls",
@@ -15,10 +14,12 @@ return {
       "jdtls",
       "jsonls",
       "lemminx",
+      "qmlls",
       "ruff",
       "rust_analyzer",
       "tailwindcss",
-      "vtsls",
+      "tsgo",
+      "ty",
       "yamlls",
       "zls",
     }

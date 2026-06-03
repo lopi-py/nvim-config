@@ -2,7 +2,6 @@ return {
   "lewis6991/gitsigns.nvim",
   event = "VeryLazy",
   opts = {
-    -- TODO: remove when https://github.com/lewis6991/gitsigns.nvim/pull/1439 is merged
     status_formatter = function(status)
       local status_txt = {}
       if status.added and status.added > 0 then

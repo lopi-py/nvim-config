@@ -22,5 +22,6 @@ return {
   },
   init = function()
     vim.g.autoformat = true
+    vim.o.formatexpr = 'v:lua.require("conform").formatexpr()'
   end,
 }

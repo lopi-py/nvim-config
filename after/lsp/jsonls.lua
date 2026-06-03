@@ -1,9 +1,13 @@
 local schemas = {
   {
     name = "default.project.json",
-    description = "JSON schema for Rojo project files",
     fileMatch = { "*.project.json" },
     url = "https://raw.githubusercontent.com/rojo-rbx/vscode-rojo/master/schemas/project.template.schema.json",
+  },
+  {
+    name = ".emmyrc.json",
+    fileMatch = { ".emmyrc.json" },
+    url = "https://raw.githubusercontent.com/EmmyLuaLs/emmylua-analyzer-rust/refs/heads/main/crates/emmylua_code_analysis/resources/schema.json",
   },
 }
 

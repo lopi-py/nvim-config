@@ -1,5 +1,3 @@
--- TODO: better documentation window integration with 'winborder = solid'
-
 return {
   "Saghen/blink.cmp",
   version = "*",
@@ -17,6 +15,7 @@ return {
           columns = { { "label", "label_description", gap = 1 }, { "kind" } },
         },
       },
+      -- TODO: better documentation window integration with 'winborder = solid'
       documentation = {
         window = { border = "padded" },
       },

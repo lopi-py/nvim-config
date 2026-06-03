@@ -3,6 +3,7 @@ local map = vim.keymap.set
 map("n", "<bs>", "<cmd>edit #<cr>")
 map("n", "<esc>", "<cmd>nohlsearch<cr><esc>")
 map("n", "<leader>q", vim.diagnostic.setqflist)
+map("n", "<leader>Q", vim.diagnostic.setloclist)
 
 map("n", "<leader>ud", function()
   vim.diagnostic.enable(not vim.diagnostic.is_enabled())
@@ -35,20 +36,16 @@ map("n", "<leader>yf", function()
   vim.fn.setreg("+", vim.fn.fnamemodify(vim.api.nvim_buf_get_name(0), ":."))
 end)
 map("n", "<leader>yl", function()
-  vim.fn.setreg(
-    "+",
-    vim.fn.fnamemodify(vim.api.nvim_buf_get_name(0), ":.") .. ":" .. vim.fn.line "."
-  )
+  local file = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(0), ":.")
+  vim.fn.setreg("+", file .. ":" .. vim.fn.line ".")
 end)
 map("x", "<leader>yl", function()
-  local lstart = vim.fn.line "v"
-  local lend = vim.fn.line "."
-  if lstart > lend then
-    lstart, lend = lend, lstart
-  end
+  local lstart, lend = vim.fn.line "v", vim.fn.line "."
+  lstart, lend = math.min(lstart, lend), math.max(lstart, lend)
   vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<esc>", true, false, true), "nx", false)
+  local file = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(0), ":.")
   local suffix = lstart == lend and (":" .. lstart) or (":" .. lstart .. "-" .. lend)
-  vim.fn.setreg("+", vim.fn.fnamemodify(vim.api.nvim_buf_get_name(0), ":.") .. suffix)
+  vim.fn.setreg("+", file .. suffix)
 end)
 
 map("t", "<c-w>", "<c-\\><c-n><c-w>", { remap = true })
